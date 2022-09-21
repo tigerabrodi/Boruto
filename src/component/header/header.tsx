@@ -3,6 +3,7 @@ import { FaPen } from 'react-icons/fa'
 import { BsMoon } from 'react-icons/bs'
 import './header.css'
 import '../../App.css'
+import { DarkMode } from '../theme/darkMode'
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -11,18 +12,16 @@ export function Header() {
       <h1 className="header__logo">Boruto</h1>
 
       <aside className="aside">
-        <a className="aside__write--button">
+        <a className="aside__write--button" aria-label="write a blog post">
           <FaPen className="pen" /> Write
         </a>
 
-        <button aria-label="dark mode" className="aside__theme--button">
-          <BsMoon />
-        </button>
+        <DarkMode />
 
         <img
           onClick={() => setIsOpen(true)}
           src="https://hashnode.com/_next/image?url=https%3A%2F%2Fcdn.hashnode.com%2Fres%2Fhashnode%2Fimage%2Fupload%2Fv1659089761812%2FfsOct5gl6.png&w=1920&q=75"
-          alt="profile"
+          alt="no profile"
           className="aside__profile"
         />
 

@@ -1,0 +1,11 @@
+.theme__button {
+  cursor: pointer;
+  color: var(--text-light-theme);
+  border: none;
+  background-color: transparent;
+  margin: 0 25px;
+}
+
+.theme__button * {
+  font-size: calc(30 / 16 * 1rem);
+}
