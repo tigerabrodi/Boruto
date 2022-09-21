@@ -1,0 +1,122 @@
+.header {
+  display: flex;
+  position: fixed;
+  width: 100%;
+  padding: 15px 30px;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-light-mode);
+}
+
+.header__logo {
+  font-size: calc(32 / 16 * 1rem);
+  color: var(--title-light-theme);
+}
+
+.aside {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.aside .aside__profile {
+  cursor: pointer;
+  width: 40px;
+}
+
+.aside .aside__theme--button {
+  cursor: pointer;
+  color: var(--text-light-theme);
+  border: none;
+  background-color: transparent;
+  margin: 0 25px;
+}
+
+.aside .aside__theme--button * {
+  font-size: calc(30 / 16 * 1rem);
+}
+
+.aside .aside__write--button {
+  display: flex;
+  align-items: center;
+  color: var(--white);
+  background-color: var(--blue);
+  padding: 12px 16px;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.aside .aside__write--button {
+  cursor: pointer;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  color: var(--white);
+  background-color: var(--blue);
+  padding: 10px 16px;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.aside .aside__write--button .pen {
+  font-size: 1rem;
+  margin: 0 10px 0 0px;
+}
+
+.aside .aside__wrapper {
+  padding: 30px;
+  display: flex;
+  width: 300px;
+  flex-direction: column;
+  top: 55px;
+  border-radius: 5px;
+  right: 10px;
+  border: 1px solid;
+  position: absolute;
+  border: 1px solid var(--border-light-mode);
+  background-color: var(--white);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.aside .aside__wrapper img {
+  margin: 0 auto 20px auto;
+  width: 90px;
+}
+
+.aside .aside__wrapper .aside__wrapper--info {
+  color: var(title-light-theme);
+  margin-bottom: 20px;
+}
+
+.aside .aside__wrapper .aside__wrapper--text {
+  margin-bottom: 20px;
+  color: var(--text-light-theme);
+}
+
+.aside .aside__wrapper .aside__wrapper--buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.aside .aside__wrapper .aside__wrapper--buttons button {
+  cursor: pointer;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  width: 110px;
+  padding: 12px 0;
+}
+
+.aside .aside__wrapper .aside__wrapper--buttons button:first-child {
+  border: none;
+  color: var(--white);
+  background-color: var(--blue);
+}
+
+.aside .aside__wrapper .aside__wrapper--buttons button:last-child {
+  border: 1px solid var(--blue);
+  color: var(--blue);
+  background-color: transparent;
+}
