@@ -9,7 +9,10 @@ export function Header() {
   const [isOpen, setIsOpen] = useState(false)
   return (
     <header className="header">
-      <h1 className="header__logo">Boruto</h1>
+      <Link to="/">
+        {' '}
+        <h1 className="header__logo">Boruto</h1>
+      </Link>
 
       <aside className="aside">
         <a className="aside__write--button" aria-label="write a blog post">
@@ -39,8 +42,12 @@ export function Header() {
               Takes less than a few seconds.
             </p>
             <div className="aside__wrapper--buttons">
-              <Link to="/signup">Sign up</Link>
-              <Link to="/login">Log in</Link>
+              <Link to="/signup" onClick={() => setIsOpen(false)}>
+                Sign up
+              </Link>
+              <Link to="/login" onClick={() => setIsOpen(false)}>
+                Log in
+              </Link>
             </div>
           </div>
         )}

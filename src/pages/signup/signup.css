@@ -1,0 +1,75 @@
+@import url('../../App.css');
+
+.signup {
+  height: 100vh;
+  display: flex;
+
+  justify-content: center;
+}
+
+.form {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--white);
+  padding: 30px;
+  border-radius: 8px;
+  background-color: var(--white);
+  border: 1px solid var(--border-light-mode);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.form h2 {
+  text-align: center;
+  padding-bottom: 15px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid var(--border-light-mode);
+}
+
+.form__wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__wrapper label {
+  font-weight: 500;
+  margin-left: 10px;
+  margin-bottom: 5px;
+}
+
+.form__wrapper input {
+  outline: none;
+  margin-bottom: 30px;
+  width: 340px;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 30px;
+  border: 1px solid var(--border-light-mode);
+  transition: all 0.3s ease;
+}
+
+.form .form__wrapper .form__wrapper--wrap {
+  position: relative;
+}
+
+.form .form__wrapper .form__wrapper--wrap button {
+  color: var(--light-grey-text-light-mode);
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  font-size: calc(18 / 16 * 1rem);
+}
+
+.form .form__button {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--white);
+  border-radius: 30px;
+  background-color: var(--blue);
+  border: none;
+  padding: 12px;
+}

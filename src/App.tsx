@@ -1,4 +1,4 @@
-import { Header, SignUp, LogIn } from './files'
+import { Header, SignUp, LogIn, Feed } from './files'
 import { Routes, Route } from 'react-router-dom'
 
 export function App() {
@@ -6,6 +6,7 @@ export function App() {
     <div className="app">
       <Header />
       <Routes>
+        <Route path="/" element={<Feed />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<LogIn />} />
       </Routes>
