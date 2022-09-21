@@ -89,22 +89,23 @@
   justify-content: space-between;
 }
 
-.aside .aside__wrapper .aside__wrapper--buttons button {
+.aside .aside__wrapper .aside__wrapper--buttons a {
   width: 110px;
   cursor: pointer;
   font-size: 1rem;
-  font-weight: 600;
-  border-radius: 30px;
   padding: 12px 0;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 30px;
+  text-decoration: none;
 }
 
-.aside .aside__wrapper .aside__wrapper--buttons button:first-child {
-  border: none;
+.aside .aside__wrapper .aside__wrapper--buttons a:first-child {
   color: var(--white);
   background-color: var(--blue);
 }
 
-.aside .aside__wrapper .aside__wrapper--buttons button:last-child {
+.aside .aside__wrapper .aside__wrapper--buttons a:last-child {
   color: var(--blue);
   border: 1px solid var(--blue);
   background-color: transparent;

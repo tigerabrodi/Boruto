@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { FaPen } from 'react-icons/fa'
-import { BsMoon } from 'react-icons/bs'
+import { Link } from 'react-router-dom'
 import './header.css'
 import '../../App.css'
 import { DarkMode } from '../theme/darkMode'
@@ -39,8 +39,8 @@ export function Header() {
               Takes less than a few seconds.
             </p>
             <div className="aside__wrapper--buttons">
-              <button>Sign up</button>
-              <button>Log in</button>
+              <Link to="/signup">Sign up</Link>
+              <Link to="/login">Log in</Link>
             </div>
           </div>
         )}
