@@ -5,7 +5,7 @@ import { useContext, createContext, useEffect, useState } from 'react'
 
 import { firebaseAuth } from '../lib/firebase'
 
-type AuthContextProviderProps = {
+export type AuthContextProviderProps = {
   children: React.ReactNode
 }
 
