@@ -1,0 +1,46 @@
+@import url('../../App.css');
+.form__wrapper textarea {
+  outline: none;
+  margin-bottom: 30px;
+  width: 340px;
+  height: 150px;
+  padding: 20px;
+  font-size: 1rem;
+  border-radius: 30px;
+  border: 1px solid var(--border-light-mode);
+  transition: all 0.3s ease;
+}
+
+.form__wrapper--flex input {
+  outline: none;
+  margin-bottom: 30px;
+  width: 340px;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 30px;
+  border: 1px solid var(--border-light-mode);
+  transition: all 0.3s ease;
+}
+
+.form__wrapper--flex {
+  display: flex;
+}
+
+.form__wrapper--flex div:first-child {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__image {
+  margin: 0 auto 0 auto;
+  margin-bottom: 10px;
+}
+
+.form__image--svg {
+  border-radius: 50%;
+  padding: 20px;
+  margin: 0 auto;
+  color: var(--blue);
+  font-size: calc(100 / 16 * 1rem);
+  background-color: #a8bdff;
+}
