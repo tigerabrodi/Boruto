@@ -31,6 +31,16 @@
   flex-direction: column;
 }
 
+.form__image--profile {
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.form__image--profile img {
+  border-radius: 50%;
+  width: 100px;
+}
+
 .form__image {
   margin: 0 auto 0 auto;
   margin-bottom: 10px;
