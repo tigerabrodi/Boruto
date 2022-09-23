@@ -12,6 +12,7 @@ import {
 } from 'firebase/firestore'
 import { getDownloadURL, ref, uploadString } from 'firebase/storage'
 import { useNavigate } from 'react-router-dom'
+import { updateProfile } from 'firebase/auth'
 
 export function CreateProfile() {
   const filePickerRef = useRef<any>(null)
@@ -61,6 +62,7 @@ export function CreateProfile() {
         }
       )
     }
+
     setLoading(false)
     setSelectedFile(null)
     navigate('/')
