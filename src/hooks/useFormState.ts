@@ -1,9 +1,9 @@
-import * as React from 'react'
+import { useState } from 'react'
 
 export const useFormState = <InitialState extends object>(
   initialState: InitialState
 ) => {
-  const [formState, setFormState] = React.useState<InitialState>(initialState)
+  const [formState, setFormState] = useState<InitialState>(initialState)
 
   const handleChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>

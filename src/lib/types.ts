@@ -31,7 +31,6 @@ export type Post = {
   createdAt: DateType
   uid: string
   imageUrl: string
-  slug: string
   readingTime: string
   authorUsername: string
   authorAvatarUrl: string
@@ -47,7 +46,3 @@ export type Comment = {
   authorFullname: string
   id: string
 } & CreatedAt
-
-export type Styleable = {
-  className?: string
-}
