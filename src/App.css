@@ -80,7 +80,7 @@ body.dark .form .form__wrapper .form__wrapper--wrap button {
 }
 
 body.dark .theme__button * {
-  color: var(--light-grey-text--light-mode);
+  color: var(--light-grey-text-dark-mode);
 }
 
 body.light .alert.danger {
