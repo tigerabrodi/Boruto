@@ -1,14 +1,26 @@
-import { useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { FaEye, FaEyeSlash } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom'
-import { createAccount } from '../../lib/firebase'
+import { useFormState } from '../../hooks/useFormState'
+import { doc, getDoc } from 'firebase/firestore'
+import { firebaseDb } from '../../lib/firebase'
+import { useCreateUserWithEmailAndPassword } from '../../hooks/useCreateUserWithEmailAndPassword'
 import './signup.css'
+import { functionsDebounce } from 'all-of-just'
 
 export function SignUp() {
+  const [isUsernameError, setIsUsernameError] = useState(false)
+  const [isUsernameValid, setIsUsernameValid] = useState(false)
+  const [isEmailInvalid, setIsEmailInvalid] = useState(false)
+  const [isEmailError, setIsEmailError] = useState(false)
+  const [isEmailTaken, setIsEmailTaken] = useState(false)
+  const [isPasswordError, setIsPasswordError] = useState(false)
+  const [isConfirmPasswordError, setIsConfirmPasswordError] = useState(false)
   const [passwordShown, setPasswordShown] = useState(false)
-  const [password, setPassword] = useState('')
-  const [error, setError] = useState('')
-  const [email, setEmail] = useState('')
+
+  const { createUserWithEmailAndPassword, signUpError } =
+    useCreateUserWithEmailAndPassword()
+
   const navigate = useNavigate()
 
   const togglePassword = (event: { preventDefault: () => void }) => {
@@ -16,65 +28,191 @@ export function SignUp() {
     setPasswordShown(!passwordShown)
   }
 
-  const handleSubmit = async (event: { preventDefault: () => void }) => {
-    event.preventDefault()
-    if (password !== password) {
-      setError('Passwords do not match')
+  const {
+    handleChange,
+    formState: { username, password, confirmPassword, email },
+  } = useFormState({
+    username: '',
+    password: '',
+    confirmPassword: '',
+    email: '',
+  })
+
+  const isAnyFieldEmpty =
+    !username.length ||
+    !password.length ||
+    !confirmPassword.length ||
+    !email.length
+
+  const canUserSignUp = () => {
+    const isPasswordTooShort = password.length < 6
+    if (isPasswordTooShort) {
+      setIsPasswordError(true)
+      return setTimeout(() => {
+        setIsPasswordError(false)
+      }, 3000)
     }
 
-    try {
-      setError('')
-      await createAccount(email, password)
+    const isPasswordNotMatching = password !== confirmPassword
+    if (isPasswordNotMatching) {
+      setIsConfirmPasswordError(true)
+      return setTimeout(() => {
+        setIsConfirmPasswordError(false)
+      }, 3000)
+    }
+
+    if (isEmailInvalid) {
+      setIsEmailError(true)
+      return setTimeout(() => {
+        setIsEmailError(false)
+      }, 3000)
+    }
+    return true
+  }
+
+  const handleSubmit = (event: { preventDefault: () => void }) => {
+    event.preventDefault()
+    setIsEmailTaken(false)
+    setIsEmailError(false)
+
+    if (canUserSignUp() === true) {
+      createUserWithEmailAndPassword(email, password, username)
       navigate('/onboard/profile')
-    } catch {
-      setError('Failed to create an account')
     }
   }
 
+  // useCallback is required for debounce to work
+  const checkUsername = useCallback(
+    functionsDebounce(async (username: string) => {
+      if (username.length >= 3) {
+        const usernameDocRef = doc(firebaseDb, `usernames/${username}`)
+        const usernameDocSnapshot = await getDoc(usernameDocRef)
+        const usernameAlreadyExists = usernameDocSnapshot.exists()
+
+        if (usernameAlreadyExists) {
+          setIsUsernameValid(false)
+          setIsUsernameError(true)
+        } else {
+          setIsUsernameError(false)
+          setIsUsernameValid(true)
+        }
+      }
+    }, 500),
+    []
+  )
+
+  useEffect(() => {
+    checkUsername(username)
+  }, [checkUsername, username])
+
+  useEffect(() => {
+    if (signUpError && signUpError.code === 'auth/email-already-in-use') {
+      setIsEmailError(false)
+      setIsEmailTaken(true)
+      setTimeout(() => {
+        setIsEmailTaken(false)
+      }, 3000)
+    }
+  }, [signUpError])
+
   return (
     <div className="signup">
-      <form className="form" onSubmit={handleSubmit}>
-        {error && <h1>{error}</h1>}
+      <form className="form" onSubmit={handleSubmit} noValidate>
         <h2>Sign Up</h2>
-
-        <div className="form__wrapper">
-          <label htmlFor="Email">Email</label>
+        <div className="form__wrapper ">
+          <label htmlFor="username">Username</label>
           <input
-            onChange={(event) => setEmail(event.target.value)}
+            id="username"
+            name="username"
             type="text"
-            name="Name"
-            id="Email"
-            placeholder=""
+            value={username}
+            aria-invalid={isUsernameError ? 'true' : 'false'}
+            onChange={handleChange}
+            aria-required="true"
           />
+          {isUsernameError && (
+            <p className="alert danger" role="alert">
+              Username is already taken.
+            </p>
+          )}
+          {isUsernameValid && (
+            <p className="alert success" role="alert success">
+              Username is valid.
+            </p>
+          )}
+        </div>
+        <div className="form__wrapper ">
+          <label htmlFor="email">Email</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            value={email}
+            onChange={(event) => {
+              handleChange(event)
+              setIsEmailInvalid(!event.target.validity.valid)
+            }}
+            aria-invalid={isEmailError ? 'true' : 'false'}
+            aria-required="true"
+          />
+          {isEmailError && (
+            <p className="alert danger" role="alert">
+              Email is not valid.
+            </p>
+          )}
+          {isEmailTaken && (
+            <p className="alert danger" role="alert">
+              Email is already taken.
+            </p>
+          )}
         </div>
 
-        <div className="form__wrapper">
-          <label htmlFor="Password">Password</label>
+        <div className="form__wrapper ">
+          <label htmlFor="password">Password</label>{' '}
           <div className="form__wrapper--wrap">
             <input
-              onChange={(event) => setPassword(event.target.value)}
-              type={passwordShown ? 'text' : 'password'}
+              id="password"
               name="password"
-              id=" password"
-            />{' '}
+              type={passwordShown ? 'text' : 'password'}
+              value={password}
+              onChange={handleChange}
+              aria-invalid={isPasswordError ? 'true' : 'false'}
+              aria-required="true"
+            />
+            {isPasswordError && (
+              <p className="alert danger" role="alert">
+                Password must be at least 6 characters.
+              </p>
+            )}
             <button onClick={togglePassword}>
-              {' '}
               {passwordShown ? <FaEyeSlash /> : <FaEye />}
-            </button>
+            </button>{' '}
           </div>
         </div>
 
         <div className="form__wrapper">
-          <label htmlFor="confirm password">Confirm Your Password</label>
+          <label htmlFor="confirm-password">Confirm Password</label>
           <input
-            onChange={(event) => setPassword(event.target.value)}
+            id="confirm-password"
+            name="confirmPassword"
             type={passwordShown ? 'text' : 'password'}
-            name="password"
-            id="confrim password"
-          />{' '}
+            value={confirmPassword}
+            onChange={handleChange}
+            aria-invalid={isConfirmPasswordError ? 'true' : 'false'}
+            aria-required="true"
+          />
+          {isConfirmPasswordError && (
+            <p className="alert danger" role="alert">
+              Passwords do not match.
+            </p>
+          )}
         </div>
-        <button type="submit" className="form__button">
-          Sign up
+        <button
+          className="form__button"
+          type="submit"
+          disabled={isAnyFieldEmpty || isUsernameError}
+        >
+          Sign Up
         </button>
       </form>
     </div>
