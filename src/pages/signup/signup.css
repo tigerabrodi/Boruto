@@ -29,6 +29,7 @@
 .form__wrapper {
   display: flex;
   flex-direction: column;
+  margin-bottom: 30px;
 }
 
 .form__wrapper label {
@@ -39,7 +40,6 @@
 
 .form__wrapper input {
   outline: none;
-  margin-bottom: 30px;
   width: 340px;
   padding: 10px;
   font-size: 1rem;
@@ -72,4 +72,10 @@
   background-color: var(--blue);
   border: none;
   padding: 12px;
+}
+
+.alert {
+  margin-top: 5px;
+  margin-left: 10px;
+  font-weight: 600;
 }

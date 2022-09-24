@@ -64,7 +64,8 @@ body.dark .form label {
 body.dark .form h2 {
   border-bottom: 1px solid var(--border-dark-mode);
 }
-body.dark .form input {
+body.dark .form input,
+body.dark .form textarea {
   color: var(--light-grey-text-dark-mode);
   background-color: var(--badge-dark-mode);
   border: 1px solid var(--badge-dark-mode);
@@ -80,4 +81,20 @@ body.dark .form .form__wrapper .form__wrapper--wrap button {
 
 body.dark .theme__button * {
   color: var(--light-grey-text--light-mode);
+}
+
+body.light .alert.danger {
+  color: #f44336;
+}
+
+body.dark .alert.danger {
+  color: #ef5350;
+}
+
+body.light .alert.success {
+  color: #42aa66;
+}
+
+body.dark .alert.success {
+  color: #41bf6d;
 }
