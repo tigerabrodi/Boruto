@@ -70,3 +70,24 @@
   border: 1px solid var(--blue);
   background-color: transparent;
 }
+
+/* DARK MODE */
+
+body.dark .non-authenticated .non-authenticated__wrapper {
+  background-color: var(--badge-dark-mode);
+  border: 1px solid #2c3645;
+}
+
+body.dark
+  .non-authenticated
+  .non-authenticated__wrapper
+  .non-authenticated__wrapper--info {
+  color: var(--white);
+}
+
+body.dark
+  .non-authenticated
+  .non-authenticated__wrapper
+  .non-authenticated__wrapper--text {
+  color: var(--light-grey-text-dark-mode);
+}

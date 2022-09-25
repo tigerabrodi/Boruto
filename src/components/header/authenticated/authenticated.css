@@ -57,7 +57,7 @@
 
 .authenticated button:last-child {
   border-top: 1px solid var(--border-light-mode);
-  color: red;
+  color: #f44336;
 }
 
 .authenticated button:hover {
@@ -67,4 +67,40 @@
 .authenticated button .icon {
   margin-right: 10px;
   font-size: calc(26 / 16 * 1rem);
+}
+
+/* DARK MODE */
+body.dark .authenticated {
+  background-color: var(--badge-dark-mode);
+  border: 1px solid #2c3645;
+}
+
+body.dark .authenticated .authenticated__wrapper {
+  border: 1px solid #2c3645;
+}
+
+body.dark
+  .authenticated
+  .authenticated__wrapper
+  .authenticated__wrapper--info
+  p:last-child {
+  color: var(--light-grey-text-dark-mode);
+}
+
+body.dark .authenticated button,
+body.dark .authenticated .authenticated__wrapper .authenticated__wrapper--info {
+  color: var(--white);
+}
+
+body.dark .authenticated button:last-child {
+  color: #ef5350;
+  border-top: 1px solid #2c3645;
+}
+
+.authenticated button:hover {
+  background-color: rgb(240, 240, 240);
+}
+
+body.dark .authenticated button:hover {
+  background-color: #273446;
 }
