@@ -24,6 +24,15 @@
   box-sizing: border-box;
 }
 
+button {
+  cursor: pointer;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
 body,
 .app {
   scroll-behavior: smooth;

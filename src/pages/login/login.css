@@ -8,6 +8,37 @@
 }
 
 .alert.danger.center {
-  margin-top: 30px;
+  margin-bottom: 30px;
   text-align: center;
+}
+
+.form__link {
+  font-weight: 500;
+  color: var(--black);
+  font-size: 1rem;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.form__link a {
+  color: var(--blue);
+  margin-left: 5px;
+  text-decoration: underline;
+  font-size: 0.95rem;
+}
+
+.form__link a:hover {
+  color: #5d80e9;
+}
+
+body.dark .form__link {
+  color: white;
+}
+
+body.dark .form__link a {
+  color: #4e7aff;
+}
+
+body.dark .form__link a:hover {
+  color: #6b90ff;
 }
