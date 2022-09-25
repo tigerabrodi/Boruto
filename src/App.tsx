@@ -29,14 +29,7 @@ export function App() {
           <Route path="/" element={<Feed />} />
           <Route path="/login" element={<LogIn />} />
           <Route path="/signup" element={<SignUp />} />
-          <Route
-            path="/profile"
-            element={
-              <ProtectedRoute>
-                <Profile />
-              </ProtectedRoute>
-            }
-          />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/create/post" element={<Write />} />
           <Route path="/onboard/profile" element={<CreateProfile />} />
         </Routes>
