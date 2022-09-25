@@ -12,6 +12,7 @@ import {
   Write,
   LoadingSpinner,
   Profile,
+  EditProfile,
 } from './files'
 import { ToastOptions } from './styles/theme'
 
@@ -29,6 +30,7 @@ export function App() {
           <Route path="/login" element={<LogIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/edit/profile" element={<EditProfile />} />
           <Route path="/create/post" element={<Write />} />
           <Route path="/onboard/profile" element={<CreateProfile />} />
         </Routes>
