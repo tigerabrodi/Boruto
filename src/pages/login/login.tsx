@@ -4,6 +4,7 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa'
 import './login.css'
 import { useFormState } from '../../hooks/useFormState'
 import { useSignInWithEmailAndPassword } from '../../hooks/useSignInWithEmailAndPassword'
+import { Link } from 'react-router-dom'
 
 export function LogIn() {
   const [passwordShown, setPasswordShown] = useState(false)
@@ -34,7 +35,11 @@ export function LogIn() {
     <div className="signin">
       <form className="form" onSubmit={handleSubmit}>
         <h2>Sign In</h2>
-
+        {isSignInError && (
+          <p className="alert danger center " role="alert">
+            Password or email is invalid.
+          </p>
+        )}
         <div className="form__wrapper">
           <label htmlFor="email">Email</label>
 
@@ -68,12 +73,9 @@ export function LogIn() {
         <button type="submit" className="form__button">
           Sign in
         </button>
-
-        {isSignInError && (
-          <p className="alert danger center " role="alert">
-            Password or email is invalid.
-          </p>
-        )}
+        <p className="form__link">
+          Do not have an account yet? <Link to="/signup">Sign up.</Link>{' '}
+        </p>
       </form>
     </div>
   )

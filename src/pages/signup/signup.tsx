@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 import { FaEye, FaEyeSlash } from 'react-icons/fa'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useFormState } from '../../hooks/useFormState'
 import { doc, getDoc } from 'firebase/firestore'
 import { firebaseDb } from '../../lib/firebase'
@@ -214,6 +214,9 @@ export function SignUp() {
         >
           Sign Up
         </button>
+        <p className="form__link">
+          Already have an account? <Link to="/login">Sign in.</Link>{' '}
+        </p>
       </form>
     </div>
   )
