@@ -1,7 +1,17 @@
-import { Header, SignUp, LogIn, Feed, CreateProfile, Write } from './files'
+import { Toaster } from 'react-hot-toast'
+import {
+  Header,
+  SignUp,
+  LogIn,
+  Feed,
+  CreateProfile,
+  Write,
+  LoadingSpinner,
+} from './files'
 import { Routes, Route } from 'react-router-dom'
 import { AuthContextProvider } from './context/AuthContext'
 import { HeaderMenuContextProvider } from './context/MenuContext'
+import { ToastOptions } from './styles/theme'
 
 export function App() {
   return (
@@ -10,6 +20,8 @@ export function App() {
         <HeaderMenuContextProvider>
           <Header />
         </HeaderMenuContextProvider>
+        <LoadingSpinner />
+        <Toaster position="top-center" toastOptions={ToastOptions} />
         <Routes>
           <Route path="/" element={<Feed />} />
           <Route path="/signup" element={<SignUp />} />
