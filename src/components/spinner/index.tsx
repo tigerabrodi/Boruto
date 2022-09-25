@@ -1,4 +1,5 @@
 import { CgSpinner } from 'react-icons/cg'
+
 import { useLoadingStore } from '../../lib/store'
 import './style.css'
 

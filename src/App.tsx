@@ -1,4 +1,8 @@
 import { Toaster } from 'react-hot-toast'
+import { Routes, Route } from 'react-router-dom'
+
+import { AuthContextProvider } from './context/AuthContext'
+import { HeaderMenuContextProvider } from './context/MenuContext'
 import {
   Header,
   SignUp,
@@ -8,9 +12,6 @@ import {
   Write,
   LoadingSpinner,
 } from './files'
-import { Routes, Route } from 'react-router-dom'
-import { AuthContextProvider } from './context/AuthContext'
-import { HeaderMenuContextProvider } from './context/MenuContext'
 import { ToastOptions } from './styles/theme'
 
 export function App() {

@@ -1,12 +1,13 @@
+import { functionsDebounce } from 'all-of-just'
+import { doc, getDoc } from 'firebase/firestore'
 import { useCallback, useEffect, useState } from 'react'
 import { FaEye, FaEyeSlash } from 'react-icons/fa'
 import { Link, useNavigate } from 'react-router-dom'
-import { useFormState } from '../../hooks/useFormState'
-import { doc, getDoc } from 'firebase/firestore'
-import { firebaseDb } from '../../lib/firebase'
-import { useCreateUserWithEmailAndPassword } from '../../hooks/useCreateUserWithEmailAndPassword'
+
 import './signup.css'
-import { functionsDebounce } from 'all-of-just'
+import { useCreateUserWithEmailAndPassword } from '../../hooks/useCreateUserWithEmailAndPassword'
+import { useFormState } from '../../hooks/useFormState'
+import { firebaseDb } from '../../lib/firebase'
 import { useLoadingStore } from '../../lib/store'
 
 export function SignUp() {

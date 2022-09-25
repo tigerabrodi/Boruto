@@ -1,10 +1,10 @@
+import './login.css'
 import { useState } from 'react'
 import { FaEye, FaEyeSlash } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
 
-import './login.css'
 import { useFormState } from '../../hooks/useFormState'
 import { useSignInWithEmailAndPassword } from '../../hooks/useSignInWithEmailAndPassword'
-import { Link } from 'react-router-dom'
 
 export function LogIn() {
   const [passwordShown, setPasswordShown] = useState(false)

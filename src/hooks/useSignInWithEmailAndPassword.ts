@@ -1,9 +1,11 @@
-import { useState } from 'react'
 import { signInWithEmailAndPassword as signInWithEmailAndPasswordAuth } from '@firebase/auth'
+import { useState } from 'react'
+import toast from 'react-hot-toast'
 import { useNavigate } from 'react-router-dom'
+
 import { firebaseAuth } from '../lib/firebase'
 import { useLoadingStore } from '../lib/store'
-import toast from 'react-hot-toast'
+
 export const useSignInWithEmailAndPassword = () => {
   const [isSignInError, setIsSignInError] = useState(false)
 

@@ -1,13 +1,15 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import '../signup/signup'
 import './createprofile.css'
-import { IoCameraOutline } from 'react-icons/io5'
-import { useRef, useState } from 'react'
-import { firebaseDb, firebaseAuth, firebaseStorage } from '../../lib/firebase'
 import { updateDoc, doc } from 'firebase/firestore'
 import { getDownloadURL, ref, uploadString } from 'firebase/storage'
-import { useNavigate } from 'react-router-dom'
-import { useFormState } from '../../hooks/useFormState'
+import { useRef, useState } from 'react'
 import toast from 'react-hot-toast'
+import { IoCameraOutline } from 'react-icons/io5'
+import { useNavigate } from 'react-router-dom'
+
+import { useFormState } from '../../hooks/useFormState'
+import { firebaseDb, firebaseAuth, firebaseStorage } from '../../lib/firebase'
 
 export function CreateProfile() {
   const filePickerRef = useRef<any>(null)
@@ -66,7 +68,7 @@ export function CreateProfile() {
 
       const imageReference = ref(
         firebaseStorage,
-        `avatars/${firebaseAuth.currentUser!.uid}/image`
+        `avatars/${firebaseAuth.currentUser?.uid}/image`
       )
 
       await uploadString(imageReference, selectedFile, 'data_url').then(
@@ -74,7 +76,7 @@ export function CreateProfile() {
           const downloadURL = await getDownloadURL(imageReference)
 
           await updateDoc(
-            doc(firebaseDb, `users/${firebaseAuth.currentUser!.uid}`),
+            doc(firebaseDb, `users/${firebaseAuth.currentUser?.uid}`),
             {
               age: age,
               bio: bio,

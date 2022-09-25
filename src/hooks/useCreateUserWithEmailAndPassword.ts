@@ -1,13 +1,13 @@
-import * as React from 'react'
-import { doc, serverTimestamp, writeBatch } from '@firebase/firestore'
+import type { FirebaseError } from '@firebase/util'
+
 import { createUserWithEmailAndPassword as createUserWithEmailAndPasswordAuth } from '@firebase/auth'
+import { doc, serverTimestamp, writeBatch } from '@firebase/firestore'
+import { useState } from 'react'
+
 import { firebaseAuth, firebaseDb } from '../lib/firebase'
-import { FirebaseError } from '@firebase/util'
 
 export const useCreateUserWithEmailAndPassword = () => {
-  const [signUpError, setSignUpError] = React.useState<FirebaseError | null>(
-    null
-  )
+  const [signUpError, setSignUpError] = useState<FirebaseError | null>(null)
 
   const batch = writeBatch(firebaseDb)
 

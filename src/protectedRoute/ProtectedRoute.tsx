@@ -1,6 +1,8 @@
+import type { AuthContextProviderProps } from '../context/AuthContext'
+
 import { Navigate } from 'react-router-dom'
+
 import { useAuthContext } from '../context/AuthContext'
-import { AuthContextProviderProps } from '../context/AuthContext'
 
 type ProtectedRouteProps = AuthContextProviderProps
 

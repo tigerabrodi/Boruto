@@ -1,12 +1,15 @@
-import { firebaseAuth, firebaseDb } from '../../../lib/firebase'
 import './authenticated.css'
-import { FiUser, FiLogOut, FiBookmark } from 'react-icons/fi'
-import { useLoadingStore } from '../../../lib/store'
-import { useNavigate } from 'react-router-dom'
-import toast from 'react-hot-toast'
+import type { CollectionReference } from 'firebase/firestore'
+
+import { collection, onSnapshot } from 'firebase/firestore'
 import { useEffect, useState } from 'react'
-import { collection, CollectionReference, onSnapshot } from 'firebase/firestore'
+import toast from 'react-hot-toast'
+import { FiUser, FiLogOut, FiBookmark } from 'react-icons/fi'
+import { useNavigate } from 'react-router-dom'
+
 import { useAuthContext } from '../../../context/AuthContext'
+import { firebaseAuth, firebaseDb } from '../../../lib/firebase'
+import { useLoadingStore } from '../../../lib/store'
 
 type UserType = {
   fullname: string

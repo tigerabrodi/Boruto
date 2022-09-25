@@ -1,5 +1,5 @@
-import { User } from '@firebase/auth'
-import { FieldValue, Timestamp } from '@firebase/firestore'
+import type { User } from '@firebase/auth'
+import type { FieldValue, Timestamp } from '@firebase/firestore'
 
 export type DateType = FieldValue | Timestamp | number
 

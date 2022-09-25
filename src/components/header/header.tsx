@@ -1,11 +1,12 @@
 import { FaPen } from 'react-icons/fa'
 import { Link, useLocation } from 'react-router-dom'
+
 import './header.css'
+import { useAuthContext } from '../../context/AuthContext'
+import { useHeaderMenuContext } from '../../context/MenuContext'
 import { DarkMode } from '../theme/darkMode'
 import { Authenticated } from './authenticated/Authenticated'
 import { NonAuthenticated } from './non-authenticated/NonAuthenticated'
-import { useAuthContext } from '../../context/AuthContext'
-import { useHeaderMenuContext } from '../../context/MenuContext'
 
 export function Header() {
   const { user } = useAuthContext()

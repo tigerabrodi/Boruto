@@ -1,12 +1,13 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import './darkmode.css'
 import '../../styles/App.css'
-import { BsMoon, BsSun } from 'react-icons/bs'
 import { useState } from 'react'
+import { BsMoon, BsSun } from 'react-icons/bs'
 
 export const DarkMode = () => {
   const [toggle, setToggle] = useState(false)
 
-  let clickedClass = 'clicked'
+  const clickedClass = 'clicked'
   const body = document.body
   const lightTheme = 'light'
   const darkTheme = 'dark'
