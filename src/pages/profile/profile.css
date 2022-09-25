@@ -49,6 +49,7 @@
 }
 
 .card .card__wrapper .card__wrapper--primary img {
+  border-radius: 50%;
   width: 100px;
 }
 
@@ -73,11 +74,10 @@
 
 .card .card__wrapper .card__wrapper--secondary p:nth-child(2) {
   display: inline;
-  font-size: calc(12 / 16 * 1rem);
+  font-size: calc(14 / 16 * 1rem);
   padding: 4px 8px;
   font-weight: 600;
   line-height: 3.5;
-
   border: #e0e2e4;
   background-color: #f0f0f0;
   border-radius: 3px;

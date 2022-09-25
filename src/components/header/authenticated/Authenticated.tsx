@@ -11,8 +11,10 @@ import { useAuthContext } from '../../../context/AuthContext'
 import { firebaseAuth, firebaseDb } from '../../../lib/firebase'
 import { useLoadingStore } from '../../../lib/store'
 
-type UserType = {
+export type UserType = {
   fullname: string
+  bio: string
+  location: string
   avatarUrl: string
   username: string
   id: string
