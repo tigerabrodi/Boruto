@@ -2,12 +2,16 @@
 
 .write {
   width: 800px;
-  height: 85vh;
+  height: 100%;
   border-radius: 8px;
   border: 1px solid var(--border-light-mode);
-  padding: 30px;
   background-color: var(--white);
   margin: 100px auto 0 auto;
+}
+
+.write .line {
+  padding: 1px;
+  border-top: 1px solid var(--border-light-mode);
 }
 
 .write .write__cover {
@@ -19,7 +23,13 @@
   object-fit: cover;
 }
 
-.write .write__button {
+.write .write__header {
+  display: flex;
+  padding: 15px 30px;
+  justify-content: space-between;
+}
+
+.write .write__header .write__header--button {
   color: var(--text-light-theme);
   display: flex;
   margin-bottom: 30px;
@@ -33,28 +43,43 @@
   transition: all 0.2s ease;
 }
 
-.write .write__button .write__button--icon {
+.write .write__header .write__header--button .icon {
   font-size: calc(22 / 16 * 1rem);
-  margin-right: 5px;
+  margin-right: 8px;
+}
+
+.write .write__header input {
+  color: var(--text-light-theme);
+  display: flex;
+  margin-bottom: 30px;
+  align-items: center;
+  font-size: calc(15 / 16 * 1rem);
+  font-weight: 500;
+  border-radius: 30px;
+  background-color: transparent;
+  border: 1px solid var(--border-light-mode);
+  transition: all 0.2s ease;
 }
 
 .write .write__wrapper {
   display: flex;
   margin-top: -10px;
   flex-direction: column;
+  padding: 0 30px;
 }
 
 .write .write__wrapper label,
-.write .write__container .write__container--wrapper label {
+.write .write__container label {
   opacity: 0;
   pointer-events: none;
 }
 
 .write .write__wrapper textarea {
+  word-wrap: break-word;
   outline: none;
   font-weight: 700;
   border: none;
-  height: 100px;
+  height: 150px;
   font-size: calc(36 / 16 * 1rem);
   color: var(--black);
   background-color: var(--white);
@@ -65,53 +90,44 @@
   color: #6b7280;
 }
 
-.write .write__buttons {
+.write .write__container {
   display: flex;
-  padding: 15px 0;
-  border-top: 1px solid var(--border-light-mode);
-  border-bottom: 1px solid var(--border-light-mode);
-}
-
-.write .write__buttons button:first-child {
-  margin-right: 15px;
-}
-
-.write .write__buttons button {
-  color: var(--text-light-theme);
-  border-radius: 30px;
-  background-color: transparent;
-  padding: 5px 10px;
-  border: none;
-  display: flex;
-  align-items: center;
-  font-size: calc(14 / 16 * 1rem);
-  transition: all 0.2s ease;
-}
-.write .write__buttons button:hover {
-  background-color: #e5e7eb;
-}
-
-.write .write__buttons button .icon {
-  display: flex;
-  align-items: center;
-  font-size: calc(18 / 16 * 1rem);
-  margin-right: 5px;
-}
-
-.write .write__container .write__container--wrapper {
-  display: flex;
-  margin-top: 30px;
   flex-direction: column;
 }
-.write .write__container .write__container--wrapper textarea {
-  word-wrap: break-word;
-  overflow-y: scroll;
-  outline: none;
-  font-weight: 500;
+.write .write__container textarea {
   border: none;
-  height: 480px;
-  font-size: calc(20 / 16 * 1rem);
+  outline: none;
+  height: 250px;
+  font-weight: 500;
   color: #6b7280;
+  padding: 0 30px 15px 30px;
+  word-wrap: break-word;
+  background-color: var(--white);
+  font-size: calc(20 / 16 * 1rem);
+}
+
+.write .write__container .write__container--preview {
+  height: 250px;
+  font-size: 1rem;
+  color: #6b7280;
+  font-weight: 500;
+  padding: 15px 30px;
+  overflow-y: scroll;
+  word-wrap: break-word;
+  background-color: var(--white);
+}
+
+.write__container--empty {
+  margin: auto;
+  display: flex;
+  height: 250px;
+  font-size: 1rem;
+  color: #6b7280;
+  font-weight: 500;
+  padding: 15px 30px;
+  align-items: center;
+  word-wrap: break-word;
+  background-color: var(--white);
 }
 
 /* DARK MODE */
@@ -121,12 +137,12 @@ body.dark .write {
   background-color: var(--card-dark-theme);
 }
 
-body.dark .write .write__button {
+body.dark .write .write__header .write__header--button {
   color: var(--light-grey-text-dark-mode);
   border: 1px solid var(--border-dark-mode);
 }
 
-body.dark .write .write__button:hover {
+body.dark .write .write__header .write__header--button:hover {
   background-color: var(--border-dark-mode);
 }
 
@@ -147,7 +163,7 @@ body.dark .write .write__buttons button:hover {
   background-color: var(--border-dark-mode);
 }
 
-.write .write__container .write__container--wrapper textarea {
+body.dark .write .write__container .write__container--wrapper textarea {
   color: var(--white);
   background-color: var(--card-dark-theme);
 }
