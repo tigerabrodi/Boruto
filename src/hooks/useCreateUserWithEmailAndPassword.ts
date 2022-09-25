@@ -29,6 +29,7 @@ export const useCreateUserWithEmailAndPassword = () => {
         username,
         email,
         fullname: '',
+        location: '',
         age: '',
         bio: '',
         avatarUrl: '',

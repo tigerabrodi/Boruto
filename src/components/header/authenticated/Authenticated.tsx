@@ -64,10 +64,13 @@ export function Authenticated() {
                 <Link to="/profile" className="authenticated__profile--button">
                   <FiUser className="icon" /> My Profile
                 </Link>
-                <button className="authenticated__bookmarks--button">
+                <Link
+                  to="/bookmarks"
+                  className="authenticated__bookmarks--button"
+                >
                   <FiBookmark className="icon" />
                   My Bookmarks
-                </button>
+                </Link>
                 <button
                   onClick={handleSignOut}
                   className="authenticated__logout--button"

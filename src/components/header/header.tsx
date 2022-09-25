@@ -26,7 +26,9 @@ export function Header() {
   const location = useLocation()
 
   const isHome =
-    location.pathname === '/' || location.pathname === '/create/post'
+    location.pathname === '/' ||
+    location.pathname === '/create/post' ||
+    location.pathname === '/profile'
 
   const userCollectionReference = collection(
     firebaseDb,
