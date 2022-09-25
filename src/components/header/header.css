@@ -15,6 +15,7 @@
   text-decoration: none;
 }
 .header__logo {
+  font-weight: 700;
   font-size: calc(32 / 16 * 1rem);
   color: var(--title-light-theme);
 }
@@ -26,6 +27,7 @@
 }
 
 .aside .aside__profile {
+  border-radius: 50%;
   width: 40px;
   cursor: pointer;
 }
