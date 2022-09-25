@@ -52,6 +52,28 @@
   position: relative;
 }
 
+.form .form__wrapper .form__wrapper--wrap button {
+  color: var(--light-grey-text-light-mode);
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  font-size: calc(18 / 16 * 1rem);
+}
+
+.form .form__button {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--white);
+  border-radius: 30px;
+  background-color: var(--blue);
+  border: none;
+  padding: 12px;
+}
+
 .alert {
   margin-top: 5px;
   margin-left: 10px;

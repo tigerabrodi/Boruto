@@ -30,6 +30,8 @@ export function Header() {
     location.pathname === '/create/post' ||
     location.pathname === '/profile'
 
+  const isWiriting = location.pathname === '/create/post'
+
   const userCollectionReference = collection(
     firebaseDb,
     'users'
@@ -50,50 +52,54 @@ export function Header() {
         <span className="header__logo">Boruto</span>
       </Link>
 
-      <aside className="aside">
-        <Link
-          to="/create/post"
-          className="aside__write--button"
-          aria-label="write a blog post"
-        >
-          <FaPen className="pen" /> Write
-        </Link>
+      {isWiriting ? (
+        <button className="header__publish--button">Publish</button>
+      ) : (
+        <aside className="aside">
+          <Link
+            to="/create/post"
+            className="aside__write--button"
+            aria-label="write a blog post"
+          >
+            <FaPen className="pen" /> Write
+          </Link>
 
-        <DarkMode />
+          <DarkMode />
 
-        {isHome && (
-          <div>
-            {user?.uid ? (
-              <div>
-                {profile.map(({ avatarUrl, id }) => {
-                  return (
-                    <div key={id}>
-                      {user?.uid === id && (
-                        <img
-                          onClick={() => setIsOpen(true)}
-                          src={avatarUrl}
-                          alt="profile"
-                          className="aside__profile"
-                        />
-                      )}
-                    </div>
-                  )
-                })}
-              </div>
-            ) : (
-              <img
-                alt="no profile"
-                className="aside__profile"
-                onClick={() => setIsOpen(true)}
-                src="https://hashnode.com/_next/image?url=https%3A%2F%2Fcdn.hashnode.com%2Fres%2Fhashnode%2Fimage%2Fupload%2Fv1659089761812%2FfsOct5gl6.png&w=1920&q=75"
-              />
-            )}
-          </div>
-        )}
-        {isOpen === true && (
-          <div>{user?.uid ? <Authenticated /> : <NonAuthenticated />} </div>
-        )}
-      </aside>
+          {isHome && (
+            <div>
+              {user?.uid ? (
+                <div>
+                  {profile.map(({ avatarUrl, id }) => {
+                    return (
+                      <div key={id}>
+                        {user?.uid === id && (
+                          <img
+                            onClick={() => setIsOpen(true)}
+                            src={avatarUrl}
+                            alt="profile"
+                            className="aside__profile"
+                          />
+                        )}
+                      </div>
+                    )
+                  })}
+                </div>
+              ) : (
+                <img
+                  alt="no profile"
+                  className="aside__profile"
+                  onClick={() => setIsOpen(true)}
+                  src="https://hashnode.com/_next/image?url=https%3A%2F%2Fcdn.hashnode.com%2Fres%2Fhashnode%2Fimage%2Fupload%2Fv1659089761812%2FfsOct5gl6.png&w=1920&q=75"
+                />
+              )}
+            </div>
+          )}
+          {isOpen === true && (
+            <div>{user?.uid ? <Authenticated /> : <NonAuthenticated />} </div>
+          )}
+        </aside>
+      )}
     </header>
   )
 }

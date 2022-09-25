@@ -39,6 +39,10 @@ a {
   text-decoration: none;
 }
 
+textarea {
+  resize: none;
+}
+
 body,
 .app {
   scroll-behavior: smooth;
