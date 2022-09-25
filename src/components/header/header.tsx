@@ -1,7 +1,6 @@
 import { FaPen } from 'react-icons/fa'
 import { Link, useLocation } from 'react-router-dom'
 import './header.css'
-import '../../App.css'
 import { DarkMode } from '../theme/darkMode'
 import { Authenticated } from './authenticated/Authenticated'
 import { NonAuthenticated } from './non-authenticated/NonAuthenticated'

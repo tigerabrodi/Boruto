@@ -1,4 +1,4 @@
-@import url('../../App.css');
+@import url('../../styles/App.css');
 .form__wrapper textarea {
   outline: none;
   width: 340px;

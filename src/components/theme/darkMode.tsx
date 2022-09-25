@@ -1,5 +1,5 @@
 import './darkmode.css'
-import '../../App.css'
+import '../../styles/App.css'
 import { BsMoon, BsSun } from 'react-icons/bs'
 import { useState } from 'react'
 

@@ -1,4 +1,4 @@
-@import url('../../../App.css');
+@import url('../../../styles/App.css');
 
 .non-authenticated .non-authenticated__wrapper {
   top: 56px;

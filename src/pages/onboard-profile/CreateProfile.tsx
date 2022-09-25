@@ -7,6 +7,7 @@ import { updateDoc, doc } from 'firebase/firestore'
 import { getDownloadURL, ref, uploadString } from 'firebase/storage'
 import { useNavigate } from 'react-router-dom'
 import { useFormState } from '../../hooks/useFormState'
+import toast from 'react-hot-toast'
 
 export function CreateProfile() {
   const filePickerRef = useRef<any>(null)
@@ -87,6 +88,7 @@ export function CreateProfile() {
       setLoading(false)
       setSelectedFile(null)
       navigate('/')
+      toast.success('You successfully created your account.')
     }
   }
 
@@ -139,7 +141,7 @@ export function CreateProfile() {
 
         <div className="form__wrapper flex">
           <div className="form__wrapper--aside">
-            <label htmlFor="Full Name">Full Name</label>
+            <label htmlFor="Full Name">Full Name *</label>
             <input
               type="text"
               name="name"
@@ -155,7 +157,7 @@ export function CreateProfile() {
             )}
           </div>
           <div className="form__wrapper--aside ">
-            <label htmlFor="Age">Age</label>
+            <label htmlFor="Age">Age *</label>
 
             <input
               type="number"
@@ -174,7 +176,7 @@ export function CreateProfile() {
         </div>
 
         <div className="form__wrapper">
-          <label htmlFor="Biography">Tell us about what you do:</label>
+          <label htmlFor="Biography">Tell us about what you do *</label>
 
           <textarea
             name="bio"

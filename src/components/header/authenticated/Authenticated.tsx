@@ -1,14 +1,20 @@
-import { logOut } from '../../../lib/firebase'
+import { firebaseAuth } from '../../../lib/firebase'
 import './authenticated.css'
 import { FiUser, FiLogOut, FiBookmark } from 'react-icons/fi'
+import { useLoadingStore } from '../../../lib/store'
+import { useNavigate } from 'react-router-dom'
+import toast from 'react-hot-toast'
 
 export function Authenticated() {
+  const { setStatus } = useLoadingStore()
+  const navigate = useNavigate()
+
   const handleSignOut = async () => {
-    try {
-      await logOut()
-    } catch (error) {
-      console.log(error)
-    }
+    setStatus('loading')
+    firebaseAuth.signOut()
+    navigate('/')
+    toast.success('Successfully signed out of your account.')
+    setStatus('success')
   }
 
   return (

@@ -16,8 +16,14 @@
   --text-light-theme: #4b5563;
   --light-grey-text-light-mode: #6b7280;
   --body-light-theme: #fafbff;
-}
 
+  /* TOST */
+  --green: #d4edda;
+  --dark-green: #155724;
+
+  --dark-red: #721c24;
+  --red: #f8d7da;
+}
 * {
   margin: 0;
   padding: 0;

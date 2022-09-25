@@ -7,6 +7,7 @@ import { firebaseDb } from '../../lib/firebase'
 import { useCreateUserWithEmailAndPassword } from '../../hooks/useCreateUserWithEmailAndPassword'
 import './signup.css'
 import { functionsDebounce } from 'all-of-just'
+import { useLoadingStore } from '../../lib/store'
 
 export function SignUp() {
   const [isUsernameError, setIsUsernameError] = useState(false)
@@ -22,6 +23,7 @@ export function SignUp() {
     useCreateUserWithEmailAndPassword()
 
   const navigate = useNavigate()
+  const { setStatus } = useLoadingStore()
 
   const togglePassword = (event: { preventDefault: () => void }) => {
     event.preventDefault()
@@ -85,9 +87,12 @@ export function SignUp() {
   const checkUsername = useCallback(
     functionsDebounce(async (username: string) => {
       if (username.length >= 3) {
+        setStatus('loading')
+
         const usernameDocRef = doc(firebaseDb, `usernames/${username}`)
         const usernameDocSnapshot = await getDoc(usernameDocRef)
         const usernameAlreadyExists = usernameDocSnapshot.exists()
+        setStatus('success')
 
         if (usernameAlreadyExists) {
           setIsUsernameValid(false)
