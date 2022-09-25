@@ -15,12 +15,14 @@
 .authenticated .authenticated__wrapper {
   display: flex;
   flex-direction: row;
+  align-items: center;
   padding: 30px;
   border-bottom: 1px solid var(--border-light-mode);
 }
 
 .authenticated .authenticated__wrapper img {
   width: 60px;
+  border-radius: 50%;
   margin-right: 20px;
 }
 
