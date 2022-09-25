@@ -40,6 +40,7 @@
   .authenticated__wrapper
   .authenticated__wrapper--info
   p:last-child {
+  /* font-weight: 500; */
   font-size: calc(14 / 16 * 1rem);
   color: var(--text-light-theme);
 }
