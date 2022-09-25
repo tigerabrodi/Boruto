@@ -1,12 +1,15 @@
 import { Header, SignUp, LogIn, Feed, CreateProfile, Write } from './files'
 import { Routes, Route } from 'react-router-dom'
 import { AuthContextProvider } from './context/AuthContext'
+import { HeaderMenuContextProvider } from './context/MenuContext'
 
 export function App() {
   return (
     <div className="app">
       <AuthContextProvider>
-        <Header />
+        <HeaderMenuContextProvider>
+          <Header />
+        </HeaderMenuContextProvider>
         <Routes>
           <Route path="/" element={<Feed />} />
           <Route path="/signup" element={<SignUp />} />
