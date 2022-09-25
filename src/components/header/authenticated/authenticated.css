@@ -1,5 +1,5 @@
 .authenticated {
-  top: 56px;
+  top: 60px;
   right: 10px;
   width: 300px;
   display: flex;
@@ -44,10 +44,11 @@
   color: var(--text-light-theme);
 }
 
-.authenticated button {
+.authenticated button,
+.authenticated a {
   display: flex;
   align-items: center;
-
+  color: var(--black);
   text-align: left;
   padding: 30px;
   font-size: calc(17 / 16 * 1rem);
@@ -66,7 +67,8 @@
   background-color: rgb(240, 240, 240);
 }
 
-.authenticated button .icon {
+.authenticated button .icon,
+.authenticated a .icon {
   margin-right: 10px;
   font-size: calc(26 / 16 * 1rem);
 }

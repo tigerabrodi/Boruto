@@ -1,18 +1,14 @@
-import type { AuthContextProviderProps } from '../context/AuthContext'
-
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Navigate } from 'react-router-dom'
 
 import { useAuthContext } from '../context/AuthContext'
 
-type ProtectedRouteProps = AuthContextProviderProps
-
-const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
+export const ProtectedRoute = ({ children }: any) => {
   const { user } = useAuthContext()
 
+  console.log('Check user in Private: ', user)
   if (!user) {
     return <Navigate to="/" />
   }
   return children
 }
-
-export default ProtectedRoute

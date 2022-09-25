@@ -1,7 +1,7 @@
 @import url('../../../styles/App.css');
 
 .non-authenticated .non-authenticated__wrapper {
-  top: 56px;
+  top: 60px;
   right: 10px;
   width: 300px;
   padding: 30px;

@@ -5,7 +5,7 @@ import { collection, onSnapshot } from 'firebase/firestore'
 import { useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
 import { FiUser, FiLogOut, FiBookmark } from 'react-icons/fi'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import { useAuthContext } from '../../../context/AuthContext'
 import { firebaseAuth, firebaseDb } from '../../../lib/firebase'
@@ -61,9 +61,9 @@ export function Authenticated() {
                     <p>@{username}</p>
                   </div>
                 </div>
-                <button className="authenticated__profile--button">
+                <Link to="/profile" className="authenticated__profile--button">
                   <FiUser className="icon" /> My Profile
-                </button>
+                </Link>
                 <button className="authenticated__bookmarks--button">
                   <FiBookmark className="icon" />
                   My Bookmarks

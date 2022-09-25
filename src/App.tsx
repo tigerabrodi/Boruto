@@ -11,7 +11,9 @@ import {
   CreateProfile,
   Write,
   LoadingSpinner,
+  Profile,
 } from './files'
+import { ProtectedRoute } from './protectedRoute/ProtectedRoute'
 import { ToastOptions } from './styles/theme'
 
 export function App() {
@@ -25,11 +27,18 @@ export function App() {
         <Toaster position="top-center" toastOptions={ToastOptions} />
         <Routes>
           <Route path="/" element={<Feed />} />
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/onboard/profile" element={<CreateProfile />} />
-          <Route path="/onboard/profile" element={<CreateProfile />} />
-          <Route path="/create/post" element={<Write />} />
           <Route path="/login" element={<LogIn />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute>
+                <Profile />
+              </ProtectedRoute>
+            }
+          />
+          <Route path="/create/post" element={<Write />} />
+          <Route path="/onboard/profile" element={<CreateProfile />} />
         </Routes>
       </AuthContextProvider>
     </div>
