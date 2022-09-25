@@ -13,7 +13,6 @@ import {
   LoadingSpinner,
   Profile,
 } from './files'
-import { ProtectedRoute } from './protectedRoute/ProtectedRoute'
 import { ToastOptions } from './styles/theme'
 
 export function App() {
