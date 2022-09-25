@@ -8,6 +8,7 @@ import { FiUser, FiLogOut, FiBookmark } from 'react-icons/fi'
 import { Link, useNavigate } from 'react-router-dom'
 
 import { useAuthContext } from '../../../context/AuthContext'
+import { useHeaderMenuContext } from '../../../context/MenuContext'
 import { firebaseAuth, firebaseDb } from '../../../lib/firebase'
 import { useLoadingStore } from '../../../lib/store'
 
@@ -21,6 +22,8 @@ export type UserType = {
 }
 
 export function Authenticated() {
+  const { setIsOpen } = useHeaderMenuContext()
+
   const [profile, setProfile] = useState<UserType[]>([])
   const { setStatus } = useLoadingStore()
   const navigate = useNavigate()
@@ -33,6 +36,7 @@ export function Authenticated() {
   ) as CollectionReference<UserType>
 
   const handleSignOut = async () => {
+    setIsOpen(false)
     setStatus('loading')
     firebaseAuth.signOut()
     navigate('/')
@@ -63,10 +67,15 @@ export function Authenticated() {
                     <p>@{username}</p>
                   </div>
                 </div>
-                <Link to="/profile" className="authenticated__profile--button">
+                <Link
+                  onClick={() => setIsOpen(false)}
+                  to="/profile"
+                  className="authenticated__profile--button"
+                >
                   <FiUser className="icon" /> My Profile
                 </Link>
                 <Link
+                  onClick={() => setIsOpen(false)}
                   to="/bookmarks"
                   className="authenticated__bookmarks--button"
                 >
