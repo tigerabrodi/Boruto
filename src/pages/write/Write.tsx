@@ -1,27 +1,33 @@
 import './write.css'
 import { FaRegEye } from 'react-icons/fa'
 import { HiOutlinePencil } from 'react-icons/hi'
-import { IoImagesOutline } from 'react-icons/io5'
+import { IoImageOutline } from 'react-icons/io5'
 
 export function Write() {
   return (
     <div className="write">
       <button className="write__button">
-        <IoImagesOutline /> Add Cover
+        <IoImageOutline className="write__button--icon" /> Add Cover
       </button>
-
+      {/* <div className="write__cover">
+        <img src="https://images2.alphacoders.com/100/1007550.jpg" alt="" />
+      </div> */}
       <div className="write__wrapper">
         <label htmlFor="Article title">Article Title</label>
-        <textarea name="title" id="Article title" placeholder="Article Title" />
+        <textarea
+          name="title"
+          id="Article title"
+          placeholder="Article title..."
+        />
       </div>
 
-      <div className="write__preview">
+      <div className="write__buttons">
         <button>
-          <HiOutlinePencil />
+          <HiOutlinePencil className="icon" />
           Write
         </button>
         <button>
-          <FaRegEye />
+          <FaRegEye className="icon" />
           Preview
         </button>
       </div>

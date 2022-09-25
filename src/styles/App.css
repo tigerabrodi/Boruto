@@ -4,7 +4,7 @@
   --white: #fff;
   --blue: #3466f6;
   /* Dark */
-  --border-dark-mode: #222d46;
+  --border-dark-mode: #374151;
   --card-dark-theme: #111827;
   --badge-dark-mode: #1f2937;
   --text-dark-theme: #9ca3af;
@@ -23,6 +23,8 @@
 
   --dark-red: #721c24;
   --red: #f8d7da;
+
+  --font: 'Inter', sans-serif;
 }
 * {
   margin: 0;
@@ -40,13 +42,14 @@ a {
 }
 
 textarea {
+  font-family: var(--font);
   resize: none;
 }
 
 body,
 .app {
   scroll-behavior: smooth;
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font);
   background: var(--background-color);
   transition: background 0.3s ease-in-out, color 0.6s ease-in-out;
 }
@@ -58,6 +61,40 @@ body.light {
 
 body.dark {
   --background-color: var(--body-dark-theme);
+}
+
+body.light ::-webkit-scrollbar {
+  margin-right: 30px;
+  background-color: rgb(225, 225, 225);
+  width: 6px;
+}
+body.light ::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+body.light ::-webkit-scrollbar-thumb {
+  background-color: var(--text-dark-theme);
+  border-radius: 16px;
+  border: none;
+}
+body.light ::-webkit-scrollbar-button {
+  display: none;
+}
+
+body.dark ::-webkit-scrollbar {
+  margin-right: 30px;
+  background-color: #283043;
+  width: 6px;
+}
+body.dark ::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+body.dark ::-webkit-scrollbar-thumb {
+  background-color: var(--blue);
+  border-radius: 16px;
+  border: none;
+}
+body::-webkit-scrollbar-button {
+  display: none;
 }
 
 /* Dark mode */

@@ -2,5 +2,152 @@
 
 .write {
   width: 800px;
+  height: 85vh;
+  border-radius: 8px;
+  border: 1px solid var(--border-light-mode);
+  padding: 30px;
+  background-color: var(--white);
   margin: 100px auto 0 auto;
+}
+
+.write .write__cover {
+  width: 700px;
+}
+
+.write .write__cover img {
+  width: 700px;
+  object-fit: cover;
+}
+
+.write .write__button {
+  color: var(--text-light-theme);
+  display: flex;
+  margin-bottom: 30px;
+  align-items: center;
+  font-size: calc(15 / 16 * 1rem);
+  font-weight: 500;
+  border-radius: 30px;
+  background-color: transparent;
+  padding: 8px 12px;
+  border: 1px solid var(--border-light-mode);
+  transition: all 0.2s ease;
+}
+
+.write .write__button .write__button--icon {
+  font-size: calc(22 / 16 * 1rem);
+  margin-right: 5px;
+}
+
+.write .write__wrapper {
+  display: flex;
+  margin-top: -10px;
+  flex-direction: column;
+}
+
+.write .write__wrapper label,
+.write .write__container .write__container--wrapper label {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.write .write__wrapper textarea {
+  outline: none;
+  font-weight: 700;
+  border: none;
+  height: 100px;
+  font-size: calc(36 / 16 * 1rem);
+  color: var(--black);
+  background-color: var(--white);
+}
+
+.write .write__wrapper textarea::placeholder,
+.write .write__container .write__container--wrapper textarea::placeholder {
+  color: #6b7280;
+}
+
+.write .write__buttons {
+  display: flex;
+  padding: 15px 0;
+  border-top: 1px solid var(--border-light-mode);
+  border-bottom: 1px solid var(--border-light-mode);
+}
+
+.write .write__buttons button:first-child {
+  margin-right: 15px;
+}
+
+.write .write__buttons button {
+  color: var(--text-light-theme);
+  border-radius: 30px;
+  background-color: transparent;
+  padding: 5px 10px;
+  border: none;
+  display: flex;
+  align-items: center;
+  font-size: calc(14 / 16 * 1rem);
+  transition: all 0.2s ease;
+}
+.write .write__buttons button:hover {
+  background-color: #e5e7eb;
+}
+
+.write .write__buttons button .icon {
+  display: flex;
+  align-items: center;
+  font-size: calc(18 / 16 * 1rem);
+  margin-right: 5px;
+}
+
+.write .write__container .write__container--wrapper {
+  display: flex;
+  margin-top: 30px;
+  flex-direction: column;
+}
+.write .write__container .write__container--wrapper textarea {
+  word-wrap: break-word;
+  overflow-y: scroll;
+  outline: none;
+  font-weight: 500;
+  border: none;
+  height: 480px;
+  font-size: calc(20 / 16 * 1rem);
+  color: #6b7280;
+}
+
+/* DARK MODE */
+
+body.dark .write {
+  border: 1px solid var(--border-dark-mode);
+  background-color: var(--card-dark-theme);
+}
+
+body.dark .write .write__button {
+  color: var(--light-grey-text-dark-mode);
+  border: 1px solid var(--border-dark-mode);
+}
+
+body.dark .write .write__button:hover {
+  background-color: var(--border-dark-mode);
+}
+
+body.dark .write .write__wrapper textarea {
+  color: var(--white);
+  background-color: var(--card-dark-theme);
+}
+
+body.dark .write .write__buttons {
+  border-top: 1px solid var(--border-dark-mode);
+  border-bottom: 1px solid var(--border-dark-mode);
+}
+
+body.dark .write .write__buttons button {
+  color: var(--light-grey-text-dark-mode);
+}
+body.dark .write .write__buttons button:hover {
+  background-color: var(--border-dark-mode);
+}
+
+.write .write__container .write__container--wrapper textarea {
+  color: var(--white);
+  background-color: var(--card-dark-theme);
 }
