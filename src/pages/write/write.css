@@ -1,12 +1,52 @@
 @import url('../../styles/App.css');
 
+.create-article {
+  height: auto;
+  margin: 100px 0 100px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.create-article .create-article__buttons {
+  margin: 50px auto 0 auto;
+}
+
+.create-article .create-article__buttons button {
+  width: 150px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin: 0 30px;
+  padding: 12px 0;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 30px;
+  border: none;
+  color: var(--white);
+  border: 1px solid var(--blue);
+  background-color: var(--blue);
+  transition: all 0.2s ease;
+}
+
+.create-article .create-article__buttons button:hover {
+  background-color: #507cff;
+}
+
+.create-article .create-article__buttons button:last-child {
+  color: var(--blue);
+  background-color: transparent;
+}
+
+.create-article .create-article__buttons button:last-child:hover {
+  background-color: #3464f61f;
+}
+
 .write {
   width: 800px;
   height: 100%;
   border-radius: 8px;
   border: 1px solid var(--border-light-mode);
   background-color: var(--white);
-  margin: 100px auto 0 auto;
+  margin: 0 auto;
 }
 
 .write .line {
@@ -15,24 +55,46 @@
 }
 
 .write .write__cover {
-  width: 700px;
+  width: 750px;
+  height: 375px;
+  margin: 0 auto 30px auto;
+  border-radius: 8px;
+  position: relative;
+  background: no-repeat center center/cover;
 }
 
-.write .write__cover img {
-  width: 700px;
-  object-fit: cover;
+.write .write__header .write__header--container .cover__file--btn {
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+}
+.write .write__cover button {
+  border-radius: 4px;
+  display: flex;
+  font-size: calc(22 / 16 * 1rem);
+  padding: 9px 18px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.631);
+  color: var(--black);
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  transition: all 0.3s ease;
+}
+
+.write .write__cover button:hover {
+  background-color: var(--white);
 }
 
 .write .write__header {
   display: flex;
   padding: 15px 30px;
   justify-content: space-between;
+  align-items: center;
 }
 
 .write .write__header .write__header--button {
-  color: var(--text-light-theme);
   display: flex;
-  margin-bottom: 30px;
   align-items: center;
   font-size: calc(15 / 16 * 1rem);
   font-weight: 500;
@@ -40,6 +102,8 @@
   background-color: transparent;
   padding: 8px 12px;
   border: 1px solid var(--border-light-mode);
+  color: var(--text-light-theme);
+
   transition: all 0.2s ease;
 }
 
@@ -48,17 +112,39 @@
   margin-right: 8px;
 }
 
-.write .write__header input {
+.write .write__header .write__header--button:hover {
+  background-color: var(--border-light-mode);
+}
+
+.write .write__header .write__header--wrapper {
+  display: flex;
+  align-items: baseline;
+}
+
+.write .write__header .write__header--wrapper label {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.write .write__header .write__header--wrapper input {
+  outline: none;
+  text-align: center;
   color: var(--text-light-theme);
   display: flex;
-  margin-bottom: 30px;
   align-items: center;
-  font-size: calc(15 / 16 * 1rem);
+  font-size: 1rem;
   font-weight: 500;
-  border-radius: 30px;
   background-color: transparent;
-  border: 1px solid var(--border-light-mode);
+  border: none;
+  width: 30px;
+  border-bottom: 1px solid var(--border-light-mode);
   transition: all 0.2s ease;
+}
+
+.write .write__header .write__header--wrapper span {
+  padding-left: 10px;
+  border-bottom: 1px solid var(--border-light-mode);
+  color: var(--text-light-theme);
 }
 
 .write .write__wrapper {
@@ -86,7 +172,7 @@
 }
 
 .write .write__wrapper textarea::placeholder,
-.write .write__container .write__container--wrapper textarea::placeholder {
+.write .write__container textarea::placeholder {
   color: #6b7280;
 }
 
@@ -103,11 +189,11 @@
   padding: 0 30px 15px 30px;
   word-wrap: break-word;
   background-color: var(--white);
-  font-size: calc(20 / 16 * 1rem);
+  font-size: calc(16 / 16 * 1rem);
 }
 
 .write .write__container .write__container--preview {
-  height: 250px;
+  height: 300px;
   font-size: 1rem;
   color: #6b7280;
   font-weight: 500;
@@ -115,6 +201,16 @@
   overflow-y: scroll;
   word-wrap: break-word;
   background-color: var(--white);
+}
+
+.write .write__container .write__container--preview * a {
+  color: var(--blue);
+  text-decoration: underline;
+}
+
+.write .write__container .write__container--preview * a:hover {
+  color: #7799ff;
+  text-decoration: underline;
 }
 
 .write__container--empty {
@@ -142,28 +238,41 @@ body.dark .write .write__header .write__header--button {
   border: 1px solid var(--border-dark-mode);
 }
 
+body.dark .line {
+  border-top: 1px solid var(--border-dark-mode);
+}
+
+body.dark .write .write__header .write__header--wrapper span,
+body.dark .write .write__header .write__header--wrapper input {
+  color: var(--light-grey-text-dark-mode);
+  border-bottom: 1px solid var(--border-dark-mode);
+}
+
+body.dark .write .write__header .write__header--wrapper input::placeholder {
+  color: var(--light-grey-text-dark-mode);
+}
+
 body.dark .write .write__header .write__header--button:hover {
   background-color: var(--border-dark-mode);
 }
 
-body.dark .write .write__wrapper textarea {
+body.dark .write .write__container textarea,
+body.dark .write .write__wrapper textarea,
+body.dark .write__container--empty,
+body.dark .write .write__container .write__container--preview {
   color: var(--white);
   background-color: var(--card-dark-theme);
 }
 
-body.dark .write .write__buttons {
-  border-top: 1px solid var(--border-dark-mode);
-  border-bottom: 1px solid var(--border-dark-mode);
+body.dark .write .write__container .write__container--preview * a {
+  text-decoration: underline;
 }
 
-body.dark .write .write__buttons button {
-  color: var(--light-grey-text-dark-mode);
-}
-body.dark .write .write__buttons button:hover {
-  background-color: var(--border-dark-mode);
+body.dark .write .write__container .write__container--preview * a {
+  color: #507cff;
+  text-decoration: underline;
 }
 
-body.dark .write .write__container .write__container--wrapper textarea {
-  color: var(--white);
-  background-color: var(--card-dark-theme);
+body.dark .write .write__container .write__container--preview * a:hover {
+  color: #7698ff;
 }

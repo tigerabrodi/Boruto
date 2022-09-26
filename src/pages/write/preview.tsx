@@ -6,13 +6,13 @@ import rehypeRaw from 'rehype-raw'
 import remarkGfm from 'remark-gfm'
 
 type PreviewProps = {
-  text: string
+  textField: string
 }
 
-export function Preview({ text }: PreviewProps) {
+export function Preview({ textField }: PreviewProps) {
   return (
     <ReactMarkdown
-      children={text}
+      children={textField}
       className="write__container--preview"
       remarkPlugins={[remarkGfm]}
       rehypePlugins={[rehypeRaw]}

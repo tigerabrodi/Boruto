@@ -32,8 +32,7 @@
   cursor: pointer;
 }
 
-.aside .aside__write--button,
-.header__publish--button {
+.aside .aside__write--button {
   border: none;
   display: flex;
   cursor: pointer;
