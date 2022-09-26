@@ -1,0 +1,89 @@
+@import url('../../../styles/App.css');
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  background-color: var(--white);
+  border: 1px solid var(--border-light-mode);
+}
+
+.sidebar .line {
+  padding: 1px 10px;
+  border-top: 1px solid var(--border-light-mode);
+}
+
+.sidebar button {
+  padding: 20px;
+  background: transparent;
+  border: none;
+  color: var(--black);
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  text-align: left;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.sidebar button:hover {
+  background-color: var(--border-light-mode);
+}
+
+.sidebar button .icon {
+  margin-right: 8px;
+  font-size: calc(21 / 16 * 1rem);
+}
+
+.sidebar footer {
+  text-align: center;
+  font-weight: 500;
+  padding: 20px 0;
+}
+
+.sidebar footer p {
+  color: var(--light-grey-text-light-mode);
+
+  font-size: 0.9rem;
+}
+
+.sidebar footer .footer__emoji {
+  font-size: 0.8rem;
+}
+
+.sidebar footer a {
+  color: var(--light-grey-text-light-mode);
+  text-decoration: underline;
+}
+
+.sidebar footer a:hover {
+  color: var(--blue);
+}
+
+/* DARK MODE */
+
+body.dark .sidebar {
+  background-color: var(--card-dark-theme);
+  border: 1px solid var(--border-dark-mode);
+}
+
+body.dark .sidebar .line {
+  padding: 1px 10px;
+  border-top: 1px solid var(--border-dark-mode);
+}
+
+body.dark .sidebar button {
+  color: var(--white);
+}
+
+body.dark .sidebar button:hover {
+  background-color: var(--border-dark-mode);
+}
+
+body.dark .sidebar footer p,
+body.dark .sidebar footer a {
+  color: var(--light-grey-text-dark-mode);
+}
+
+body.dark .sidebar footer a:hover {
+  color: #527dff;
+}

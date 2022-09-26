@@ -1,0 +1,203 @@
+@import url('../../../styles/App.css');
+
+.article {
+  position: relative;
+  border-radius: 8px;
+  border: 1px solid var(--border-light-mode);
+  background-color: var(--white);
+  padding: 30px;
+  margin-bottom: 20px;
+}
+
+.article .article__delete {
+  border-radius: 4px;
+  display: flex;
+  font-size: calc(22 / 16 * 1rem);
+  padding: 9px 18px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.738);
+  color: var(--black);
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  transition: all 0.3s ease;
+}
+
+.article .article__edit {
+  border-radius: 4px;
+  display: flex;
+  font-size: calc(22 / 16 * 1rem);
+  padding: 9px 18px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.738);
+  color: var(--black);
+  position: absolute;
+  top: 40px;
+  right: 110px;
+  transition: all 0.3s ease;
+}
+
+.article .article__delete:hover,
+.article .article__edit:hover {
+  background-color: var(--white);
+}
+
+.article .article__cover {
+  width: 100%;
+  height: 250px;
+  margin: 0 auto 30px auto;
+  border-radius: 8px;
+  position: relative;
+  background: no-repeat center center/cover;
+}
+
+.article .article__container .container__info h1 {
+  color: var(--black);
+  font-size: calc(34 / 16 * 1rem);
+  margin-bottom: 20px;
+}
+
+.article .article__container .container__info p {
+  display: inline-block;
+  word-wrap: break-word;
+  color: var(--text-light-theme);
+  font-size: 1rem;
+}
+
+/* Profile, Name, Minute, buttons */
+
+.article .article-wrapper {
+  display: flex;
+  margin-top: 30px;
+  align-items: center;
+  width: 100%;
+}
+
+.article .article-wrapper .buttons {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.article .article-wrapper .buttons button {
+  border: none;
+  color: var(--text-light-theme);
+  background-color: transparent;
+  font-size: calc(22 / 16 * 1rem);
+  margin: 0 3px;
+  border-radius: 20px;
+  padding: 4px 15px;
+  transition: all 0.2s ease;
+}
+
+.article .article-wrapper .buttons button * {
+  display: flex;
+  align-items: center;
+}
+
+.article .article-wrapper .buttons button:hover {
+  background-color: var(--border-light-mode);
+}
+
+.article .article-wrapper .buttons .bookmark {
+  font-size: calc(25 / 16 * 1rem);
+}
+
+.article .article-wrapper .article-wrapper__div .article-wrapper__div--info {
+  display: flex;
+  align-items: center;
+}
+
+.article
+  .article-wrapper
+  .article-wrapper__div
+  .article-wrapper__div--info
+  img {
+  width: 50px;
+  border-radius: 50%;
+}
+
+.article
+  .article-wrapper
+  .article-wrapper__div
+  .article-wrapper__div--info
+  .article-wrapper__div--info--wrap {
+  margin-left: 15px;
+}
+
+.article
+  .article-wrapper
+  .article-wrapper__div
+  .article-wrapper__div--info
+  .article-wrapper__div--info--wrap
+  p:first-child {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 5px;
+  color: var(--black);
+}
+.article
+  .article-wrapper
+  .article-wrapper__div
+  .article-wrapper__div--info
+  .article-wrapper__div--info--wrap
+  p:last-child {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: calc(14 / 16 * 1rem);
+  color: var(--text-light-theme);
+}
+
+.article
+  .article-wrapper
+  .article-wrapper__div
+  .article-wrapper__div--info
+  .article-wrapper__div--info--wrap
+  p
+  .icon {
+  color: var(--blue);
+  margin-right: 5px;
+  font-size: 1.1rem;
+}
+
+/* DARK MODE */
+
+body.dark .article {
+  border: 1px solid var(--border-dark-mode);
+  background-color: var(--card-dark-theme);
+}
+
+body.dark .article .article__container .container__info h1 {
+  color: var(--white);
+}
+
+body.dark .article .article__container .container__info p {
+  color: var(--text-dark-theme);
+}
+
+body.dark .article .article-wrapper .buttons button {
+  color: var(--light-grey-text-dark-mode);
+}
+
+body.dark
+  .article
+  .article-wrapper
+  .article-wrapper__div
+  .article-wrapper__div--info
+  .article-wrapper__div--info--wrap
+  p:first-child {
+  color: var(--white);
+}
+.article
+  .article-wrapper
+  .article-wrapper__div
+  .article-wrapper__div--info
+  .article-wrapper__div--info--wrap
+  p:last-child {
+  color: var(--text-dark-theme);
+}
+
+body.dark .article .article-wrapper .buttons button:hover {
+  background-color: var(--border-dark-mode);
+}

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
 :root {
   /* General */
   --white: #fff;
@@ -24,7 +24,7 @@
   --dark-red: #721c24;
   --red: #f8d7da;
 
-  --font: 'Inter', sans-serif;
+  --font: 'Roboto', sans-serif;
 }
 
 ::-webkit-scrollbar {
@@ -51,6 +51,7 @@
 }
 
 button {
+  outline: none;
   cursor: pointer;
 }
 

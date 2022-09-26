@@ -1,7 +1,8 @@
 .feed {
   display: grid;
+  gap: 0 30px;
   padding-top: 100px;
   position: relative;
   justify-content: center;
-  grid-template-columns: 200px 500px;
+  grid-template-columns: 200px 600px;
 }
