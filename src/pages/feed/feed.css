@@ -1,0 +1,7 @@
+.feed {
+  display: grid;
+  padding-top: 100px;
+  position: relative;
+  justify-content: center;
+  grid-template-columns: 200px 500px;
+}
