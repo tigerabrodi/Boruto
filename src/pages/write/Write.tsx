@@ -39,7 +39,7 @@ export function Write() {
 
     const documentReference = await addDoc(collection(firebaseDb, 'articles'), {
       timestamp: serverTimestamp(),
-      uid: user?.uid,
+      id: user?.uid,
     })
 
     const imageReference = ref(

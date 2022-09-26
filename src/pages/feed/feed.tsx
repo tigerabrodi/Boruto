@@ -5,8 +5,12 @@ import { SideBar } from './sidebar/siderbar'
 export function Feed() {
   return (
     <div className="feed">
-      <SideBar />
-      <Articles />
+      <div className="feed__sidebar">
+        <SideBar />
+      </div>
+      <div className="feed__articles">
+        <Articles />
+      </div>
     </div>
   )
 }
