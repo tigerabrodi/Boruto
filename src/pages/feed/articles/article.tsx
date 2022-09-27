@@ -4,7 +4,14 @@ import type { CollectionReference } from 'firebase/firestore'
 
 import { collection, onSnapshot } from 'firebase/firestore'
 import { useEffect, useState } from 'react'
-import { FiBookOpen, FiX, FiEdit3 } from 'react-icons/fi'
+import {
+  FiBookOpen,
+  FiX,
+  FiEdit3,
+  FiThumbsUp,
+  FiMessageSquare,
+} from 'react-icons/fi'
+import { MdOutlineBookmarkAdd } from 'react-icons/md'
 import ReactMarkdown from 'react-markdown'
 import rehypeRaw from 'rehype-raw'
 import remarkGfm from 'remark-gfm'
@@ -98,7 +105,24 @@ export function Article({
             )
           })}
 
-          <Buttons />
+          <div className="article-wrapper__buttons">
+            <button
+              className="bookmark"
+              aria-label="Add article to your bookmark"
+            >
+              <MdOutlineBookmarkAdd />
+            </button>
+
+            <div className="buttons__wrapper">
+              <button aria-label="Like article">
+                <FiThumbsUp />
+              </button>
+
+              <button aria-label="Comment on article">
+                <FiMessageSquare />
+              </button>
+            </div>
+          </div>
         </div>
 
         {uid === user?.uid && (

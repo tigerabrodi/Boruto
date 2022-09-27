@@ -4,7 +4,7 @@
   --white: #fff;
   --blue: #3466f6;
   /* Dark */
-  --border-dark-mode: #374151;
+  --border-dark-mode: #1d283c;
   --card-dark-theme: #111827;
   --badge-dark-mode: #1f2937;
   --text-dark-theme: #9ca3af;
@@ -12,7 +12,7 @@
   --body-dark-theme: #000000;
   /* Light */
   --border-light-mode: #e2e8ef;
-  --title-light-theme: #111827;
+  --black: #111827;
   --text-light-theme: #4b5563;
   --light-grey-text-light-mode: #6b7280;
   --body-light-theme: #fafbff;
