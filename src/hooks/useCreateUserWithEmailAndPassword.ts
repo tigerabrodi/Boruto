@@ -2,14 +2,13 @@ import type { FirebaseError } from '@firebase/util'
 
 import { createUserWithEmailAndPassword as createUserWithEmailAndPasswordAuth } from '@firebase/auth'
 import { doc, serverTimestamp, writeBatch } from '@firebase/firestore'
+import { setDoc } from 'firebase/firestore'
 import { useState } from 'react'
 
 import { firebaseAuth, firebaseDb } from '../lib/firebase'
 
 export const useCreateUserWithEmailAndPassword = () => {
   const [signUpError, setSignUpError] = useState<FirebaseError | null>(null)
-
-  const batch = writeBatch(firebaseDb)
 
   const createUserWithEmailAndPassword = async (
     email: string,
@@ -23,9 +22,15 @@ export const useCreateUserWithEmailAndPassword = () => {
         password
       )
 
+      const bookmarkRef = doc(firebaseDb, 'bookmarks', email)
+
+      setDoc(bookmarkRef, {
+        savedArticles: [],
+      })
+
       const userRef = doc(firebaseDb, `users/${user.user.uid}`)
 
-      batch.set(userRef, {
+      setDoc(userRef, {
         username,
         email,
         fullname: '',
@@ -40,11 +45,9 @@ export const useCreateUserWithEmailAndPassword = () => {
       })
 
       const usernameRef = doc(firebaseDb, `usernames/${username}`)
-      batch.set(usernameRef, {
+      setDoc(usernameRef, {
         uid: user.user?.uid,
       })
-
-      await batch.commit()
     } catch (error) {
       setSignUpError(error as FirebaseError)
       setTimeout(() => {
