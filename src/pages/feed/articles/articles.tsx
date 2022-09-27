@@ -48,6 +48,7 @@ export function Articles() {
             id={id}
             text={text}
             title={title}
+            articleId={articleId}
             readMin={readMin}
             coverUrl={coverUrl}
           />
