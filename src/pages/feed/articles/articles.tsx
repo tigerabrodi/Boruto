@@ -9,7 +9,7 @@ import { firebaseDb } from '../../../lib/firebase'
 import { Article } from './article'
 
 export type ArticleType = {
-  id: string
+  uid: string
   text: string
   title: string
   readMin: string
@@ -41,11 +41,11 @@ export function Articles() {
 
   return (
     <div className="posts">
-      {articles.map(({ articleId, id, text, title, readMin, coverUrl }) => {
+      {articles.map(({ articleId, uid, text, title, readMin, coverUrl }) => {
         return (
           <Article
             key={articleId}
-            id={id}
+            uid={uid}
             text={text}
             title={title}
             articleId={articleId}

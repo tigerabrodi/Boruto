@@ -15,7 +15,7 @@ import { Buttons } from './buttons'
 import { Modal } from './modal'
 
 type ArticleProps = {
-  id: string
+  uid: string
   text: string
   title: string
   readMin: string
@@ -24,7 +24,7 @@ type ArticleProps = {
 }
 
 export function Article({
-  id,
+  uid,
   text,
   title,
   readMin,
@@ -43,7 +43,9 @@ export function Article({
   useEffect(() => {
     const getProfile = () => {
       onSnapshot(userCollectionReference, (snapshot) => {
-        setProfile(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+        setProfile(
+          snapshot.docs.map((doc) => ({ ...doc.data(), profileId: doc.id }))
+        )
       })
     }
     getProfile()
@@ -78,7 +80,7 @@ export function Article({
           {profile.map((info) => {
             return (
               <div className="article-wrapper__div">
-                {id === info.id && (
+                {uid === info.uid && (
                   <>
                     <div className="article-wrapper__div--info">
                       <img src={info.avatarUrl} alt="profile" />{' '}
@@ -99,7 +101,7 @@ export function Article({
           <Buttons />
         </div>
 
-        {id === user?.uid && (
+        {uid === user?.uid && (
           <>
             <button
               className="article__edit"

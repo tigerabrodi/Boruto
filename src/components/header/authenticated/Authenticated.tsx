@@ -18,7 +18,8 @@ export type UserType = {
   location: string
   avatarUrl: string
   username: string
-  id: string
+  uid: string
+  profileId: string
 }
 
 export function Authenticated() {
@@ -47,7 +48,9 @@ export function Authenticated() {
   useEffect(() => {
     const getProfile = () => {
       onSnapshot(userCollectionReference, (snapshot) => {
-        setProfile(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+        setProfile(
+          snapshot.docs.map((doc) => ({ ...doc.data(), profileId: doc.id }))
+        )
       })
     }
     getProfile()
@@ -55,10 +58,10 @@ export function Authenticated() {
 
   return (
     <>
-      {profile.map(({ username, avatarUrl, fullname, id }) => {
+      {profile.map(({ username, avatarUrl, fullname, profileId }) => {
         return (
-          <div key={id} className="authenticated">
-            {user?.uid === id && (
+          <div key={profileId} className="authenticated">
+            {user?.uid === profileId && (
               <>
                 <div className="authenticated__wrapper">
                   <img src={avatarUrl} alt="profile" />

@@ -30,8 +30,6 @@ export function Header() {
     location.pathname === '/create/post' ||
     location.pathname === '/profile'
 
-  const isWiriting = location.pathname === '/create/post'
-
   const userCollectionReference = collection(
     firebaseDb,
     'users'
