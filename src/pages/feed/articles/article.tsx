@@ -15,7 +15,11 @@ import { firebaseDb } from '../../../lib/firebase'
 import { Buttons } from './buttons'
 
 type ArticleProps = {
-  article: ArticleType
+  id: string
+  text: string
+  title: string
+  readMin: string
+  coverUrl: string
 }
 
 export function Article({ id, text, title, readMin, coverUrl }: ArticleProps) {
