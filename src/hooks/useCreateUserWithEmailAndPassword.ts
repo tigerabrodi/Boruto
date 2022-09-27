@@ -22,12 +22,6 @@ export const useCreateUserWithEmailAndPassword = () => {
         password
       )
 
-      const bookmarkRef = doc(firebaseDb, 'bookmarks', email)
-
-      setDoc(bookmarkRef, {
-        savedArticles: [],
-      })
-
       const userRef = doc(firebaseDb, `users/${user.user.uid}`)
 
       setDoc(userRef, {
