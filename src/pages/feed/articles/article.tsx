@@ -4,14 +4,7 @@ import type { CollectionReference } from 'firebase/firestore'
 
 import { collection, onSnapshot } from 'firebase/firestore'
 import { useEffect, useState } from 'react'
-import {
-  FiBookOpen,
-  FiX,
-  FiEdit3,
-  FiThumbsUp,
-  FiMessageSquare,
-} from 'react-icons/fi'
-import { MdOutlineBookmarkAdd } from 'react-icons/md'
+import { FiBookOpen, FiX, FiEdit3 } from 'react-icons/fi'
 import ReactMarkdown from 'react-markdown'
 import rehypeRaw from 'rehype-raw'
 import remarkGfm from 'remark-gfm'
@@ -86,7 +79,7 @@ export function Article({
         <div className="article-wrapper">
           {profile.map((info) => {
             return (
-              <div className="article-wrapper__div">
+              <div key={info.profileId} className="article-wrapper__div">
                 {uid === info.uid && (
                   <>
                     <div className="article-wrapper__div--info">
@@ -105,24 +98,7 @@ export function Article({
             )
           })}
 
-          <div className="article-wrapper__buttons">
-            <button
-              className="bookmark"
-              aria-label="Add article to your bookmark"
-            >
-              <MdOutlineBookmarkAdd />
-            </button>
-
-            <div className="buttons__wrapper">
-              <button aria-label="Like article">
-                <FiThumbsUp />
-              </button>
-
-              <button aria-label="Comment on article">
-                <FiMessageSquare />
-              </button>
-            </div>
-          </div>
+          <Buttons articleId={articleId} />
         </div>
 
         {uid === user?.uid && (

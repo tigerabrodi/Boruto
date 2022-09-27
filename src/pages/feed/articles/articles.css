@@ -140,36 +140,6 @@
   width: 100%;
 }
 
-.article .article-wrapper .article-wrapper__buttons {
-  display: flex;
-  align-items: center;
-  margin-left: auto;
-}
-
-.article .article-wrapper .article-wrapper__buttons button {
-  border: none;
-  color: var(--text-light-theme);
-  background-color: transparent;
-  font-size: calc(22 / 16 * 1rem);
-  margin: 0 3px;
-  border-radius: 20px;
-  padding: 4px 15px;
-  transition: all 0.2s ease;
-}
-
-.article .article-wrapper .article-wrapper__buttons button * {
-  display: flex;
-  align-items: center;
-}
-
-.article .article-wrapper .article-wrapper__buttons button:hover {
-  background-color: var(--border-light-mode);
-}
-
-.article .article-wrapper .article-wrapper__buttons .bookmark {
-  font-size: calc(25 / 16 * 1rem);
-}
-
 .article .article-wrapper .article-wrapper__div .article-wrapper__div--info {
   display: flex;
   align-items: center;
@@ -228,6 +198,55 @@
   font-size: 1.1rem;
 }
 
+/* BUTTONS */
+
+.buttons {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.buttons .buttons__wrapper,
+.buttons .buttons__wrapper .buttons__wrapper--like {
+  display: flex;
+  align-items: center;
+}
+
+.buttons .buttons__wrapper .buttons__wrapper--like .blue__thumb {
+  color: var(--blue);
+}
+
+.buttons .buttons__wrapper .buttons__wrapper--like span {
+  margin-bottom: -3px;
+  font-size: 1rem;
+  padding-left: 10px;
+}
+
+.buttons button {
+  border: none;
+  margin: 0 3px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  transition: all 0.2s ease;
+  background-color: transparent;
+  color: var(--text-light-theme);
+  font-size: calc(20 / 16 * 1rem);
+}
+
+.buttons button * {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.buttons button:hover {
+  background-color: var(--border-light-mode);
+}
+
+.buttons .bookmark {
+  font-size: calc(23 / 16 * 1rem);
+}
+
 /* DARK MODE */
 
 body.dark .article,
@@ -244,7 +263,7 @@ body.dark .article .article__container .container__info p {
   color: var(--text-dark-theme);
 }
 
-body.dark .article .article-wrapper .article-wrapper__buttons button {
+body.dark .buttons button {
   color: var(--light-grey-text-dark-mode);
 }
 
@@ -267,7 +286,7 @@ body.dark {
   color: var(--text-dark-theme);
 }
 
-body.dark .article .article-wrapper .article-wrapper__buttons button:hover {
+body.dark .buttons button:hover {
   background-color: var(--border-dark-mode);
 }
 
