@@ -4,7 +4,7 @@ import { useHeaderMenuContext } from '../../../context/MenuContext'
 import './nonauthenticated.css'
 
 export function NonAuthenticated() {
-  const { setIsOpen } = useHeaderMenuContext()
+  const { setIsMenuOpen } = useHeaderMenuContext()
 
   return (
     <div className="non-authenticated">
@@ -20,10 +20,10 @@ export function NonAuthenticated() {
           Takes less than a few seconds.
         </p>
         <div className="non-authenticated__wrapper--links">
-          <Link onClick={() => setIsOpen(false)} to="/signup">
+          <Link onClick={() => setIsMenuOpen(false)} to="/signup">
             Sign up
           </Link>
-          <Link onClick={() => setIsOpen(false)} to="/login">
+          <Link onClick={() => setIsMenuOpen(false)} to="/login">
             Log in
           </Link>
         </div>

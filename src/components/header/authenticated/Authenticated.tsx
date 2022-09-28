@@ -23,7 +23,7 @@ export type UserType = {
 }
 
 export function Authenticated() {
-  const { setIsOpen } = useHeaderMenuContext()
+  const { setIsMenuOpen } = useHeaderMenuContext()
 
   const [profile, setProfile] = useState<UserType[]>([])
   const { setStatus } = useLoadingStore()
@@ -37,7 +37,7 @@ export function Authenticated() {
   ) as CollectionReference<UserType>
 
   const handleSignOut = async () => {
-    setIsOpen(false)
+    setIsMenuOpen(false)
     setStatus('loading')
     firebaseAuth.signOut()
     navigate('/')
@@ -71,14 +71,14 @@ export function Authenticated() {
                   </div>
                 </div>
                 <Link
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => setIsMenuOpen(false)}
                   to="/profile"
                   className="authenticated__profile--button"
                 >
                   <FiUser className="icon" /> My Profile
                 </Link>
                 <Link
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => setIsMenuOpen(false)}
                   to="/bookmarks"
                   className="authenticated__bookmarks--button"
                 >
