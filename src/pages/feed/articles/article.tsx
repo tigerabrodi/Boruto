@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import type { UserType } from '../../../components/header/authenticated/Authenticated'
+import type { UserType } from '../../../components/header/Menu/AuthMenu'
 import type { CollectionReference } from 'firebase/firestore'
 
 import { collection, onSnapshot } from 'firebase/firestore'
@@ -9,10 +9,10 @@ import ReactMarkdown from 'react-markdown'
 import rehypeRaw from 'rehype-raw'
 import remarkGfm from 'remark-gfm'
 
+import { DeleteArticleModal } from '../../../components/modals/DeleteArticleModal'
 import { useAuthContext } from '../../../context/AuthContext'
 import { firebaseDb } from '../../../lib/firebase'
 import { Buttons } from './buttons'
-import { Modal } from './modal'
 
 type ArticleProps = {
   uid: string
@@ -54,7 +54,7 @@ export function Article({
   return (
     <>
       {openModal ? (
-        <Modal setOpenModal={setOpenModal} articleId={articleId} />
+        <DeleteArticleModal setOpenModal={setOpenModal} articleId={articleId} />
       ) : (
         ''
       )}

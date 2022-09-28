@@ -1,4 +1,4 @@
-import './authenticated.css'
+import './menu.css'
 import type { CollectionReference } from 'firebase/firestore'
 
 import { collection, onSnapshot } from 'firebase/firestore'
@@ -22,7 +22,7 @@ export type UserType = {
   profileId: string
 }
 
-export function Authenticated() {
+export function AuthMenu() {
   const { setIsMenuOpen } = useHeaderMenuContext()
 
   const [profile, setProfile] = useState<UserType[]>([])
@@ -60,12 +60,12 @@ export function Authenticated() {
     <>
       {profile.map(({ username, avatarUrl, fullname, profileId }) => {
         return (
-          <div key={profileId} className="authenticated">
+          <div key={profileId} className="auth-menu">
             {user?.uid === profileId && (
               <>
-                <div className="authenticated__wrapper">
+                <div className="auth-menu__wrapper">
                   <img src={avatarUrl} alt="profile" />
-                  <div className="authenticated__wrapper--info">
+                  <div className="auth-menu__wrapper--info">
                     <p>{fullname}</p>
                     <p>@{username}</p>
                   </div>
@@ -73,21 +73,21 @@ export function Authenticated() {
                 <Link
                   onClick={() => setIsMenuOpen(false)}
                   to="/profile"
-                  className="authenticated__profile--button"
+                  className="auth-menu__profile--button"
                 >
                   <FiUser className="icon" /> My Profile
                 </Link>
                 <Link
                   onClick={() => setIsMenuOpen(false)}
                   to="/bookmarks"
-                  className="authenticated__bookmarks--button"
+                  className="auth-menu__bookmarks--button"
                 >
                   <FiBookmark className="icon" />
                   My Bookmarks
                 </Link>
                 <button
                   onClick={handleSignOut}
-                  className="authenticated__logout--button"
+                  className="auth-menu__logout--button"
                 >
                   <FiLogOut className="icon" /> Log out
                 </button>{' '}

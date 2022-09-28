@@ -9,10 +9,10 @@ import './header.css'
 import { useAuthContext } from '../../context/AuthContext'
 import { useHeaderMenuContext } from '../../context/MenuContext'
 import { firebaseDb } from '../../lib/firebase'
-import { NotAuthenticated } from '../modals/notAuthenticated'
-import { DarkMode } from '../theme/darkMode'
-import { Authenticated } from './authenticated/Authenticated'
-import { NonAuthenticated } from './non-authenticated/NonAuthenticated'
+import { InfoModule } from '../modals/InfoModule'
+import { DarkMode } from '../themeButton/darkMode'
+import { AuthMenu } from './Menu/AuthMenu'
+import { Menu } from './Menu/Menu'
 
 type UserType = {
   avatarUrl: string
@@ -47,7 +47,7 @@ export function Header() {
 
   return (
     <>
-      {isOpen === true && <NotAuthenticated setIsOpen={setIsOpen} />}
+      {isOpen === true && <InfoModule setIsOpen={setIsOpen} />}
       <header className="header">
         <Link onClick={() => setIsMenuOpen(false)} to="/">
           <span className="header__logo">Boruto</span>
@@ -104,7 +104,7 @@ export function Header() {
             </div>
           )}
           {isMenuOpen === true && (
-            <div>{user?.uid ? <Authenticated /> : <NonAuthenticated />} </div>
+            <div>{user?.uid ? <AuthMenu /> : <Menu />} </div>
           )}
         </aside>
       </header>

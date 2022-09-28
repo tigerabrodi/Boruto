@@ -41,13 +41,23 @@ export const DarkMode = () => {
 
   return (
     <div className="toggle-btn">
-      <button
-        onClick={(event) => switchTheme(event)}
-        aria-label="dark mode"
-        className="theme__button"
-      >
-        {toggle ? <BsMoon /> : <BsSun />}
-      </button>
+      {toggle ? (
+        <button
+          onClick={(event) => switchTheme(event)}
+          aria-label="dark mode"
+          className="theme__button"
+        >
+          <BsMoon />
+        </button>
+      ) : (
+        <button
+          onClick={(event) => switchTheme(event)}
+          aria-label="light mode"
+          className="theme__button"
+        >
+          <BsSun />
+        </button>
+      )}
     </div>
   )
 }

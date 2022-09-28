@@ -1,4 +1,4 @@
-import type { UserType } from '../../components/header/authenticated/Authenticated'
+import type { UserType } from '../../components/header/Menu/AuthMenu'
 import type { CollectionReference } from 'firebase/firestore'
 
 import { collection, onSnapshot } from 'firebase/firestore'
@@ -30,10 +30,10 @@ export function Profile() {
 
   return (
     <>
-      {profile.map(({ fullname, username, avatarUrl, bio, location, id }) => {
+      {profile.map(({ fullname, username, avatarUrl, bio, location, uid }) => {
         return (
-          <div className="profile" key={id}>
-            {user?.uid === id && (
+          <div className="profile" key={uid}>
+            {user?.uid === uid && (
               <div className="card">
                 <div className="card__wrapper">
                   <div className="card__wrapper--primary">

@@ -1,25 +1,23 @@
 import { Link } from 'react-router-dom'
 
 import { useHeaderMenuContext } from '../../../context/MenuContext'
-import './nonauthenticated.css'
+import './menu.css'
 
-export function NonAuthenticated() {
+export function Menu() {
   const { setIsMenuOpen } = useHeaderMenuContext()
 
   return (
-    <div className="non-authenticated">
-      <div className="non-authenticated__wrapper">
+    <div className="menu">
+      <div className="menu__wrapper">
         <img
           src="https://hashnode.com/_next/image?url=https%3A%2F%2Fcdn.hashnode.com%2Fres%2Fhashnode%2Fimage%2Fupload%2Fv1659089761812%2FfsOct5gl6.png&w=1920&q=75"
-          alt="profile"
+          alt="no profile"
         />
-        <h2 className="non-authenticated__wrapper--info">
+        <h2 className="menu__wrapper--info">
           Sign up or log in to your Boruto account.
         </h2>
-        <p className="non-authenticated__wrapper--text">
-          Takes less than a few seconds.
-        </p>
-        <div className="non-authenticated__wrapper--links">
+        <p className="menu__wrapper--text">Takes less than a few seconds.</p>
+        <div className="menu__wrapper--links">
           <Link onClick={() => setIsMenuOpen(false)} to="/signup">
             Sign up
           </Link>

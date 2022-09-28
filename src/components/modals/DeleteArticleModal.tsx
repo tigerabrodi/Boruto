@@ -1,15 +1,18 @@
 import { deleteDoc, doc } from 'firebase/firestore'
 import toast from 'react-hot-toast'
 
-import { firebaseDb } from '../../../lib/firebase'
-import { useLoadingStore } from '../../../lib/store'
-import './articles.css'
-type ModalProps = {
+import { firebaseDb } from '../../lib/firebase'
+import { useLoadingStore } from '../../lib/store'
+import './modals.css'
+type DeleteArticleModalProps = {
   articleId: string
   setOpenModal: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-export function Modal({ setOpenModal, articleId }: ModalProps) {
+export function DeleteArticleModal({
+  setOpenModal,
+  articleId,
+}: DeleteArticleModalProps) {
   const { setStatus } = useLoadingStore()
 
   const deleteArticle = async () => {
