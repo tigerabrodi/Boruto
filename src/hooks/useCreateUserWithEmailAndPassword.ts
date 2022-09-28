@@ -1,7 +1,7 @@
 import type { FirebaseError } from '@firebase/util'
 
 import { createUserWithEmailAndPassword as createUserWithEmailAndPasswordAuth } from '@firebase/auth'
-import { doc, serverTimestamp, writeBatch } from '@firebase/firestore'
+import { doc, serverTimestamp } from '@firebase/firestore'
 import { setDoc } from 'firebase/firestore'
 import { useState } from 'react'
 
