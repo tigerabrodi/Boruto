@@ -206,20 +206,19 @@
   margin-left: auto;
 }
 
-.buttons .buttons__wrapper,
-.buttons .buttons__wrapper .buttons__wrapper--like {
+.buttons .button__like {
   display: flex;
   align-items: center;
 }
 
-.buttons .buttons__wrapper .buttons__wrapper--like .blue__thumb {
-  color: var(--blue);
+.buttons .button__like span {
+  margin-bottom: -3px;
+  margin-left: 5px;
+  font-size: 1rem;
 }
 
-.buttons .buttons__wrapper .buttons__wrapper--like span {
-  margin-bottom: -3px;
-  font-size: 1rem;
-  padding-left: 10px;
+.buttons .button__like .blue__thumb {
+  color: var(--blue);
 }
 
 .buttons button {

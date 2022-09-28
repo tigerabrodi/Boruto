@@ -65,26 +65,28 @@ export function Buttons({ articleId }: ButtonsProps) {
         <MdOutlineBookmarkAdd />
       </button>
 
-      <div className="buttons__wrapper">
-        {hasLiked === true ? (
-          <button
-            className="buttons__wrapper--like"
-            aria-label="Like article"
-            onClick={likePost}
-          >
-            <FiThumbsUp className="blue__thumb" />{' '}
-            {likes.length > 0 && <span>{likes.length}</span>}
-          </button>
-        ) : (
-          <button aria-label="Like article" onClick={likePost}>
-            <FiThumbsUp />
-          </button>
-        )}
-
-        <button aria-label="Comment on article">
-          <FiMessageSquare />
+      {hasLiked === true ? (
+        <button
+          className="button__like"
+          aria-label="Like article"
+          onClick={likePost}
+        >
+          <FiThumbsUp className="blue__thumb" />{' '}
+          {likes.length > 0 && <span>{likes.length}</span>}
         </button>
-      </div>
+      ) : (
+        <button
+          aria-label="Like article"
+          className="button__like"
+          onClick={likePost}
+        >
+          <FiThumbsUp /> {likes.length > 0 && <span>{likes.length}</span>}
+        </button>
+      )}
+
+      <button aria-label="Comment on article">
+        <FiMessageSquare />
+      </button>
     </div>
   )
 }
