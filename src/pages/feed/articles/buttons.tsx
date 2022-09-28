@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react'
 import { FiThumbsUp, FiMessageSquare } from 'react-icons/fi'
 import { MdOutlineBookmarkAdd } from 'react-icons/md'
 
+import { NotAuthenticated } from '../../../components/modals/notAuthenticated'
 import { useAuthContext } from '../../../context/AuthContext'
 import { firebaseDb } from '../../../lib/firebase'
 
@@ -19,6 +20,7 @@ type Like = {
 }
 
 export function Buttons({ articleId }: ButtonsProps) {
+  const [isOpen, setIsOpen] = useState(false)
   const [likes, setLikes] = useState<Like[]>([])
   const [hasLiked, setHasLiked] = useState(false)
 
@@ -60,33 +62,67 @@ export function Buttons({ articleId }: ButtonsProps) {
     }
   }
   return (
-    <div className="buttons">
-      <button className="bookmark" aria-label="Add article to your bookmark">
-        <MdOutlineBookmarkAdd />
-      </button>
+    <>
+      {isOpen === true && <NotAuthenticated setIsOpen={setIsOpen} />}
 
-      {hasLiked === true ? (
-        <button
-          className="button__like"
-          aria-label="Like article"
-          onClick={likePost}
-        >
-          <FiThumbsUp className="blue__thumb" />{' '}
-          {likes.length > 0 && <span>{likes.length}</span>}
-        </button>
+      {user?.email ? (
+        <div className="buttons">
+          <button
+            className="bookmark"
+            aria-label="Add article to your bookmark"
+          >
+            <MdOutlineBookmarkAdd />
+          </button>
+
+          {hasLiked === true ? (
+            <button
+              className="button__like"
+              aria-label="Like article"
+              onClick={likePost}
+            >
+              <FiThumbsUp className="blue__thumb" />{' '}
+              {likes.length > 0 && <span>{likes.length}</span>}
+            </button>
+          ) : (
+            <button
+              aria-label="Like article"
+              className="button__like"
+              onClick={likePost}
+            >
+              <FiThumbsUp /> {likes.length > 0 && <span>{likes.length}</span>}
+            </button>
+          )}
+
+          <button aria-label="Comment on article">
+            <FiMessageSquare />
+          </button>
+        </div>
       ) : (
-        <button
-          aria-label="Like article"
-          className="button__like"
-          onClick={likePost}
-        >
-          <FiThumbsUp /> {likes.length > 0 && <span>{likes.length}</span>}
-        </button>
-      )}
+        <div className="buttons">
+          <button
+            className="bookmark"
+            aria-label="Add article to your bookmark"
+            onClick={() => setIsOpen(true)}
+          >
+            <MdOutlineBookmarkAdd />
+          </button>
 
-      <button aria-label="Comment on article">
-        <FiMessageSquare />
-      </button>
-    </div>
+          <button
+            className="button__like"
+            aria-label="Like article"
+            onClick={() => setIsOpen(true)}
+          >
+            <FiThumbsUp /> {likes.length > 0 && <span>{likes.length}</span>}
+          </button>
+
+          <button
+            aria-label="Comment on article"
+            onClick={() => setIsOpen(true)}
+          >
+            <FiMessageSquare />
+          </button>
+        </div>
+      )}
+    </>
   )
 }

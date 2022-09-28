@@ -9,6 +9,7 @@ import './header.css'
 import { useAuthContext } from '../../context/AuthContext'
 import { useHeaderMenuContext } from '../../context/MenuContext'
 import { firebaseDb } from '../../lib/firebase'
+import { NotAuthenticated } from '../modals/notAuthenticated'
 import { DarkMode } from '../theme/darkMode'
 import { Authenticated } from './authenticated/Authenticated'
 import { NonAuthenticated } from './non-authenticated/NonAuthenticated'
@@ -20,8 +21,8 @@ type UserType = {
 
 export function Header() {
   const [profile, setProfile] = useState<UserType[]>([])
-
-  const { isOpen, setIsOpen } = useHeaderMenuContext()
+  const [isOpen, setIsOpen] = useState(false)
+  const { isMenuOpen, setIsMenuOpen } = useHeaderMenuContext()
   const { user } = useAuthContext()
   const location = useLocation()
 
@@ -45,55 +46,68 @@ export function Header() {
   }, [])
 
   return (
-    <header className="header">
-      <Link onClick={() => setIsOpen(false)} to="/">
-        <span className="header__logo">Boruto</span>
-      </Link>
-
-      <aside className="aside">
-        <Link
-          to="/create/post"
-          className="aside__write--button"
-          aria-label="write a blog post"
-        >
-          <FaPen className="pen" /> Write
+    <>
+      {isOpen === true && <NotAuthenticated setIsOpen={setIsOpen} />}
+      <header className="header">
+        <Link onClick={() => setIsMenuOpen(false)} to="/">
+          <span className="header__logo">Boruto</span>
         </Link>
 
-        <DarkMode />
+        <aside className="aside">
+          {user?.email ? (
+            <Link
+              to="/create/post"
+              className="aside__write--button"
+              aria-label="write a blog post"
+            >
+              <FaPen className="pen" /> Write
+            </Link>
+          ) : (
+            <button
+              onClick={() => setIsOpen(true)}
+              className="aside__write--button"
+              aria-label="write a blog post"
+            >
+              <FaPen className="pen" /> Write
+            </button>
+          )}
 
-        {isHome && (
-          <div>
-            {user?.uid ? (
-              <div>
-                {profile.map(({ avatarUrl, id }) => {
-                  return (
-                    <div key={id}>
-                      {user?.uid === id && (
-                        <img
-                          onClick={() => setIsOpen(true)}
-                          src={avatarUrl}
-                          alt="profile"
-                          className="aside__profile"
-                        />
-                      )}
-                    </div>
-                  )
-                })}
-              </div>
-            ) : (
-              <img
-                alt="no profile"
-                className="aside__profile"
-                onClick={() => setIsOpen(true)}
-                src="https://hashnode.com/_next/image?url=https%3A%2F%2Fcdn.hashnode.com%2Fres%2Fhashnode%2Fimage%2Fupload%2Fv1659089761812%2FfsOct5gl6.png&w=1920&q=75"
-              />
-            )}
-          </div>
-        )}
-        {isOpen === true && (
-          <div>{user?.uid ? <Authenticated /> : <NonAuthenticated />} </div>
-        )}
-      </aside>
-    </header>
+          <DarkMode />
+
+          {isHome && (
+            <div>
+              {user?.uid ? (
+                <div>
+                  {profile.map(({ avatarUrl, id }) => {
+                    return (
+                      <div key={id}>
+                        {user?.uid === id && (
+                          <img
+                            onClick={() => setIsMenuOpen(true)}
+                            src={avatarUrl}
+                            alt="profile"
+                            className="aside__profile"
+                          />
+                        )}
+                      </div>
+                    )
+                  })}
+                </div>
+              ) : (
+                <img
+                  alt="no profile"
+                  className="aside__profile"
+                  onClick={() => setIsMenuOpen(true)}
+                  src="https://hashnode.com/_next/image?url=https%3A%2F%2Fcdn.hashnode.com%2Fres%2Fhashnode%2Fimage%2Fupload%2Fv1659089761812%2FfsOct5gl6.png&w=1920&q=75"
+                />
+              )}
+            </div>
+          )}
+          {isMenuOpen === true && (
+            <div>{user?.uid ? <Authenticated /> : <NonAuthenticated />} </div>
+          )}
+        </aside>
+      </header>
+    </>
   )
 }

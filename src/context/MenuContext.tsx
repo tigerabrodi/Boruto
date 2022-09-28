@@ -4,13 +4,13 @@ import React from 'react'
 import { useContext, createContext, useState } from 'react'
 
 type HeaderMenuContextType = {
-  isOpen: boolean
-  setIsOpen: Dispatch<SetStateAction<boolean>>
+  isMenuOpen: boolean
+  setIsMenuOpen: Dispatch<SetStateAction<boolean>>
 }
 
 const HeaderMenuContext = createContext<HeaderMenuContextType>({
-  isOpen: false,
-  setIsOpen: () => undefined,
+  isMenuOpen: false,
+  setIsMenuOpen: () => undefined,
 })
 
 export const HeaderMenuContextProvider = ({
@@ -18,10 +18,10 @@ export const HeaderMenuContextProvider = ({
 }: {
   children: React.ReactNode
 }) => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   return (
-    <HeaderMenuContext.Provider value={{ isOpen, setIsOpen }}>
+    <HeaderMenuContext.Provider value={{ isMenuOpen, setIsMenuOpen }}>
       {children}
     </HeaderMenuContext.Provider>
   )

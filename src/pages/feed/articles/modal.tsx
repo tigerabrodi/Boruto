@@ -23,10 +23,12 @@ export function Modal({ setOpenModal, articleId }: ModalProps) {
   }
   return (
     <div className="overlay">
-      <div className="modal">
-        <h1>Are you sure?</h1>
-        <p>Do you really want to delete your article?</p>
-        <div className="modal__buttons">
+      <div className="modal modal__delete">
+        <h1 className="modal__delete--title">Are you sure?</h1>
+        <p className="modal__delete--text">
+          Do you really want to delete your article?
+        </p>
+        <div className="modal__delete--buttons">
           <button onClick={deleteArticle}>Yes</button>{' '}
           <button onClick={() => setOpenModal(false)}>No</button>
         </div>
