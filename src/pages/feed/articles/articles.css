@@ -1,4 +1,5 @@
 @import url('../../../styles/App.css');
+@import url('../../../styles/darkmode.css');
 
 /* Delete Article Modal */
 .overlay {
@@ -18,7 +19,7 @@
 .modal__delete {
   text-align: center;
   padding: 30px 15px;
-  width: 400px;
+  width: 450px;
   border-radius: 8px;
   position: relative;
   z-index: 300;
@@ -33,6 +34,7 @@
 }
 
 .modal .modal__delete--text {
+  color: var(--black);
   font-size: calc(20 / 16 * 1rem);
   padding: 15px 0 30px 0;
 }
@@ -47,7 +49,7 @@
   text-align: center;
   border-radius: 30px;
   border: none;
-  color: var(--black);
+  color: var(--white);
   border: 1px solid var(--blue);
   background-color: var(--blue);
   transition: all 0.2s ease;
@@ -79,12 +81,10 @@
 }
 
 .modal__authenticatication .modal__authenticatication--close {
+  color: var(--black);
   position: absolute;
   top: 8px;
   right: 10px;
-}
-
-.modal__authenticatication .modal__authenticatication--close {
   font-size: 1.2rem;
   border: none;
   background-color: transparent;
@@ -105,10 +105,6 @@
   font-size: calc(18 / 16 * 1rem);
   width: 350px;
   margin: 0 auto 15px auto;
-}
-
-.modal__authenticatication .modal__authenticatication--text .blue-link {
-  color: var(--blue);
 }
 
 .modal__authenticatication .modal__authenticatication--links a {
@@ -320,56 +316,4 @@
 
 .buttons .bookmark {
   font-size: calc(23 / 16 * 1rem);
-}
-
-/* DARK MODE */
-
-body.dark .article,
-body.dark .modal {
-  border: 1px solid var(--border-dark-mode);
-  background-color: var(--card-dark-theme);
-}
-
-body.dark .article .article__container .container__info h1 {
-  color: var(--white);
-}
-
-body.dark .article .article__container .container__info p {
-  color: var(--text-dark-theme);
-}
-
-body.dark .buttons button {
-  color: var(--light-grey-text-dark-mode);
-}
-
-body.dark
-  .article
-  .article-wrapper
-  .article-wrapper__div
-  .article-wrapper__div--info
-  .article-wrapper__div--info--wrap
-  p:first-child,
-body.dark {
-  color: var(--white);
-}
-.article
-  .article-wrapper
-  .article-wrapper__div
-  .article-wrapper__div--info
-  .article-wrapper__div--info--wrap
-  p:last-child {
-  color: var(--text-dark-theme);
-}
-
-body.dark .buttons button:hover {
-  background-color: var(--border-dark-mode);
-}
-
-body.dark .modal .modal__delete--title {
-  color: var(--white);
-  border-bottom: 1px solid var(--border-dark-mode);
-}
-
-body.dark .modal .modal__delete--text {
-  color: var(--white);
 }

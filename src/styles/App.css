@@ -3,26 +3,12 @@
   /* General */
   --white: #fff;
   --blue: #3466f6;
-  /* Dark */
-  --border-dark-mode: #1d283c;
-  --card-dark-theme: #111827;
-  --badge-dark-mode: #1f2937;
-  --text-dark-theme: #9ca3af;
-  --light-grey-text-dark-mode: #d1d5db;
-  --body-dark-theme: #000000;
   /* Light */
   --border-light-mode: #e2e8ef;
   --black: #111827;
   --text-light-theme: #4b5563;
   --light-grey-text-light-mode: #6b7280;
   --body-light-theme: #fafbff;
-
-  /* TOST */
-  --green: #d4edda;
-  --dark-green: #155724;
-
-  --dark-red: #721c24;
-  --red: #f8d7da;
 
   --font: 'Roboto', sans-serif;
 }
@@ -71,10 +57,11 @@ input[type='number']::-webkit-inner-spin-button {
 
 body,
 .app {
+  color: var(--black);
   scroll-behavior: smooth;
   font-family: var(--font);
   background: var(--background-color);
-  transition: background 0.3s ease-in-out, color 0.6s ease-in-out;
+  transition: background 0.3s ease-in-out;
 }
 
 body.light {
@@ -84,79 +71,4 @@ body.light {
 
 body.dark {
   --background-color: var(--body-dark-theme);
-}
-
-body.dark ::-webkit-scrollbar {
-  margin-right: 30px;
-  background-color: #283043;
-  width: 6px;
-}
-body.dark ::-webkit-scrollbar-track {
-  background-color: transparent;
-}
-body.dark ::-webkit-scrollbar-thumb {
-  background-color: var(--blue);
-  border-radius: 16px;
-  border: none;
-}
-body::-webkit-scrollbar-button {
-  display: none;
-}
-
-/* Dark mode */
-body.dark .header {
-  background-color: var(--card-dark-theme);
-  border-bottom: 1px solid var(--border-dark-mode);
-  transition: background 0.3s ease-in-out, color 0.6s ease-in-out;
-}
-
-body.dark .aside .aside__wrapper,
-body.dark .form {
-  background-color: var(--card-dark-theme);
-  border: 1px solid var(--border-dark-mode);
-}
-
-body.dark .header .header__logo,
-body.dark .aside .aside__wrapper .aside__wrapper--info,
-body.dark .form h2,
-body.dark .form label {
-  color: var(--white);
-}
-
-body.dark .form h2 {
-  border-bottom: 1px solid var(--border-dark-mode);
-}
-body.dark .form input,
-body.dark .form textarea {
-  color: var(--light-grey-text-dark-mode);
-  background-color: var(--badge-dark-mode);
-  border: 1px solid var(--badge-dark-mode);
-}
-
-body.dark .aside .aside__wrapper .aside__wrapper--text {
-  color: var(--light-grey-text-dark-mode);
-}
-
-body.dark .form .form__wrapper .form__wrapper--wrap button {
-  color: #a1a8b4;
-}
-
-body.dark .theme__button * {
-  color: var(--light-grey-text-dark-mode);
-}
-
-body.light .alert.danger {
-  color: #f44336;
-}
-
-body.dark .alert.danger {
-  color: #ef5350;
-}
-
-body.light .alert.success {
-  color: #42aa66;
-}
-
-body.dark .alert.success {
-  color: #41bf6d;
 }

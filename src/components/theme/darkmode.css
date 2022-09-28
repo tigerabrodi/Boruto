@@ -1,3 +1,5 @@
+@import url('../../styles/darkmode.css');
+
 .theme__button {
   cursor: pointer;
   color: var(--text-light-theme);

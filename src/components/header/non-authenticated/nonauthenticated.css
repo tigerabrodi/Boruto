@@ -52,6 +52,7 @@
   font-weight: 600;
   text-align: center;
   border-radius: 30px;
+  transition: all 0.2s ease;
 }
 
 .non-authenticated
@@ -71,23 +72,16 @@
   background-color: transparent;
 }
 
-/* DARK MODE */
-
-body.dark .non-authenticated .non-authenticated__wrapper {
-  background-color: var(--badge-dark-mode);
-  border: 1px solid #2c3645;
+.non-authenticated
+  .non-authenticated__wrapper
+  .non-authenticated__wrapper--links
+  a:first-child:hover {
+  background-color: #507cff;
 }
 
-body.dark
-  .non-authenticated
+.non-authenticated
   .non-authenticated__wrapper
-  .non-authenticated__wrapper--info {
-  color: var(--white);
-}
-
-body.dark
-  .non-authenticated
-  .non-authenticated__wrapper
-  .non-authenticated__wrapper--text {
-  color: var(--light-grey-text-dark-mode);
+  .non-authenticated__wrapper--links
+  a:last-child:hover {
+  background-color: #3464f61f;
 }

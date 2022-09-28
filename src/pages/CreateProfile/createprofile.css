@@ -1,4 +1,6 @@
 @import url('../../styles/App.css');
+@import url('../../styles/darkmode.css');
+
 .form__wrapper textarea {
   outline: none;
   width: 340px;

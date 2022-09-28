@@ -13,12 +13,8 @@ export function NotAuthenticated({ setIsOpen }: NotAuthenticatedProps) {
           Hey, 👋 sign up or sign in to interact.
         </h1>
         <p className="modal__authenticatication--text">
-          This blog is powered by{' '}
-          <Link to="/" className="blue-link">
-            Boruto
-          </Link>
-          . We need to authenticate you via Boruto in order for you to interact
-          with the author.
+          This blog is powered by Boruto . We need to authenticate you via
+          Boruto in order for you to interact with the author.
         </p>
         <div className="modal__authenticatication--links">
           <Link to="/signup">Sign up</Link>
