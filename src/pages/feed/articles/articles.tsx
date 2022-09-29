@@ -46,9 +46,12 @@ export function Articles() {
 
   return (
     <>
-      <Skeleton />
       {isLoading ? (
-        <p>Loading</p>
+        <>
+          <Skeleton />
+          <Skeleton />
+          <Skeleton />
+        </>
       ) : (
         <div className="posts">
           {articles.map(
