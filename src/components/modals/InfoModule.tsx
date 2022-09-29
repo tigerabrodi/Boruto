@@ -9,7 +9,7 @@ type InfoModuleProps = {
 
 export function InfoModule({ setIsOpen }: InfoModuleProps) {
   return (
-    <div onClick={() => setIsOpen(false)} className="overlay">
+    <div onClick={() => setIsOpen(false)} className="overlay-info-modal">
       <div className="info-modal">
         <h1 className="info-modal--title">
           Hey, 👋 sign up or sign in to interact.
