@@ -9,7 +9,7 @@ type SkeletonContextType = {
 }
 
 const SkeletonContext = createContext<SkeletonContextType>({
-  isLoading: false,
+  isLoading: true,
   setIsLoading: () => undefined,
 })
 
@@ -18,7 +18,7 @@ export const SkeletonContextProvider = ({
 }: {
   children: React.ReactNode
 }) => {
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
 
   return (
     <SkeletonContext.Provider value={{ isLoading, setIsLoading }}>

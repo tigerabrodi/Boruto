@@ -6,9 +6,9 @@ import { useEffect, useState } from 'react'
 import { FiThumbsUp, FiMessageSquare } from 'react-icons/fi'
 import { MdOutlineBookmarkAdd } from 'react-icons/md'
 
-import { InfoModule } from '../../../components/modals/InfoModule'
-import { useAuthContext } from '../../../context/AuthContext'
-import { firebaseDb } from '../../../lib/firebase'
+import { InfoModule } from '../../../../components/modals/InfoModule'
+import { useAuthContext } from '../../../../context/AuthContext'
+import { firebaseDb } from '../../../../lib/firebase'
 
 type ButtonsProps = {
   articleId: string

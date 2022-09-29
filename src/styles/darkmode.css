@@ -255,6 +255,12 @@ body.dark .sidebar footer a:hover {
   color: #527dff;
 }
 
+/* ARTICLE SKELETON */
+body.dark .article-skeleton {
+  border: 1px solid var(--border-dark-mode);
+  background-color: var(--card-dark-theme);
+}
+
 /* WRITE */
 
 body.dark .write {

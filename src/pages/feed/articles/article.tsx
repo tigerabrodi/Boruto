@@ -12,7 +12,7 @@ import remarkGfm from 'remark-gfm'
 import { DeleteArticleModal } from '../../../components/modals/DeleteArticleModal'
 import { useAuthContext } from '../../../context/AuthContext'
 import { firebaseDb } from '../../../lib/firebase'
-import { Buttons } from './buttons'
+import { Buttons } from './buttons/buttons'
 
 type ArticleProps = {
   uid: string

@@ -5,8 +5,10 @@ import type { CollectionReference } from 'firebase/firestore'
 import { query, orderBy, onSnapshot, collection } from 'firebase/firestore'
 import { useEffect, useState } from 'react'
 
+import { useSkeletonContext } from '../../../context/SkeletonContext'
 import { firebaseDb } from '../../../lib/firebase'
 import { Article } from './article'
+import { Skeleton } from './skeleton/skeleton'
 
 export type ArticleType = {
   uid: string
@@ -19,6 +21,8 @@ export type ArticleType = {
 
 export function Articles() {
   const [articles, setArticles] = useState<ArticleType[]>([])
+  const { isLoading, setIsLoading } = useSkeletonContext()
+
   const ArticlesCollectionReference = collection(
     firebaseDb,
     'articles'
@@ -31,6 +35,7 @@ export function Articles() {
         setArticles(
           snapshot.docs.map((doc) => ({ ...doc.data(), articleId: doc.id }))
         )
+        setIsLoading(false)
       }
     )
 
@@ -40,20 +45,29 @@ export function Articles() {
   }, [firebaseDb])
 
   return (
-    <div className="posts">
-      {articles.map(({ articleId, uid, text, title, readMin, coverUrl }) => {
-        return (
-          <Article
-            key={articleId}
-            uid={uid}
-            text={text}
-            title={title}
-            articleId={articleId}
-            readMin={readMin}
-            coverUrl={coverUrl}
-          />
-        )
-      })}
-    </div>
+    <>
+      <Skeleton />
+      {isLoading ? (
+        <p>Loading</p>
+      ) : (
+        <div className="posts">
+          {articles.map(
+            ({ articleId, uid, text, title, readMin, coverUrl }) => {
+              return (
+                <Article
+                  key={articleId}
+                  uid={uid}
+                  text={text}
+                  title={title}
+                  articleId={articleId}
+                  readMin={readMin}
+                  coverUrl={coverUrl}
+                />
+              )
+            }
+          )}
+        </div>
+      )}
+    </>
   )
 }
