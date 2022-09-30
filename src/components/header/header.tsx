@@ -7,6 +7,7 @@ import { Link, useLocation } from 'react-router-dom'
 
 import './header.css'
 import { useAuthContext } from '../../context/AuthContext'
+import { useInfoModuleContext } from '../../context/InfoModuleContext'
 import { useHeaderMenuContext } from '../../context/MenuContext'
 import { firebaseDb } from '../../lib/firebase'
 import { InfoModule } from '../modals/InfoModule'
@@ -21,7 +22,7 @@ type UserType = {
 
 export function Header() {
   const [profile, setProfile] = useState<UserType[]>([])
-  const [isOpen, setIsOpen] = useState(false)
+  const { isOpen, setIsOpen } = useInfoModuleContext()
   const { isMenuOpen, setIsMenuOpen } = useHeaderMenuContext()
   const { user } = useAuthContext()
   const location = useLocation()
@@ -47,7 +48,7 @@ export function Header() {
 
   return (
     <>
-      {isOpen === true && <InfoModule setIsOpen={setIsOpen} />}
+      {isOpen === true && <InfoModule />}
       <header className="header">
         <Link onClick={() => setIsMenuOpen(false)} to="/">
           <span className="header__logo">Boruto</span>

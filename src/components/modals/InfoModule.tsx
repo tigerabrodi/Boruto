@@ -1,13 +1,13 @@
 import { FiX } from 'react-icons/fi'
 import { Link } from 'react-router-dom'
 
+import { useInfoModuleContext } from '../../context/InfoModuleContext'
+
 import './modals.css'
 
-type InfoModuleProps = {
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>
-}
+export function InfoModule() {
+  const { setIsOpen } = useInfoModuleContext()
 
-export function InfoModule({ setIsOpen }: InfoModuleProps) {
   return (
     <div onClick={() => setIsOpen(false)} className="overlay-info-modal">
       <div className="info-modal">

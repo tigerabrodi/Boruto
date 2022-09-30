@@ -8,6 +8,7 @@ import { MdOutlineBookmarkAdd } from 'react-icons/md'
 
 import { InfoModule } from '../../../../components/modals/InfoModule'
 import { useAuthContext } from '../../../../context/AuthContext'
+import { useInfoModuleContext } from '../../../../context/InfoModuleContext'
 import { firebaseDb } from '../../../../lib/firebase'
 
 type ButtonsProps = {
@@ -20,7 +21,7 @@ type Like = {
 }
 
 export function Buttons({ articleId }: ButtonsProps) {
-  const [isOpen, setIsOpen] = useState(false)
+  const { isOpen, setIsOpen } = useInfoModuleContext()
   const [likes, setLikes] = useState<Like[]>([])
   const [hasLiked, setHasLiked] = useState(false)
 
@@ -63,7 +64,7 @@ export function Buttons({ articleId }: ButtonsProps) {
   }
   return (
     <>
-      {isOpen === true && <InfoModule setIsOpen={setIsOpen} />}
+      {isOpen === true && <InfoModule />}
 
       {user?.email ? (
         <div className="buttons">
