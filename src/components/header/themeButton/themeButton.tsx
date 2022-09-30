@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import './darkmode.css'
-import '../../styles/App.css'
+import './themeButton.css'
+import '../../../styles/App.css'
 import { useState } from 'react'
 import { BsMoon, BsSun } from 'react-icons/bs'
 
-export const DarkMode = () => {
+export const ThemeButton = () => {
   const [toggle, setToggle] = useState(false)
 
   const clickedClass = 'clicked'
