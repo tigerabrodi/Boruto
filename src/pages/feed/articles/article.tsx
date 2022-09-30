@@ -6,8 +6,7 @@ import { collection, onSnapshot } from 'firebase/firestore'
 import { useEffect, useState } from 'react'
 import { FiBookOpen, FiX, FiEdit3 } from 'react-icons/fi'
 import ReactMarkdown from 'react-markdown'
-import rehypeRaw from 'rehype-raw'
-import remarkGfm from 'remark-gfm'
+import { Link } from 'react-router-dom'
 
 import { DeleteArticleModal } from '../../../components/modals/DeleteArticleModal'
 import { useAuthContext } from '../../../context/AuthContext'
@@ -59,20 +58,20 @@ export function Article({
         ''
       )}
       <div className="article">
-        <div
-          className="article__cover"
-          style={{
-            backgroundImage: `url(${coverUrl})`,
-          }}
-        />
+        <Link to={`/article/${articleId}`}>
+          <div
+            className="article__cover"
+            style={{
+              backgroundImage: `url(${coverUrl})`,
+            }}
+          />
+        </Link>
         <div className="article__container">
           <div className="container__info">
             <h1>{title}</h1>
             <ReactMarkdown
               className="container__info--text"
               children={text && text.substr(0, 200) + '...'}
-              remarkPlugins={[remarkGfm]}
-              rehypePlugins={[rehypeRaw]}
             />
           </div>
         </div>

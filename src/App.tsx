@@ -16,6 +16,7 @@ import {
   Profile,
   EditProfile,
 } from './files'
+import { Blogs } from './pages/blog/blogs'
 import { ToastOptions } from './styles/theme'
 
 export function App() {
@@ -37,6 +38,7 @@ export function App() {
               <Route path="/edit/profile" element={<EditProfile />} />
               <Route path="/create/post" element={<Write />} />
               <Route path="/onboard/profile" element={<CreateProfile />} />
+              <Route path="/article/:id" element={<Blogs />} />
             </Routes>
           </InfoModuleContextProvider>
         </SkeletonContextProvider>
