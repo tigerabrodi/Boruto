@@ -1,10 +1,12 @@
 import { FiClock, FiBookmark, FiStar } from 'react-icons/fi'
 
 import { InfoModule } from '../../../components/modals/InfoModule'
+import { useAuthContext } from '../../../context/AuthContext'
 import { useInfoModuleContext } from '../../../context/InfoModuleContext'
 import './sidebar.css'
 export function SideBar() {
   const { isOpen, setIsOpen } = useInfoModuleContext()
+  const { user } = useAuthContext()
 
   return (
     <>
@@ -19,10 +21,22 @@ export function SideBar() {
           <FiStar className="icon" />
           Top
         </button>
-        <button className="sidebar__bookmarks" onClick={() => setIsOpen(true)}>
-          <FiBookmark className="icon" />
-          Bookmarks
-        </button>
+
+        {user?.uid ? (
+          <button className="sidebar__bookmarks">
+            <FiBookmark className="icon" />
+            Bookmarks
+          </button>
+        ) : (
+          <button
+            className="sidebar__bookmarks"
+            onClick={() => setIsOpen(true)}
+          >
+            <FiBookmark className="icon" />
+            Bookmarks
+          </button>
+        )}
+
         <div className="line"></div>
         <footer>
           <p>
