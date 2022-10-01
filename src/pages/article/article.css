@@ -1,0 +1,58 @@
+@import url('../../styles/App.css');
+@import url('../../styles/darkmode.css');
+
+.container {
+  position: relative;
+}
+
+.card {
+  position: relative;
+  border-radius: 8px;
+  border: 1px solid var(--border-light-mode);
+  background-color: var(--white);
+  padding: 30px;
+  margin-bottom: 20px;
+}
+
+.card__cover {
+  border-radius: 4px;
+  width: 100%;
+}
+
+.card .card__title {
+  text-align: center;
+  padding-top: 15px;
+  font-size: calc(36 / 16 * 1rem);
+}
+
+.card .card__subtitle {
+  text-align: center;
+  padding-top: 15px;
+  color: var(--text-light-theme);
+  font-size: calc(30 / 16 * 1rem);
+}
+
+.card .card__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card .card__wrapper img {
+  width: 50px;
+  margin-right: 10px;
+}
+.card .card__wrapper p {
+  color: var(--text-light-theme);
+  font-size: calc(18 / 16 * 1rem);
+  margin: 0 10px;
+}
+
+.card .card__wrapper p:last-child {
+  display: flex;
+  align-items: center;
+}
+
+.card .card__wrapper p:last-child * {
+  margin-right: 5px;
+}

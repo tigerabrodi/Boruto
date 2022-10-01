@@ -21,7 +21,7 @@ export function Menu() {
           <Link onClick={() => setIsMenuOpen(false)} to="/signup">
             Sign up
           </Link>
-          <Link onClick={() => setIsMenuOpen(false)} to="/login">
+          <Link onClick={() => setIsMenuOpen(false)} to="/signin">
             Log in
           </Link>
         </div>
