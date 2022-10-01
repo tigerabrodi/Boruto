@@ -13,6 +13,7 @@ import { useRef, useState } from 'react'
 import toast from 'react-hot-toast'
 import { FiX } from 'react-icons/fi'
 import { IoImageOutline } from 'react-icons/io5'
+import { RiText } from 'react-icons/ri'
 import { useNavigate } from 'react-router-dom'
 
 import { useAuthContext } from '../../context/AuthContext'
@@ -21,7 +22,9 @@ import { useLoadingStore } from '../../lib/store'
 import { Preview } from './preview'
 
 export function Write() {
-  const [selectedFile, setSelectedFile] = useState<any>(null)
+  const [subtitle, setSubtitle] = useState<boolean>(false)
+  const [selectedFiled, setSelectedField] = useState<any>(null)
+  const [subtitleField, setSubtitleField] = useState('')
   const [textField, setTextField] = useState('')
   const [titleField, setTitleField] = useState('')
   const [minuteField, setMinuteField] = useState('')
@@ -31,6 +34,11 @@ export function Write() {
   const { setStatus } = useLoadingStore()
   const { user } = useAuthContext()
   const navigate = useNavigate()
+
+  const closeSubtitleField = () => {
+    setSubtitle(false)
+    setSubtitleField('')
+  }
 
   const createBlogArticle = async (event: { preventDefault: () => void }) => {
     event.preventDefault()
@@ -47,12 +55,13 @@ export function Write() {
       `articles/${documentReference.id}/image`
     )
 
-    await uploadString(imageReference, selectedFile, 'data_url').then(
+    await uploadString(imageReference, selectedFiled, 'data_url').then(
       async () => {
         const downloadURL = await getDownloadURL(imageReference)
 
         await updateDoc(doc(firebaseDb, `articles/${documentReference.id}`), {
           title: titleField,
+          subtitle: subtitleField,
           text: textField,
           coverUrl: downloadURL,
           readMin: minuteField,
@@ -61,7 +70,7 @@ export function Write() {
     )
 
     setStatus('success')
-    setSelectedFile(null)
+    setSelectedField(null)
     navigate('/')
     toast.success('You successfully created a blog article.')
   }
@@ -74,7 +83,7 @@ export function Write() {
     }
 
     reader.onload = (readerEvent) => {
-      setSelectedFile(readerEvent.target?.result)
+      setSelectedField(readerEvent.target?.result)
     }
   }
 
@@ -82,27 +91,36 @@ export function Write() {
     <div className="create-article">
       <div className="write">
         <div className="write__header">
-          <div
-            className="write__header--container"
-            onClick={() => filePickerRef.current.click()}
-          >
-            <button
-              role="file input"
-              className="write__header--button"
-              aria-label="Add a cover to your blog article"
+          <div className="write__header--container">
+            <div
+              onClick={() => filePickerRef.current.click()}
+              className="write__header--container--wrapper"
             >
-              <IoImageOutline className="icon" /> Add Cover
-            </button>
+              <button
+                role="file input"
+                className="write__header--button"
+                aria-label="Add a cover to your blog article"
+              >
+                <IoImageOutline className="icon" /> Add Cover
+              </button>
+              <input
+                id="fileInput"
+                className="cover__file--btn"
+                type="file"
+                name="file"
+                ref={filePickerRef}
+                onChange={addImageToPost}
+                hidden
+              />
+            </div>
 
-            <input
-              id="fileInput"
-              className="cover__file--btn"
-              type="file"
-              name="file"
-              ref={filePickerRef}
-              onChange={addImageToPost}
-              hidden
-            />
+            <button
+              onClick={() => setSubtitle(true)}
+              className="write__header--button"
+              aria-label="Add subtitle to your blog article"
+            >
+              <RiText className="icon" /> Add Subtitle
+            </button>
           </div>
           <div className="write__header--wrapper">
             <label htmlFor="Read minute">Read minute</label>
@@ -117,16 +135,16 @@ export function Write() {
           </div>
         </div>
 
-        {selectedFile ? (
+        {selectedFiled ? (
           <div
             className="write__cover"
             style={{
-              backgroundImage: `url(${selectedFile})`,
+              backgroundImage: `url(${selectedFiled})`,
             }}
           >
             <button
-              aria-label="Remove cover"
-              onClick={() => setSelectedFile(null)}
+              aria-label="Remove Subtitle"
+              onClick={() => setSelectedField(null)}
             >
               <FiX />
             </button>
@@ -144,6 +162,20 @@ export function Write() {
             onChange={(event) => setTitleField(event.target.value)}
           />
         </div>
+        {subtitle === true && (
+          <div className="write__wrapper subtitle">
+            <button onClick={closeSubtitleField} aria-label="Remove cover">
+              <FiX />
+            </button>
+            <label htmlFor="Article subtitle">Article subtitle</label>
+            <textarea
+              name="title"
+              id="Article subtitle"
+              placeholder="Article subtitle..."
+              onChange={(event) => setSubtitleField(event.target.value)}
+            />
+          </div>
+        )}
 
         <div className="line"></div>
 
