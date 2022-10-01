@@ -32,11 +32,10 @@ export const useCreateUserWithEmailAndPassword = () => {
         age: '',
         bio: '',
         avatarUrl: '',
-        likeCount: 0,
-        postCount: 0,
         createdAt: serverTimestamp(),
         uid: user.user.uid,
         articles: [],
+        bookmarks: [],
       })
 
       const usernameRef = doc(firebaseDb, `usernames/${username}`)

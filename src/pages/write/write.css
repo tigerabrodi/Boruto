@@ -179,7 +179,7 @@
   outline: none;
   font-weight: 700;
   border: none;
-  height: 80px;
+  height: 100px;
   font-size: calc(36 / 16 * 1rem);
   color: var(--black);
   background-color: var(--white);
@@ -198,8 +198,9 @@
   font-weight: 400;
   border: none;
   height: 100px;
+  padding-right: 30px;
   font-size: calc(30 / 16 * 1rem);
-  color: var(--black);
+  color: var(--text-light-theme);
   background-color: var(--white);
 }
 
@@ -210,8 +211,8 @@
   border: none;
   color: var(--black);
   font-size: calc(20 / 16 * 1rem);
-  top: 30px;
-  right: 30px;
+  top: 20px;
+  right: 20px;
   padding: 5px 10px;
   border-radius: 15px;
   transition: all 0.2s ease;
@@ -235,9 +236,11 @@
   word-wrap: break-word;
   background-color: var(--white);
   font-size: calc(16 / 16 * 1rem);
+  line-height: 1.5;
 }
 
 .write .write__container .write__container--preview {
+  line-height: 1.5;
   height: 300px;
   font-size: 1rem;
   color: #6b7280;

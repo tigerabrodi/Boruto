@@ -30,6 +30,10 @@
   display: none;
 }
 
+::-webkit-scrollbar:horizontal {
+  height: 5px;
+}
+
 * {
   margin: 0;
   padding: 0;

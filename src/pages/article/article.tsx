@@ -54,7 +54,7 @@ export function Article() {
           <div className="card">
             <img src={data.coverUrl} alt="" className="card__cover" />
             <h1 className="card__title">{data.title}</h1>
-            <h1 className="card__subtitle">This is a subtitle</h1>
+            <h1 className="card__subtitle">{data.subtitle}</h1>
             <div className="card__wrapper">
               <Author dataID={data.uid} />
               <p>

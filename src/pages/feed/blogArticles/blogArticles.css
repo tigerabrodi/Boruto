@@ -65,7 +65,7 @@
 
 .article .article__container .container__info a:first-child {
   color: var(--black);
-  font-size: calc(34 / 16 * 1rem);
+  font-size: calc(32 / 16 * 1rem);
   font-weight: 600;
   margin-bottom: 20px;
 }

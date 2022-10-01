@@ -13,16 +13,16 @@
   --body-dark-theme: #000000;
 }
 
-body.dark ::-webkit-scrollbar {
+body.dark::-webkit-scrollbar {
   width: 6px;
 
   margin-right: 30px;
   background-color: #283043;
 }
-body.dark ::-webkit-scrollbar-track {
+body.dark::-webkit-scrollbar-track {
   background-color: transparent;
 }
-body.dark ::-webkit-scrollbar-thumb {
+body.dark::-webkit-scrollbar-thumb {
   border: none;
   border-radius: 16px;
   background-color: var(--blue);

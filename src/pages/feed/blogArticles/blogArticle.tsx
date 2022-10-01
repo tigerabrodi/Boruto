@@ -7,6 +7,10 @@ import { useEffect, useState } from 'react'
 import { FiBookOpen, FiX, FiEdit3 } from 'react-icons/fi'
 import ReactMarkdown from 'react-markdown'
 import { Link } from 'react-router-dom'
+import SyntaxHighlighter from 'react-syntax-highlighter'
+import { dracula } from 'react-syntax-highlighter/dist/esm/styles/hljs'
+import rehypeRaw from 'rehype-raw'
+import remarkGfm from 'remark-gfm'
 
 import { DeleteArticleModal } from '../../../components/modals/DeleteArticleModal'
 import { useAuthContext } from '../../../context/AuthContext'
@@ -26,6 +30,7 @@ export function BlogArticle({
   uid,
   text,
   title,
+
   readMin,
   coverUrl,
   articleId,
@@ -69,10 +74,31 @@ export function BlogArticle({
         <div className="article__container">
           <div className="container__info">
             <Link to={`/article/${articleId}`}>{title}</Link>
+
             <Link to={`/article/${articleId}`}>
               <ReactMarkdown
                 className="container__info--text"
-                children={text && text.substr(0, 200) + '...'}
+                children={text && text.substr(0, 185) + '...'}
+                remarkPlugins={[remarkGfm]}
+                rehypePlugins={[rehypeRaw]}
+                components={{
+                  code({ node, inline, className, children, ...props }) {
+                    const match = /language-(\w+)/.exec(className || '')
+                    return !inline && match ? (
+                      <SyntaxHighlighter
+                        style={dracula}
+                        children={String(children).replace(/\n$/, '')}
+                        language={match[1]}
+                        PreTag="div"
+                        {...props}
+                      />
+                    ) : (
+                      <code className={className} {...props}>
+                        {children}
+                      </code>
+                    )
+                  },
+                }}
               />
             </Link>
           </div>
