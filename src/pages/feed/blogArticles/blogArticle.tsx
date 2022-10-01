@@ -68,11 +68,13 @@ export function BlogArticle({
         </Link>
         <div className="article__container">
           <div className="container__info">
-            <h1>{title}</h1>
+            <Link to={`/article/${articleId}`}>{title}</Link>
+            {/* <Link to={`/article/${articleId}`}> */}
             <ReactMarkdown
               className="container__info--text"
               children={text && text.substr(0, 200) + '...'}
             />
+            {/* </Link> */}
           </div>
         </div>
         <div className="article-wrapper">
@@ -84,7 +86,9 @@ export function BlogArticle({
                     <div className="article-wrapper__div--info">
                       <img src={info.avatarUrl} alt="profile" />{' '}
                       <div className="article-wrapper__div--info--wrap">
-                        <p>{info.fullname}</p>
+                        <Link to={`/profile/${info.profileId}`}>
+                          {info.fullname}
+                        </Link>
                         <p>
                           <FiBookOpen className="icon" />
                           {readMin} read min
