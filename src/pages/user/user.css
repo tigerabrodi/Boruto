@@ -1,10 +1,9 @@
-@import url('../../styles/App.css');
 @import url('../../styles/darkmode.css');
+@import url('../../styles/App.css');
 
-.profile {
+.user {
   display: flex;
   flex-direction: column;
-  /* height: 100vh; */
 }
 
 .card {

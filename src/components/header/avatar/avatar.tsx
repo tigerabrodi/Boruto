@@ -47,9 +47,9 @@ export function Avatar() {
   return (
     <>
       {isHome && (
-        <div>
+        <>
           {user?.uid ? (
-            <div>
+            <>
               {profile.map(({ avatarUrl, id }) => {
                 return (
                   <div key={id}>
@@ -58,22 +58,22 @@ export function Avatar() {
                         onClick={() => setIsMenuOpen(true)}
                         src={avatarUrl}
                         alt="profile"
-                        className="aside__profile"
+                        className="header__aside--avatar"
                       />
                     )}
                   </div>
                 )
               })}
-            </div>
+            </>
           ) : (
             <img
               alt="no profile"
-              className="aside__profile"
+              className="header__aside--avatar"
               onClick={() => setIsMenuOpen(true)}
               src={defaultAvatar}
             />
           )}
-        </div>
+        </>
       )}
     </>
   )

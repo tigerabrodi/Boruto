@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import '../signup/signup'
-import './createprofile.css'
+import '../signup'
+import '../createProfile/createprofile.css'
 import { updateDoc, doc } from 'firebase/firestore'
 import { getDownloadURL, ref, uploadString } from 'firebase/storage'
 import { useRef, useState } from 'react'
@@ -8,8 +8,12 @@ import toast from 'react-hot-toast'
 import { IoCameraOutline } from 'react-icons/io5'
 import { useNavigate } from 'react-router-dom'
 
-import { useFormState } from '../../hooks/useFormState'
-import { firebaseDb, firebaseAuth, firebaseStorage } from '../../lib/firebase'
+import { useFormState } from '../../../hooks/useFormState'
+import {
+  firebaseDb,
+  firebaseAuth,
+  firebaseStorage,
+} from '../../../lib/firebase'
 
 export function CreateProfile() {
   const filePickerRef = useRef<any>(null)

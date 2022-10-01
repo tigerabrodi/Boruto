@@ -1,7 +1,7 @@
 @import url('../../../../styles/App.css');
 @import url('../../../../styles/darkmode.css');
 
-.article-skeleton {
+.blog-article-skeleton {
   width: 600px;
   position: relative;
   border-radius: 8px;

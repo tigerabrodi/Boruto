@@ -40,7 +40,7 @@ export const ThemeButton = () => {
   }
 
   return (
-    <div className="toggle-btn">
+    <div className="header__aside--theme">
       {toggle ? (
         <button
           onClick={(event) => switchTheme(event)}

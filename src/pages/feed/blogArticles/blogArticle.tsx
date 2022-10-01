@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import type { UserType } from '../../../components/header/Menu/AuthMenu'
+import type { UserType } from '../../../components/header/menu/authMenu'
 import type { CollectionReference } from 'firebase/firestore'
 
 import { collection, onSnapshot } from 'firebase/firestore'
@@ -22,7 +22,7 @@ type ArticleProps = {
   articleId: string
 }
 
-export function Article({
+export function BlogArticle({
   uid,
   text,
   title,

@@ -6,7 +6,7 @@ export function Skeleton() {
   return (
     <div>
       <ContentLoader
-        className="article-skeleton"
+        className="blog-article-skeleton"
         viewBox="0 0 300 275"
         backgroundColor="#b5b5b5"
         foregroundColor="#d1d1d1"

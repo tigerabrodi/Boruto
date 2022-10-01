@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import '../../signup/signup.css'
-import './edit.css'
-import '../../CreateProfile/createprofile.css'
+import './editUser.css'
+import '../../signup/createProfile/createprofile.css'
 import { updateDoc, doc } from 'firebase/firestore'
 import { getDownloadURL, ref, uploadString } from 'firebase/storage'
 import { useRef, useState } from 'react'

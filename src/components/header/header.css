@@ -15,26 +15,24 @@
 .header .header__logo {
   color: var(--black);
   text-decoration: none;
-}
-.header__logo {
   font-weight: 700;
   font-size: calc(32 / 16 * 1rem);
   color: var(--title-light-theme);
 }
 
-.aside {
+.header__aside {
   display: flex;
   position: relative;
   align-items: center;
 }
 
-.aside .aside__profile {
+.header .header__aside .header__aside--avatar {
   width: 40px;
   cursor: pointer;
   border-radius: 50%;
 }
 
-.aside .aside__write--button {
+.header .header__aside .header__aside--button {
   border: none;
   display: flex;
   cursor: pointer;
@@ -49,11 +47,11 @@
   background-color: var(--blue);
 }
 
-.aside .aside__write--button:hover {
+.header .header__aside .header__aside--button:hover {
   background-color: #507cff;
 }
 
-.aside .aside__write--button .pen {
+.header .header__aside .header__aside--button .pen {
   font-size: 1rem;
   margin: 0 10px 0 0px;
 }

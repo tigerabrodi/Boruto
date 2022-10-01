@@ -1,4 +1,4 @@
-import type { UserType } from '../../components/header/Menu/AuthMenu'
+import type { UserType } from '../../components/header/menu/authMenu'
 import type { CollectionReference } from 'firebase/firestore'
 
 import { collection, onSnapshot } from 'firebase/firestore'
@@ -6,11 +6,12 @@ import { useEffect, useState } from 'react'
 import { FiEdit3 } from 'react-icons/fi'
 import { Link } from 'react-router-dom'
 
-import './profile.css'
+import './user.css'
 import { useAuthContext } from '../../context/AuthContext'
 import { firebaseDb } from '../../lib/firebase'
-export function Profile() {
-  const [profile, setProfile] = useState<UserType[]>([])
+
+export function User() {
+  const [userInfo, setUserInfo] = useState<UserType[]>([])
 
   const { user } = useAuthContext()
 
@@ -20,24 +21,24 @@ export function Profile() {
   ) as CollectionReference<UserType>
 
   useEffect(() => {
-    const getProfile = () => {
+    const getUser = () => {
       onSnapshot(userCollectionReference, (snapshot) => {
-        setProfile(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+        setUserInfo(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
       })
     }
-    getProfile()
+    getUser()
   }, [])
 
   return (
     <>
-      {profile.map(({ fullname, username, avatarUrl, bio, location, uid }) => {
+      {userInfo.map(({ fullname, username, avatarUrl, bio, location, uid }) => {
         return (
-          <div className="profile" key={uid}>
+          <div className="user" key={uid}>
             {user?.uid === uid && (
               <div className="card">
                 <div className="card__wrapper">
                   <div className="card__wrapper--primary">
-                    <img src={avatarUrl} alt="profile" />
+                    <img src={avatarUrl} alt="user" />
                     <p>@{username}</p>
                   </div>
                   <div className="card__wrapper--secondary">
@@ -47,7 +48,7 @@ export function Profile() {
                   </div>
                 </div>
 
-                <Link to="/edit/profile" aria-label="Edit profile">
+                <Link to="/edit/user" aria-label="Edit user">
                   <FiEdit3 className="pen" />
                   Edit
                 </Link>

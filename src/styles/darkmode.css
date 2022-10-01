@@ -37,16 +37,10 @@ body.dark .header {
   border-bottom: 1px solid var(--border-dark-mode);
 }
 
-body.dark .header .header__logo {
+body.dark .header .header__aside .header__aside--logo {
   color: var(--white);
 }
 
-.aside .aside__write--button {
-  color: var(--white);
-  background-color: var(--blue);
-}
-
-/* THEME BUTTON */
 body.dark .theme__button {
   color: var(--text-dark-theme);
 }

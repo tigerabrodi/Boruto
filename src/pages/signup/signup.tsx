@@ -221,7 +221,7 @@ export function SignUp() {
           Sign Up
         </button>
         <p className="form__link">
-          Already have an account? <Link to="/login">Sign in.</Link>{' '}
+          Already have an account? <Link to="/signin">Sign in.</Link>{' '}
         </p>
       </form>
     </div>

@@ -1,4 +1,4 @@
-import './articles.css'
+import './blogArticles.css'
 
 import type { CollectionReference } from 'firebase/firestore'
 
@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react'
 
 import { useSkeletonContext } from '../../../context/SkeletonContext'
 import { firebaseDb } from '../../../lib/firebase'
-import { Article } from './article'
+import { BlogArticle } from './blogArticle'
 import { Skeleton } from './skeleton/skeleton'
 
 export type ArticleType = {
@@ -19,7 +19,7 @@ export type ArticleType = {
   articleId: string
 }
 
-export function Articles() {
+export function BlogArticles() {
   const [articles, setArticles] = useState<ArticleType[]>([])
   const { isLoading, setIsLoading } = useSkeletonContext()
 
@@ -53,11 +53,11 @@ export function Articles() {
           <Skeleton />
         </>
       ) : (
-        <div className="posts">
+        <div className="blog-articles">
           {articles.map(
             ({ articleId, uid, text, title, readMin, coverUrl }) => {
               return (
-                <Article
+                <BlogArticle
                   key={articleId}
                   uid={uid}
                   text={text}

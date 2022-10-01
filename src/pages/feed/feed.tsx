@@ -1,4 +1,4 @@
-import { Articles } from './articles/articles'
+import { BlogArticles } from './blogArticles/blogArticles'
 import './feed.css'
 import { SideBar } from './sidebar/siderbar'
 
@@ -9,7 +9,7 @@ export function Feed() {
         <SideBar />
       </div>
       <div className="feed__articles">
-        <Articles />
+        <BlogArticles />
       </div>
     </div>
   )

@@ -4,6 +4,7 @@ import toast from 'react-hot-toast'
 import { firebaseDb } from '../../lib/firebase'
 import { useLoadingStore } from '../../lib/store'
 import './modals.css'
+
 type DeleteArticleModalProps = {
   articleId: string
   setOpenModal: React.Dispatch<React.SetStateAction<boolean>>

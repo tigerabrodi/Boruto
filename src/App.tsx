@@ -8,15 +8,15 @@ import { SkeletonContextProvider } from './context/SkeletonContext'
 import {
   Header,
   SignUp,
-  LogIn,
+  SignIn,
   Feed,
   CreateProfile,
   Write,
   LoadingSpinner,
-  Profile,
+  User,
   EditProfile,
 } from './files'
-import { Blogs } from './pages/blog/blogs'
+import { Article } from './pages/article/article'
 import { ToastOptions } from './styles/theme'
 
 export function App() {
@@ -32,13 +32,13 @@ export function App() {
           <InfoModuleContextProvider>
             <Routes>
               <Route path="/" element={<Feed />} />
-              <Route path="/login" element={<LogIn />} />
+              <Route path="/signin" element={<SignIn />} />
               <Route path="/signup" element={<SignUp />} />
-              <Route path="/profile" element={<Profile />} />
+              <Route path="/profile" element={<User />} />
               <Route path="/edit/profile" element={<EditProfile />} />
               <Route path="/create/post" element={<Write />} />
               <Route path="/onboard/profile" element={<CreateProfile />} />
-              <Route path="/article/:id" element={<Blogs />} />
+              <Route path="/article/:id" element={<Article />} />
             </Routes>
           </InfoModuleContextProvider>
         </SkeletonContextProvider>

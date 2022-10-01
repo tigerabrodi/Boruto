@@ -21,15 +21,19 @@ export function Header() {
       {isOpen === true && <InfoModule />}
 
       <header className="header">
-        <Link onClick={() => setIsMenuOpen(false)} to="/">
-          <span className="header__logo">Boruto</span>
+        <Link
+          onClick={() => setIsMenuOpen(false)}
+          to="/"
+          className="header__logo"
+        >
+          <span>Boruto</span>
         </Link>
 
-        <aside className="aside">
+        <aside className="header__aside">
           {user?.email ? (
             <Link
               to="/create/post"
-              className="aside__write--button"
+              className="header__aside--button"
               aria-label="write a blog post"
             >
               <FaPen className="pen" /> Write
@@ -37,8 +41,8 @@ export function Header() {
           ) : (
             <button
               onClick={() => setIsOpen(true)}
-              className="aside__write--button"
-              aria-label="write a blog post"
+              className="header__aside--button"
+              aria-label="To create a blog post, you must sign in"
             >
               <FaPen className="pen" /> Write
             </button>

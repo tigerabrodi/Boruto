@@ -1,5 +1,5 @@
-@import url('../../styles/App.css');
-@import url('../../styles/darkmode.css');
+@import url('../../../styles/App.css');
+@import url('../../../styles/darkmode.css');
 
 .form__wrapper textarea {
   outline: none;
