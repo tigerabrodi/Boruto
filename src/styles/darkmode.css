@@ -336,3 +336,7 @@ body.dark .card__text {
 body.dark .container .container__buttons button {
   color: var(--light-grey-text-dark-mode);
 }
+
+body.dark .container .container__buttons button:hover {
+  background-color: var(--border-dark-mode);
+}

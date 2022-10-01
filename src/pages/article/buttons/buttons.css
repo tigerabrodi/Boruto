@@ -10,13 +10,20 @@
 }
 
 .container .container__buttons button {
+  display: flex;
+
   color: var(--black);
   font-size: calc(28 / 16 * 1rem);
   background-color: transparent;
   border: none;
-  margin: 20px 0;
+  margin: 10px 0;
+  border-radius: 30px;
+  padding: 8px 20px;
 }
 
+.container .container__buttons button:hover {
+  background-color: var(--border-light-mode);
+}
 .container .container__buttons button:last-child {
   font-size: calc(30 / 16 * 1rem);
 }
