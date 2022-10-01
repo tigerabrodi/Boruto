@@ -15,8 +15,8 @@ import {
   LoadingSpinner,
   User,
   EditProfile,
+  Article,
 } from './files'
-import { Article } from './pages/article/article'
 import { ToastOptions } from './styles/theme'
 
 export function App() {
