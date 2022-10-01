@@ -20,15 +20,18 @@
 }
 
 .card .card__title {
+  font-weight: 700;
   text-align: center;
   padding-top: 15px;
   font-size: calc(36 / 16 * 1rem);
 }
 
 .card .card__subtitle {
+  font-weight: 500;
   text-align: center;
   padding-top: 15px;
-  color: var(--text-light-theme);
+  color: var(--light-grey-text-light-mode);
+
   font-size: calc(30 / 16 * 1rem);
 }
 
@@ -39,20 +42,98 @@
 }
 
 .card .card__wrapper img {
+  border-radius: 50%;
   width: 50px;
-  margin-right: 10px;
-}
-.card .card__wrapper p {
-  color: var(--text-light-theme);
-  font-size: calc(18 / 16 * 1rem);
-  margin: 0 10px;
+  margin-right: 0px;
 }
 
-.card .card__wrapper p:last-child {
+.card .card__wrapper .card__wrapper--author {
   display: flex;
   align-items: center;
 }
 
-.card .card__wrapper p:last-child * {
+.card .card__wrapper .card__wrapper--author a {
+  text-decoration: underline;
+  background-color: transparent;
+  position: relative;
+  top: 0;
+  right: 0;
+  transition: 0;
+  transition: 0s;
+}
+.card .card__wrapper .card__wrapper--author a:hover {
+  color: var(--blue);
+}
+
+.card .card__wrapper a {
+  font-weight: 500;
+}
+
+.card .card__wrapper p,
+.card .card__wrapper .card__wrapper--author a {
+  color: var(--text-light-theme);
+
+  font-size: calc(18 / 16 * 1rem);
+  margin: 0 3px;
+}
+
+.card .card__wrapper p {
+  display: flex;
+  align-items: center;
+}
+
+.card .card__wrapper p * {
   margin-right: 5px;
+}
+
+/* MARKDOWN */
+.card__text {
+  padding: 10px;
+  line-height: 1.5;
+  font-size: calc(18 / 16 * 1rem);
+}
+
+.card__text h1,
+.card__text h2,
+.card__text h3,
+.card__text h4,
+.card__text h5,
+.card__text h6 {
+  padding-bottom: 20px;
+}
+
+.card__text h1 {
+  font-size: calc(24 / 16 * 1rem);
+}
+
+.card__text h2 {
+  font-size: calc(22 / 16 * 1rem);
+}
+
+.card__text h3 {
+  font-size: calc(18 / 16 * 1rem);
+}
+
+.card__text h4 {
+  font-size: calc(16 / 16 * 1rem);
+}
+
+.card__text h5 {
+  font-size: calc(14 / 16 * 1rem);
+}
+
+.card__text h6 {
+  font-size: calc(12 / 16 * 1rem);
+}
+
+.card__text ul {
+  padding-left: 40px;
+  line-height: 1.5;
+}
+
+.SyntaxHighlighter {
+  padding-inline-start: 30px;
+  line-height: 1.5;
+  font-size: calc(14 / 16 * 1rem);
+  border-radius: 8px;
 }

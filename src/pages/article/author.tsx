@@ -41,9 +41,7 @@ export function Author({ dataID }: AuthorProps) {
               <>
                 <img src={avatarUrl} alt={`fullname avatar`} />
 
-                <Link to={`/profile/${id}`}>
-                  <p>{fullname}</p>
-                </Link>
+                <Link to={`/profile/${id}`}>{fullname}</Link>
               </>
             )}
           </div>

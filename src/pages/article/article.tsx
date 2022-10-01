@@ -71,7 +71,7 @@ export function Article() {
                 const match = /language-(\w+)/.exec(className || '')
                 return !inline && match ? (
                   <SyntaxHighlighter
-                    className="bomb"
+                    className="SyntaxHighlighter"
                     style={dracula}
                     children={String(children).replace(/\n$/, '')}
                     language={match[1]}

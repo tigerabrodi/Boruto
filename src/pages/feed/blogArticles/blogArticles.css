@@ -54,17 +54,31 @@
   background: no-repeat center center/cover;
 }
 
-.article .article__container .container__info h1 {
+.article .article__cover:hover {
+  opacity: 0.9;
+}
+
+.article .article__container .container__info a:hover,
+.article .article__container .container__info p:hover {
+  opacity: 0.8;
+}
+
+.article .article__container .container__info a:first-child {
   color: var(--black);
   font-size: calc(34 / 16 * 1rem);
+  font-weight: 600;
   margin-bottom: 20px;
 }
 
-.article .article__container .container__info p {
+.article .article__container .container__info a {
   display: inline-block;
   word-wrap: break-word;
   color: var(--text-light-theme);
   font-size: 1rem;
+}
+
+.article .article__container .container__info {
+  cursor: pointer;
 }
 
 /* Profile, Name, Minute, buttons */
@@ -103,18 +117,28 @@
   .article-wrapper__div
   .article-wrapper__div--info
   .article-wrapper__div--info--wrap
-  p:first-child {
+  a {
   font-size: 1rem;
-  font-weight: 700;
-  margin-bottom: 5px;
+  font-weight: 500;
   color: var(--black);
+}
+
+.article
+  .article-wrapper
+  .article-wrapper__div
+  .article-wrapper__div--info
+  .article-wrapper__div--info--wrap
+  a:hover {
+  text-decoration: underline;
+  color: var(--blue);
 }
 .article
   .article-wrapper
   .article-wrapper__div
   .article-wrapper__div--info
   .article-wrapper__div--info--wrap
-  p:last-child {
+  p {
+  margin-top: 5px;
   display: flex;
   align-items: center;
   font-weight: 500;
