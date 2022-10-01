@@ -4,7 +4,7 @@ import { collection, onSnapshot } from 'firebase/firestore'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-import { firebaseDb } from '../../lib/firebase'
+import { firebaseDb } from '../../../lib/firebase'
 
 type UserType = {
   avatarUrl: string

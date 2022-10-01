@@ -14,7 +14,8 @@ import remarkGfm from 'remark-gfm'
 
 import { firebaseDb } from '../../lib/firebase'
 import './article.css'
-import { Author } from './author'
+import { Author } from './author/author'
+import { Buttons } from './buttons/buttons'
 
 type Params = {
   id: string
@@ -49,44 +50,47 @@ export function Article() {
   return (
     <section className="container">
       {data && (
-        <div className="card">
-          <img src={data.coverUrl} alt="" className="card__cover" />
-          <h1 className="card__title">{data.title}</h1>
-          <h1 className="card__subtitle">This is a subtitle</h1>
-          <div className="card__wrapper">
-            <Author dataID={data.uid} />
-            <p>
-              <FiBookOpen />
-              {data.readMin} read min
-            </p>
-          </div>
+        <>
+          <div className="card">
+            <img src={data.coverUrl} alt="" className="card__cover" />
+            <h1 className="card__title">{data.title}</h1>
+            <h1 className="card__subtitle">This is a subtitle</h1>
+            <div className="card__wrapper">
+              <Author dataID={data.uid} />
+              <p>
+                <FiBookOpen />
+                {data.readMin} read min
+              </p>
+            </div>
 
-          <ReactMarkdown
-            children={data.text}
-            className="card__text"
-            remarkPlugins={[remarkGfm]}
-            rehypePlugins={[rehypeRaw]}
-            components={{
-              code({ node, inline, className, children, ...props }) {
-                const match = /language-(\w+)/.exec(className || '')
-                return !inline && match ? (
-                  <SyntaxHighlighter
-                    className="SyntaxHighlighter"
-                    style={dracula}
-                    children={String(children).replace(/\n$/, '')}
-                    language={match[1]}
-                    PreTag="div"
-                    {...props}
-                  />
-                ) : (
-                  <code className={className} {...props}>
-                    {children}
-                  </code>
-                )
-              },
-            }}
-          />
-        </div>
+            <ReactMarkdown
+              children={data.text}
+              className="card__text"
+              remarkPlugins={[remarkGfm]}
+              rehypePlugins={[rehypeRaw]}
+              components={{
+                code({ node, inline, className, children, ...props }) {
+                  const match = /language-(\w+)/.exec(className || '')
+                  return !inline && match ? (
+                    <SyntaxHighlighter
+                      className="SyntaxHighlighter"
+                      style={dracula}
+                      children={String(children).replace(/\n$/, '')}
+                      language={match[1]}
+                      PreTag="div"
+                      {...props}
+                    />
+                  ) : (
+                    <code className={className} {...props}>
+                      {children}
+                    </code>
+                  )
+                },
+              }}
+            />
+          </div>
+          <Buttons dataId={data.id} />
+        </>
       )}
     </section>
   )

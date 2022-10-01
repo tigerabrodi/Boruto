@@ -69,12 +69,12 @@ export function BlogArticle({
         <div className="article__container">
           <div className="container__info">
             <Link to={`/article/${articleId}`}>{title}</Link>
-            {/* <Link to={`/article/${articleId}`}> */}
-            <ReactMarkdown
-              className="container__info--text"
-              children={text && text.substr(0, 200) + '...'}
-            />
-            {/* </Link> */}
+            <Link to={`/article/${articleId}`}>
+              <ReactMarkdown
+                className="container__info--text"
+                children={text && text.substr(0, 200) + '...'}
+              />
+            </Link>
           </div>
         </div>
         <div className="article-wrapper">

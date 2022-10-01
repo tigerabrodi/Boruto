@@ -332,3 +332,7 @@ body.dark .card .card__wrapper .card__wrapper--author a:hover {
 body.dark .card__text {
   color: var(--white);
 }
+
+body.dark .container .container__buttons button {
+  color: var(--light-grey-text-dark-mode);
+}

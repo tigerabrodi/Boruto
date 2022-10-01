@@ -1,0 +1,22 @@
+@import url('../../../styles/App.css');
+@import url('../../../styles/darkmode.css');
+
+.container .container__buttons {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 50%;
+  right: 150px;
+}
+
+.container .container__buttons button {
+  color: var(--black);
+  font-size: calc(28 / 16 * 1rem);
+  background-color: transparent;
+  border: none;
+  margin: 20px 0;
+}
+
+.container .container__buttons button:last-child {
+  font-size: calc(30 / 16 * 1rem);
+}
