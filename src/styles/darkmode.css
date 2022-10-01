@@ -180,6 +180,13 @@ body.dark .write .write__header .write__header--button {
 body.dark .line {
   border-top: 1px solid var(--border-dark-mode);
 }
+body.dark .write .write__wrapper.subtitle button {
+  color: var(--white);
+}
+
+body.dark .write .write__wrapper.subtitle button:hover {
+  background-color: var(--border-dark-mode);
+}
 
 body.dark .write .write__header .write__header--wrapper span,
 body.dark .write .write__header .write__header--wrapper input {

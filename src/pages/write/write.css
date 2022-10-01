@@ -6,9 +6,10 @@
   display: flex;
   flex-direction: column;
 }
+/* publish, cancel button */
 
 .create-article .create-article__buttons {
-  margin: 50px auto 0 auto;
+  margin: 30px auto 0 auto;
 }
 
 .create-article .create-article__buttons button {
@@ -39,6 +40,8 @@
 .create-article .create-article__buttons button:last-child:hover {
   background-color: #3464f61f;
 }
+
+/* write */
 
 .write {
   width: 800px;
@@ -88,9 +91,17 @@
 
 .write .write__header {
   display: flex;
-  padding: 15px 30px;
+  padding: 20px;
   justify-content: space-between;
   align-items: center;
+}
+
+.write .write__header .write__header--container {
+  display: flex;
+}
+
+.write .write__header .write__header--button:first-child {
+  margin-right: 10px;
 }
 
 .write .write__header .write__header--button {
@@ -103,8 +114,11 @@
   padding: 8px 12px;
   border: 1px solid var(--border-light-mode);
   color: var(--text-light-theme);
-
   transition: all 0.2s ease;
+}
+
+.write .write__header .write__header--button:last-child .icon {
+  margin-right: 4px;
 }
 
 .write .write__header .write__header--button .icon {
@@ -165,7 +179,7 @@
   outline: none;
   font-weight: 700;
   border: none;
-  height: 150px;
+  height: 80px;
   font-size: calc(36 / 16 * 1rem);
   color: var(--black);
   background-color: var(--white);
@@ -176,6 +190,37 @@
   color: #6b7280;
 }
 
+.write .write__wrapper.subtitle {
+  position: relative;
+}
+
+.write .write__wrapper.subtitle textarea {
+  font-weight: 400;
+  border: none;
+  height: 100px;
+  font-size: calc(30 / 16 * 1rem);
+  color: var(--black);
+  background-color: var(--white);
+}
+
+.write .write__wrapper.subtitle button {
+  display: flex;
+  position: absolute;
+  background: none;
+  border: none;
+  color: var(--black);
+  font-size: calc(20 / 16 * 1rem);
+  top: 30px;
+  right: 30px;
+  padding: 5px 10px;
+  border-radius: 15px;
+  transition: all 0.2s ease;
+}
+
+.write .write__wrapper.subtitle button:hover {
+  background-color: var(--border-light-mode);
+}
+
 .write .write__container {
   display: flex;
   flex-direction: column;
@@ -184,7 +229,7 @@
   border: none;
   outline: none;
   height: 250px;
-  font-weight: 500;
+  font-weight: 400;
   color: #6b7280;
   padding: 0 30px 15px 30px;
   word-wrap: break-word;
@@ -196,7 +241,7 @@
   height: 300px;
   font-size: 1rem;
   color: #6b7280;
-  font-weight: 500;
+  font-weight: 400;
   padding: 15px 30px;
   overflow-y: scroll;
   word-wrap: break-word;
