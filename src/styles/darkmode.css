@@ -347,3 +347,54 @@ body.dark .container .container__buttons button {
 body.dark .container .container__buttons button:hover {
   background-color: var(--border-dark-mode);
 }
+
+/* COMMENT CONTAINER */
+
+body.dark .comment-container__wrapper {
+  border: 1px solid var(--border-dark-mode);
+  background-color: var(--card-dark-theme);
+}
+
+body.dark .comment-container .comment-container__wrapper p {
+  color: var(--white);
+}
+
+body.dark .comment-container .write-comment {
+  border: 1px solid var(--border-dark-mode);
+  background-color: var(--card-dark-theme);
+}
+
+body.dark .comment-container .write-comment .write-comment__author {
+  border-bottom: 1px solid var(--border-dark-mode);
+}
+
+body.dark
+  .comment-container
+  .write-comment
+  .write-comment__author
+  .write-comment__author--wrapper
+  p:first-child {
+  color: var(--white);
+}
+
+body.dark
+  .comment-container
+  .write-comment
+  .write-comment__author
+  .write-comment__author--wrapper
+  p:last-child {
+  color: var(--text-dark-theme);
+}
+
+body.dark .comment-container .write-comment__field {
+  border-bottom: 1px solid var(--border-dark-mode);
+}
+
+body.dark .comment-container .write-comment__field textarea {
+  background-color: var(--card-dark-theme);
+  color: var(--light-grey-text-dark-mode);
+}
+
+body.dark .comment-container .write-comment__field textarea::placeholder {
+  color: var(--light-grey-text-dark-mode);
+}

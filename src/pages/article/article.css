@@ -2,17 +2,20 @@
 @import url('../../styles/darkmode.css');
 
 .container {
+  margin: 100px 0 50px 0;
+
   position: relative;
 }
 
 .card {
-  margin-top: 100px;
+  width: 700px;
+  margin-bottom: 20px;
+
   position: relative;
   border-radius: 8px;
   border: 1px solid var(--border-light-mode);
   background-color: var(--white);
   padding: 30px;
-  margin-bottom: 20px;
 }
 
 .card__cover {
