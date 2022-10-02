@@ -251,6 +251,42 @@
   background-color: var(--white);
 }
 
+.write .write__container .write__container--preview h2 {
+  font-size: calc(22 / 16 * 1rem);
+}
+
+.write .write__container .write__container--preview h3 {
+  font-size: calc(18 / 16 * 1rem);
+}
+
+.write .write__container .write__container--preview h4 {
+  font-size: calc(16 / 16 * 1rem);
+}
+
+.write .write__container .write__container--preview h5 {
+  font-size: calc(14 / 16 * 1rem);
+}
+
+.write .write__container .write__container--preview h6 {
+  font-size: calc(12 / 16 * 1rem);
+}
+
+.write .write__container .write__container--preview ul {
+  padding-left: 40px;
+  line-height: 1.5;
+}
+
+.SyntaxHighlighter {
+  padding-inline-start: 30px;
+  line-height: 1.5;
+  font-size: calc(14 / 16 * 1rem);
+  border-radius: 8px;
+}
+
+.write .write__container .write__container--preview ul {
+  padding-left: 20px;
+}
+
 .write .write__container .write__container--preview * a {
   color: var(--blue);
   text-decoration: underline;

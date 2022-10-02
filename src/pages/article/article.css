@@ -6,6 +6,7 @@
 }
 
 .card {
+  margin-top: 100px;
   position: relative;
   border-radius: 8px;
   border: 1px solid var(--border-light-mode);
@@ -123,7 +124,7 @@
 }
 
 .SyntaxHighlighter {
-  padding-inline-start: 30px;
+  margin: 10px 0;
   line-height: 1.5;
   font-size: calc(14 / 16 * 1rem);
   border-radius: 8px;
