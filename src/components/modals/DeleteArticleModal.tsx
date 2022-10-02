@@ -24,6 +24,8 @@ export function DeleteArticleModal({
 
     setStatus('success')
     toast.success('Successfully deleted your blog article.')
+
+    setOpenModal(false)
   }
   return (
     <div className="overlay">

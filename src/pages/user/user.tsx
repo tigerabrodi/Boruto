@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom'
 import './user.css'
 import { useAuthContext } from '../../context/AuthContext'
 import { firebaseDb } from '../../lib/firebase'
+import { UserArticles } from './userArticles/userArticles'
 
 export function User() {
   const [userInfo, setUserInfo] = useState<UserType[]>([])
@@ -30,10 +31,10 @@ export function User() {
   }, [])
 
   return (
-    <>
+    <div className="user">
       {userInfo.map(({ fullname, username, avatarUrl, bio, location, uid }) => {
         return (
-          <div className="user" key={uid}>
+          <div key={uid}>
             {user?.uid === uid && (
               <div className="card">
                 <div className="card__wrapper">
@@ -57,6 +58,8 @@ export function User() {
           </div>
         )
       })}
-    </>
+
+      <UserArticles />
+    </div>
   )
 }

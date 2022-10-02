@@ -2,8 +2,10 @@ import type { CollectionReference } from 'firebase/firestore'
 
 import { collection, onSnapshot } from 'firebase/firestore'
 import { useEffect, useState } from 'react'
+import { FiEdit3, FiX } from 'react-icons/fi'
 import { Link } from 'react-router-dom'
 
+import { DeleteArticleModal } from '../../../components/modals/DeleteArticleModal'
 import { useAuthContext } from '../../../context/AuthContext'
 // eslint-disable-next-line import/order
 import { firebaseDb } from '../../../lib/firebase'
@@ -23,6 +25,7 @@ type UserArticles = {
 }
 export function UserArticles() {
   const { user } = useAuthContext()
+  const [openModal, setOpenModal] = useState(false)
   const [usersArticles, setUsersArticles] = useState<UserArticles[]>([])
   const userArticlesCollectionReference = collection(
     firebaseDb,
@@ -54,6 +57,12 @@ export function UserArticles() {
           <div className="user__articles" key={articleId}>
             {id === user?.uid && (
               <div className="user__article">
+                {openModal === true && (
+                  <DeleteArticleModal
+                    articleId={articleId}
+                    setOpenModal={setOpenModal}
+                  />
+                )}
                 <div
                   className="user__article--image"
                   style={{
@@ -66,6 +75,22 @@ export function UserArticles() {
                 <Author readMin={readMin} />
               </div>
             )}
+
+            <>
+              <button
+                className="user__articles--edit"
+                aria-label="Edit your blog article"
+              >
+                <FiEdit3 />
+              </button>
+              <button
+                onClick={() => setOpenModal(true)}
+                className="user__articles--delete"
+                aria-label="Delete your blog article"
+              >
+                <FiX />
+              </button>
+            </>
           </div>
         )
       })}
