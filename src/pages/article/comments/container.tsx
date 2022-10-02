@@ -1,5 +1,3 @@
-import { useRef, useState } from 'react'
-
 import { useAuthContext } from '../../../context/AuthContext'
 
 import './comments.css'
