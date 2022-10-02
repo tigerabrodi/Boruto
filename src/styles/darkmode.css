@@ -355,21 +355,21 @@ body.dark .comment-container__wrapper {
   background-color: var(--card-dark-theme);
 }
 
-body.dark .comment-container .comment-container__wrapper p {
+body.dark #comment-container .comment-container__wrapper p {
   color: var(--white);
 }
 
-body.dark .comment-container .write-comment {
+body.dark #comment-container .write-comment {
   border: 1px solid var(--border-dark-mode);
   background-color: var(--card-dark-theme);
 }
 
-body.dark .comment-container .write-comment .write-comment__author {
+body.dark #comment-container .write-comment .write-comment__author {
   border-bottom: 1px solid var(--border-dark-mode);
 }
 
 body.dark
-  .comment-container
+  #comment-container
   .write-comment
   .write-comment__author
   .write-comment__author--wrapper
@@ -378,7 +378,7 @@ body.dark
 }
 
 body.dark
-  .comment-container
+  #comment-container
   .write-comment
   .write-comment__author
   .write-comment__author--wrapper
@@ -386,15 +386,15 @@ body.dark
   color: var(--text-dark-theme);
 }
 
-body.dark .comment-container .write-comment__field {
+body.dark #comment-container .write-comment__field {
   border-bottom: 1px solid var(--border-dark-mode);
 }
 
-body.dark .comment-container .write-comment__field textarea {
+body.dark #comment-container .write-comment__field textarea {
   background-color: var(--card-dark-theme);
   color: var(--light-grey-text-dark-mode);
 }
 
-body.dark .comment-container .write-comment__field textarea::placeholder {
+body.dark #comment-container .write-comment__field textarea::placeholder {
   color: var(--light-grey-text-dark-mode);
 }

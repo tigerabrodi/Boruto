@@ -129,6 +129,6 @@
 .SyntaxHighlighter {
   margin: 10px 0;
   line-height: 1.5;
-  font-size: calc(14 / 16 * 1rem);
+  font-size: calc(16 / 16 * 1rem);
   border-radius: 8px;
 }
