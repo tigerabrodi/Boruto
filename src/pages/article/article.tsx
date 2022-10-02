@@ -7,8 +7,8 @@ import { useEffect, useState } from 'react'
 import { FiBookOpen } from 'react-icons/fi'
 import ReactMarkdown from 'react-markdown'
 import { useParams } from 'react-router-dom'
-import SyntaxHighlighter from 'react-syntax-highlighter'
-import { dracula } from 'react-syntax-highlighter/dist/esm/styles/hljs'
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+import { dracula } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 import rehypeRaw from 'rehype-raw'
 import remarkGfm from 'remark-gfm'
 
@@ -16,6 +16,7 @@ import { firebaseDb } from '../../lib/firebase'
 import './article.css'
 import { Author } from './author/author'
 import { Buttons } from './buttons/buttons'
+import { Container } from './comments/container'
 
 type Params = {
   id: string
@@ -89,6 +90,7 @@ export function Article() {
               }}
             />
           </div>
+          <Container />
           <Buttons dataId={data.id} />
         </>
       )}
