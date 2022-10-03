@@ -34,8 +34,6 @@ export const useCreateUserWithEmailAndPassword = () => {
         avatarUrl: '',
         createdAt: serverTimestamp(),
         uid: user.user.uid,
-        articles: [],
-        bookmarks: [],
       })
 
       const usernameRef = doc(firebaseDb, `usernames/${username}`)
