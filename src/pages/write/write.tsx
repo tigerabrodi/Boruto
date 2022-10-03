@@ -7,7 +7,6 @@ import {
   serverTimestamp,
   addDoc,
   collection,
-  arrayUnion,
 } from 'firebase/firestore'
 import { getDownloadURL, ref, uploadString } from 'firebase/storage'
 import { useRef, useState } from 'react'
@@ -67,17 +66,6 @@ export function Write() {
           coverUrl: downloadURL,
           readMin: minuteField,
           uid: user?.uid,
-        })
-
-        await updateDoc(doc(firebaseDb, `users/${user?.uid}`), {
-          articles: arrayUnion({
-            title: titleField,
-            subtitle: subtitleField,
-            text: textField,
-            coverUrl: downloadURL,
-            readMin: minuteField,
-            uid: user?.uid,
-          }),
         })
       }
     )
