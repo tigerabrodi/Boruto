@@ -66,7 +66,7 @@ export function Profile() {
             )}
           </div>
 
-          <ProfileArticles profileID={profileID} fullname={data.fullname} />
+          <ProfileArticles profileID={profileID} username={data.username} />
         </div>
       )}
     </>

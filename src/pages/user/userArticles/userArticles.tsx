@@ -15,7 +15,6 @@ import { Author } from './author'
 
 type UserArticles = {
   coverUrl: string
-  id: string
   readMin: number
   subtitle: string
   text: string
@@ -52,10 +51,10 @@ export function UserArticles() {
 
   return (
     <>
-      {usersArticles.map(({ coverUrl, id, readMin, title, articleId }) => {
+      {usersArticles.map(({ coverUrl, uid, readMin, title, articleId }) => {
         return (
           <div className="user__articles" key={articleId}>
-            {id === user?.uid && (
+            {uid === user?.uid && (
               <div className="user__article">
                 {openModal === true && (
                   <DeleteArticleModal
@@ -69,28 +68,25 @@ export function UserArticles() {
                     backgroundImage: `url(${coverUrl})`,
                   }}
                 />
-                <Link to={`/article/${articleId}`}>
-                  <h1>{title}</h1>
-                </Link>
-                <Author readMin={readMin} />
+                <Link to={`/article/${articleId}`}>{title}</Link>
+                <Author readMin={readMin} id={uid} />
+                <>
+                  <button
+                    className="user__articles--edit"
+                    aria-label="Edit your blog article"
+                  >
+                    <FiEdit3 />
+                  </button>
+                  <button
+                    onClick={() => setOpenModal(true)}
+                    className="user__articles--delete"
+                    aria-label="Delete your blog article"
+                  >
+                    <FiX />
+                  </button>
+                </>
               </div>
             )}
-
-            <>
-              <button
-                className="user__articles--edit"
-                aria-label="Edit your blog article"
-              >
-                <FiEdit3 />
-              </button>
-              <button
-                onClick={() => setOpenModal(true)}
-                className="user__articles--delete"
-                aria-label="Delete your blog article"
-              >
-                <FiX />
-              </button>
-            </>
           </div>
         )
       })}

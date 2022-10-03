@@ -3,7 +3,7 @@
 
 .user-container {
   display: flex;
-  margin-top: 100px;
+  margin: 100px 0 50px 0;
   flex-direction: column;
 }
 
@@ -14,6 +14,7 @@
   border-radius: 8px;
   background-color: var(--white);
   border: 1px solid var(--border-light-mode);
+  margin-bottom: 20px;
 }
 
 .user button {
@@ -87,4 +88,92 @@
   font-size: 1rem;
   font-weight: 500;
   color: var(--text-light-theme);
+}
+
+/* Articles */
+
+.user-container .user__articles {
+  width: 800px;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.user-container .user__article {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  width: 400px;
+  border: 1px solid var(--border-light-mode);
+  background-color: var(--white);
+  position: relative;
+}
+.user__article .user__articles--edit {
+  border-radius: 4px;
+  display: flex;
+  top: 10px;
+  right: 60px;
+  font-size: calc(20 / 16 * 1rem);
+  padding: 5px 10px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.738);
+  color: var(--black);
+  position: absolute;
+  transition: all 0.3s ease;
+}
+
+.user__article .user__articles--delete {
+  border-radius: 4px;
+  display: flex;
+  top: 10px;
+  right: 10px;
+  font-size: calc(20 / 16 * 1rem);
+  padding: 5px 10px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.738);
+  color: var(--black);
+  position: absolute;
+  transition: all 0.3s ease;
+}
+.user-container .user__articles .user__article .user__article--image {
+  width: auto;
+  height: 180px;
+  border-radius: 8px 8px 0 0;
+  position: relative;
+  background: no-repeat center center/cover;
+}
+
+.user-container .user__article a {
+  padding: 10px;
+  color: var(--black);
+  line-height: 1.5;
+  font-weight: 700;
+  font-size: calc(18 / 16 * 1rem);
+}
+.user-container .user__article a:hover {
+  text-decoration: underline;
+}
+
+.user-container .user__article .user__article--author {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin-top: auto;
+}
+
+.user-container .user__article .user__article--author p {
+  color: var(--text-light-theme);
+}
+
+.user-container .user__article .user__article--author p {
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+  font-size: calc(14 / 16 * 1rem);
+}
+
+.user-container .user__article .user__article--author p:last-child .icon {
+  margin-right: 5px;
 }

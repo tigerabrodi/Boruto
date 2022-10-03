@@ -4,20 +4,19 @@ import { collection, onSnapshot } from 'firebase/firestore'
 import { useEffect, useState } from 'react'
 import { FiBookOpen } from 'react-icons/fi'
 
-import { useAuthContext } from '../../../context/AuthContext'
 import { firebaseDb } from '../../../lib/firebase'
 
 type AuthorProps = {
+  id: string
   readMin: number
 }
 
 type AuthorType = {
-  fullname: string
+  username: string
   uid: string
 }
 
-export function Author({ readMin }: AuthorProps) {
-  const { user } = useAuthContext()
+export function Author({ readMin, id }: AuthorProps) {
   const [author, setAuthor] = useState<AuthorType[]>([])
 
   const userCollection = collection(
@@ -36,18 +35,17 @@ export function Author({ readMin }: AuthorProps) {
 
   return (
     <>
-      {author.map(({ fullname, uid }, id) => {
+      {author.map(({ username, uid }) => {
         return (
-          <div className="user__article--author" key={id}>
-            {uid === user?.uid && (
-              <>
-                {' '}
-                <p>{fullname}</p>
+          <div key={uid}>
+            {id === uid && (
+              <div className="user__article--author">
+                <p>@{username}</p>
                 <p>
                   <FiBookOpen className="icon" />
                   {readMin} read min
                 </p>
-              </>
+              </div>
             )}
           </div>
         )

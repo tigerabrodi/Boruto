@@ -11,10 +11,10 @@ import { firebaseDb } from '../../lib/firebase'
 import '../user/user.css'
 
 type ProfileArticlesProps = {
-  fullname: string
+  username: string
   profileID: string | undefined
 }
-export function ProfileArticles({ profileID, fullname }: ProfileArticlesProps) {
+export function ProfileArticles({ profileID, username }: ProfileArticlesProps) {
   const [articles, setArticles] = useState<ArticleType[]>([])
 
   const ArticlesCollectionReference = collection(
@@ -52,9 +52,8 @@ export function ProfileArticles({ profileID, fullname }: ProfileArticlesProps) {
                 />
                 <Link to={`/article/${articleId}`}>{title}</Link>
                 <div className="user__article--author">
-                  <p>{fullname}</p>
+                  <p>@{username}</p>
                   <p>
-                    {' '}
                     <FiBookOpen className="icon" />
                     {readMin} read min
                   </p>
