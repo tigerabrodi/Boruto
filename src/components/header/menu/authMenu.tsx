@@ -72,7 +72,7 @@ export function AuthMenu() {
                 </div>
                 <Link
                   onClick={() => setIsMenuOpen(false)}
-                  to="/profile"
+                  to="/my-profile"
                   className="auth-menu__profile--button"
                 >
                   <FiUser className="icon" /> My Profile
