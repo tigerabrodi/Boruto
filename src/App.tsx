@@ -38,7 +38,7 @@ export function App() {
               <Route path="/profile/:profileID" element={<Profile />} />
               <Route path="/create/post" element={<Write />} />
               <Route path="/onboard/profile" element={<CreateProfile />} />
-              <Route path="/article/:id" element={<Article />} />
+              <Route path="/article/:articleID" element={<Article />} />
             </Routes>
           </InfoModuleContextProvider>
         </SkeletonContextProvider>
