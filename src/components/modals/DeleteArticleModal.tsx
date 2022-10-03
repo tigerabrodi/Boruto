@@ -28,7 +28,7 @@ export function DeleteArticleModal({
     setOpenModal(false)
   }
   return (
-    <div className="overlay">
+    <div className="overlay" onClick={() => setOpenModal(false)}>
       <div className="modal modal__delete">
         <h1 className="modal__delete--title">Are you sure?</h1>
         <p className="modal__delete--text">
