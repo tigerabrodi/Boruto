@@ -2,7 +2,7 @@
 @import url('../../../styles/darkmode.css');
 
 #comment-container {
-  margin: auto;
+  margin: 30px auto;
   width: 700px;
 }
 

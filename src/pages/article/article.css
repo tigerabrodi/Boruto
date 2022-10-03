@@ -10,7 +10,7 @@
 .card {
   width: 700px;
   margin-bottom: 20px;
-
+  margin: auto;
   position: relative;
   border-radius: 8px;
   border: 1px solid var(--border-light-mode);
