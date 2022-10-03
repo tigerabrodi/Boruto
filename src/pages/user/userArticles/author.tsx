@@ -38,7 +38,7 @@ export function Author({ readMin }: AuthorProps) {
     <>
       {author.map(({ fullname, uid }, id) => {
         return (
-          <div className="user__article--container" key={id}>
+          <div className="user__article--author" key={id}>
             {uid === user?.uid && (
               <>
                 {' '}

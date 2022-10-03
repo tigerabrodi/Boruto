@@ -8,6 +8,9 @@ import { useParams } from 'react-router-dom'
 
 import { useAuthContext } from '../../context/AuthContext'
 import { firebaseDb } from '../../lib/firebase'
+import { ProfileArticles } from './profileArticles'
+
+import '../user/user.css'
 
 type Params = {
   profileID: string
@@ -62,6 +65,8 @@ export function Profile() {
               </button>
             )}
           </div>
+
+          <ProfileArticles profileID={profileID} fullname={data.fullname} />
         </div>
       )}
     </>
