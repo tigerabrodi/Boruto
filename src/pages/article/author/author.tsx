@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom'
 import { firebaseDb } from '../../../lib/firebase'
 
 type UserType = {
+  profileId: string
   avatarUrl: string
   fullname: string
   uid: string
@@ -26,7 +27,9 @@ export function Author({ dataID }: AuthorProps) {
   useEffect(() => {
     const getProfile = () => {
       onSnapshot(userCollectionReference, (snapshot) => {
-        setProfile(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+        setProfile(
+          snapshot.docs.map((doc) => ({ ...doc.data(), profileId: doc.id }))
+        )
       })
     }
     getProfile()
@@ -34,14 +37,14 @@ export function Author({ dataID }: AuthorProps) {
   return (
     <>
       {' '}
-      {profile.map(({ avatarUrl, fullname, uid }, id) => {
+      {profile.map(({ avatarUrl, fullname, uid, profileId }) => {
         return (
-          <div className="card__wrapper--author" key={id}>
+          <div className="card__wrapper--author" key={profileId}>
             {uid === dataID && (
               <>
                 <img src={avatarUrl} alt={`fullname avatar`} />
 
-                <Link to={`/profile/${id}`}>{fullname}</Link>
+                <Link to={`/profile/${profileId}`}>{fullname}</Link>
               </>
             )}
           </div>
