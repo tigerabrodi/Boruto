@@ -4,7 +4,6 @@ import type { CollectionReference } from 'firebase/firestore'
 import { collection, onSnapshot } from 'firebase/firestore'
 import { useEffect, useState } from 'react'
 import { FiEdit3 } from 'react-icons/fi'
-import { Link } from 'react-router-dom'
 
 import './user.css'
 import { useAuthContext } from '../../context/AuthContext'
@@ -31,28 +30,28 @@ export function User() {
   }, [])
 
   return (
-    <div className="user">
+    <div className="user-container">
       {userInfo.map(({ fullname, username, avatarUrl, bio, location, uid }) => {
         return (
           <div key={uid}>
             {user?.uid === uid && (
-              <div className="card">
-                <div className="card__wrapper">
-                  <div className="card__wrapper--primary">
+              <div className="user">
+                <div className="user__wrapper">
+                  <div className="user__wrapper--primary">
                     <img src={avatarUrl} alt="user" />
                     <p>@{username}</p>
                   </div>
-                  <div className="card__wrapper--secondary">
+                  <div className="user__wrapper--secondary">
                     <p>{fullname}</p>
                     <p>{location}</p>
                     <p>{bio}</p>
                   </div>
                 </div>
 
-                <Link to="/edit/user" aria-label="Edit user">
+                <button aria-label="Edit your profile">
                   <FiEdit3 className="pen" />
                   Edit
-                </Link>
+                </button>
               </div>
             )}
           </div>

@@ -1,148 +1,90 @@
 @import url('../../styles/darkmode.css');
 @import url('../../styles/App.css');
 
-.user {
+.user-container {
   display: flex;
+  margin-top: 100px;
   flex-direction: column;
 }
 
-.card {
-  border-radius: 8px;
-  position: relative;
+.user {
+  width: 800px;
   margin: 0 auto;
-  width: 805px;
-  border: 1px solid var(--border-light-mode);
+  position: relative;
+  border-radius: 8px;
   background-color: var(--white);
+  border: 1px solid var(--border-light-mode);
 }
 
-.card a {
-  position: absolute;
+.user button {
   top: 30px;
   right: 60px;
+  border: none;
   display: flex;
   cursor: pointer;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 500;
   padding: 10px 16px;
+  position: absolute;
   border-radius: 30px;
   align-items: center;
   color: var(--white);
   transition: all 0.2s ease;
   background-color: var(--blue);
 }
-.card a:hover {
+
+.user button:hover {
   background-color: #507cff;
 }
 
-.card a .pen {
+.user button .pen {
   font-size: 1rem;
   margin: 0 10px 0 0px;
 }
 
-.card .card__wrapper {
+.user .user__wrapper {
   padding: 30px;
   display: flex;
   align-items: center;
 }
 
-.card .card__wrapper .card__wrapper--primary img {
-  border-radius: 50%;
+.user .user__wrapper .user__wrapper--primary img {
   width: 100px;
+  border-radius: 50%;
 }
 
-.card .card__wrapper .card__wrapper--primary p {
+.user .user__wrapper .user__wrapper--primary p {
   font-weight: 500;
   margin-top: 10px;
-  font-size: calc(14 / 16 * 1rem);
   text-align: center;
+  font-size: calc(14 / 16 * 1rem);
   color: var(--light-grey-text-light-mode);
 }
 
-.card .card__wrapper .card__wrapper--secondary {
+.user .user__wrapper .user__wrapper--secondary {
   margin-left: 30px;
 }
 
-.card .card__wrapper .card__wrapper--secondary p:first-child {
-  color: var(--black);
-  font-size: calc(20 / 16 * 1rem);
+.user .user__wrapper .user__wrapper--secondary p:first-child {
   font-weight: 700;
   margin-top: -20px;
+  color: var(--black);
+  font-size: calc(20 / 16 * 1rem);
 }
 
-.card .card__wrapper .card__wrapper--secondary p:nth-child(2) {
+.user .user__wrapper .user__wrapper--secondary p:nth-child(2) {
   display: inline;
-  font-size: calc(14 / 16 * 1rem);
   padding: 4px 8px;
   font-weight: 600;
   line-height: 3.5;
   border: #e0e2e4;
-  background-color: #f0f0f0;
   border-radius: 3px;
+  background-color: #f0f0f0;
+  font-size: calc(14 / 16 * 1rem);
 }
 
-.card .card__wrapper .card__wrapper--secondary p:last-child {
-  font-weight: 500;
-  color: var(--text-light-theme);
+.user .user__wrapper .user__wrapper--secondary p:last-child {
   font-size: 1rem;
-}
-
-/* Articles */
-
-.user .user__articles {
-  width: 900px;
-  display: grid;
-  justify-content: center;
-  margin: 0 auto;
-  grid-gap: 20px 10px;
-  grid-template-columns: repeat(auto-fit, 400px);
-}
-
-.user .user__article {
-  display: flex;
-  flex-direction: column;
-  border-radius: 8px;
-  width: 400px;
-  border: 1px solid var(--border-light-mode);
-  background-color: var(--white);
-}
-
-.user .user__articles .user__article .user__article--image {
-  width: auto;
-  height: 180px;
-  border-radius: 8px 8px 0 0;
-  position: relative;
-  background: no-repeat center center/cover;
-}
-
-.user .user__article h3 {
-  /* text-align: center; */
-  padding: 10px;
-  line-height: 1.5;
-  font-size: calc(18 / 16 * 1rem);
-}
-
-.user .user__article .user__article--container {
-  padding: 10px;
-  margin-top: auto;
-}
-
-.user .user__article .user__article--container p {
-  color: var(--text-light-theme);
-}
-
-.user .user__article .user__article--container p:first-child {
-  font-size: calc(14 / 16 * 1rem);
   font-weight: 500;
-}
-
-.user .user__article .user__article--container p:last-child {
-  display: flex;
-  margin-top: 5px;
-  align-items: center;
-  font-size: calc(14 / 16 * 1rem);
-  font-weight: 400;
-}
-
-.user .user__article .user__article--container p:last-child .icon {
-  margin-right: 5px;
+  color: var(--text-light-theme);
 }

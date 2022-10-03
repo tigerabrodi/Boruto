@@ -58,15 +58,14 @@
   opacity: 0.9;
 }
 
-.article .article__container .container__info a:hover,
-.article .article__container .container__info p:hover {
+.article .article__container .container__info a:hover {
   opacity: 0.8;
 }
 
 .article .article__container .container__info a:first-child {
   color: var(--black);
   font-size: calc(32 / 16 * 1rem);
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: 20px;
 }
 
@@ -84,10 +83,9 @@
 /* Profile, Name, Minute, buttons */
 
 .article .article-wrapper {
-  display: flex;
   margin-top: 30px;
+  display: flex;
   align-items: center;
-  width: 100%;
 }
 
 .article .article-wrapper .article-wrapper__div .article-wrapper__div--info {
@@ -119,7 +117,7 @@
   .article-wrapper__div--info--wrap
   a {
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
   color: var(--black);
 }
 
@@ -181,9 +179,9 @@
   color: var(--blue);
 }
 
-.buttons button {
+.buttons a {
   border: none;
-  margin: 0 3px;
+  margin: 0 5px;
   padding: 4px 10px;
   border-radius: 20px;
   transition: all 0.2s ease;
@@ -192,13 +190,13 @@
   font-size: calc(20 / 16 * 1rem);
 }
 
-.buttons button * {
+.buttons a * {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
-.buttons button:hover {
+.buttons a:hover {
   background-color: var(--border-light-mode);
 }
 

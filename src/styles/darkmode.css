@@ -398,3 +398,28 @@ body.dark #comment-container .write-comment__field textarea {
 body.dark #comment-container .write-comment__field textarea::placeholder {
   color: var(--light-grey-text-dark-mode);
 }
+
+/* PROFILE / USER */
+
+body.dark .user {
+  background-color: var(--card-dark-theme);
+  border: 1px solid var(--border-dark-mode);
+}
+
+body.dark .user .user__wrapper .user__wrapper--primary p {
+  color: var(--light-grey-text-dark-mode);
+}
+
+body.dark .user .user__wrapper .user__wrapper--secondary p:first-child {
+  color: var(--white);
+}
+
+body.dark .user .user__wrapper .user__wrapper--secondary p:nth-child(2) {
+  color: var(--light-grey-text-dark-mode);
+  border: var(--badge-dark-mode);
+  background-color: var(--border-dark-mode);
+}
+
+body.dark .user .user__wrapper .user__wrapper--secondary p:last-child {
+  color: var(--light-grey-text-dark-mode);
+}
