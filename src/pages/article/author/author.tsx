@@ -36,7 +36,6 @@ export function Author({ dataID }: AuthorProps) {
   }, [])
   return (
     <>
-      {' '}
       {profile.map(({ avatarUrl, fullname, uid, profileId }) => {
         return (
           <div className="card__wrapper--author" key={profileId}>

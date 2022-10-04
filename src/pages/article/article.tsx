@@ -7,8 +7,8 @@ import { useEffect, useState } from 'react'
 import { FiBookOpen } from 'react-icons/fi'
 import ReactMarkdown from 'react-markdown'
 import { useParams } from 'react-router-dom'
-// import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-// import { dracula } from 'react-syntax-highlighter/dist/cjs/styles/prism'
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
+import { dracula } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 import rehypeRaw from 'rehype-raw'
 import remarkGfm from 'remark-gfm'
 
@@ -68,28 +68,28 @@ export function Article() {
               className="card__text"
               remarkPlugins={[remarkGfm]}
               rehypePlugins={[rehypeRaw]}
-              // components={{
-              //   code({ node, inline, className, children, ...props }) {
-              //     const match = /language-(\w+)/.exec(className || '')
-              //     return !inline && match ? (
-              //       <SyntaxHighlighter
-              //         className="SyntaxHighlighter"
-              //         style={dracula}
-              //         children={String(children).replace(/\n$/, '')}
-              //         language={match[1]}
-              //         PreTag="div"
-              //         {...props}
-              //       />
-              //     ) : (
-              //       <code className={className} {...props}>
-              //         {children}
-              //       </code>
-              //     )
-              //   },
-              // }}
+              components={{
+                code({ node, inline, className, children, ...props }) {
+                  const match = /language-(\w+)/.exec(className || '')
+                  return !inline && match ? (
+                    <SyntaxHighlighter
+                      className="SyntaxHighlighter"
+                      style={dracula}
+                      children={String(children).replace(/\n$/, '')}
+                      language={match[1]}
+                      PreTag="div"
+                      {...props}
+                    />
+                  ) : (
+                    <code className={className} {...props}>
+                      {children}
+                    </code>
+                  )
+                },
+              }}
             />
           </div>
-          <Container />
+          <Container articleId={id} />
         </>
       )}
     </section>
