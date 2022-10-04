@@ -33,5 +33,13 @@ export default function CommentsLength({ articleId }: CommentsLengthProps) {
       getComments()
     }
   }, [firebaseDb, articleId])
-  return <div>{comments.length > 0 && <p>Comments ({comments.length})</p>}</div>
+  return (
+    <div>
+      {comments.length > 0 ? (
+        <p>Comments ({comments.length})</p>
+      ) : (
+        <p>Comments</p>
+      )}
+    </div>
+  )
 }
