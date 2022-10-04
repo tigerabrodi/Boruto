@@ -175,10 +175,6 @@
   font-size: 1rem;
 }
 
-.buttons .button__like .blue__thumb {
-  color: var(--blue);
-}
-
 .buttons a {
   border: none;
   margin: 0 5px;

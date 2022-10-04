@@ -3,14 +3,52 @@
 
 .container {
   margin: 100px 0 50px 0;
-
   position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.container__buttons .container__buttons--wrapper {
+  margin-top: 100px;
+  margin-left: 30px;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+}
+
+.container__buttons .container__buttons--wrapper button:last-child {
+  width: 60px;
+}
+
+.container__buttons .container__buttons--wrapper button {
+  border: none;
+  margin: 20px 0;
+  padding: 5px 15px;
+  border-radius: 20px;
+  transition: all 0.2s ease;
+  background-color: transparent;
+  color: var(--text-light-theme);
+  font-size: calc(28 / 16 * 1rem);
+  display: flex;
+}
+
+.container__buttons .container__buttons--wrapper button span {
+  margin-top: 3px;
+  margin-left: 10px;
+  font-size: calc(20 / 16 * 1rem);
+}
+
+.container__buttons .container__buttons--wrapper button:hover {
+  background-color: var(--border-light-mode);
+}
+
+.container__buttons .container__buttons--wrapper button:last-child * {
+  font-size: calc(30 / 16 * 1rem);
 }
 
 .card {
   width: 700px;
   margin-bottom: 20px;
-  margin: auto;
   position: relative;
   border-radius: 8px;
   border: 1px solid var(--border-light-mode);

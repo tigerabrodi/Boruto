@@ -6,8 +6,7 @@
   width: 700px;
 }
 
-#comment-container .comment-container__wrapper,
-#comment-container .write-comment .comment-container__wrapper {
+#comment-container .comment-container__wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
