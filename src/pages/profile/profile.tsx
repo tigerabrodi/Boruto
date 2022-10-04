@@ -66,7 +66,11 @@ export function Profile() {
             )}
           </div>
 
-          <ProfileArticles profileID={profileID} username={data.username} />
+          <ProfileArticles
+            profileID={profileID}
+            username={data.username}
+            id={data.uid}
+          />
         </div>
       )}
     </>
