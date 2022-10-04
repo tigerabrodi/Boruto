@@ -299,11 +299,11 @@ body.dark
   color: var(--text-dark-theme);
 }
 
-body.dark .buttons button {
+body.dark .article-wrapper .buttons a {
   color: var(--light-grey-text-dark-mode);
 }
 
-body.dark .buttons button:hover {
+body.dark .article-wrapper .buttons a:hover {
   background-color: var(--border-dark-mode);
 }
 
