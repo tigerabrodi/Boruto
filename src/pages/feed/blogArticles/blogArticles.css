@@ -55,11 +55,11 @@
 }
 
 .article .article__cover:hover {
-  opacity: 0.9;
+  opacity: 0.8;
 }
 
 .article .article__container .container__info a:hover {
-  opacity: 0.8;
+  text-decoration: underline;
 }
 
 .article .article__container .container__info a:first-child {

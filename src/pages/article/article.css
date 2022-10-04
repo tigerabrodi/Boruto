@@ -31,24 +31,24 @@
 }
 
 .card .card__subtitle {
-  font-weight: 400;
+  font-weight: 500;
   text-align: center;
   padding-top: 20px;
   color: var(--light-grey-text-light-mode);
 
-  font-size: calc(30 / 16 * 1rem);
+  font-size: calc(28 / 16 * 1rem);
 }
 
 .card .card__wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 20px 0;
 }
 
 .card .card__wrapper img {
   border-radius: 50%;
   width: 50px;
-  margin-right: 0px;
 }
 
 .card .card__wrapper .card__wrapper--author {
@@ -57,12 +57,10 @@
 }
 
 .card .card__wrapper .card__wrapper--author a {
+  padding: 0 30px 0 10px;
   text-decoration: underline;
   background-color: transparent;
   position: relative;
-  top: 0;
-  right: 0;
-  transition: 0;
   transition: 0s;
 }
 .card .card__wrapper .card__wrapper--author a:hover {
