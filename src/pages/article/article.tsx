@@ -23,7 +23,7 @@ type Params = {
 
 export function Article() {
   const { articleID } = useParams<Params>()
-  const [data, setData] = useState<DocumentData | undefined>(undefined)
+  const [data, setData] = useState<DocumentData>()
 
   useEffect(() => {
     const getDocument = async () => {
