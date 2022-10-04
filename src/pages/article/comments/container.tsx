@@ -29,7 +29,7 @@ export type CommentType = {
 }
 
 type ContainerProps = {
-  articleId: string
+  articleId: string | undefined
 }
 export function Container({ articleId }: ContainerProps) {
   const { setStatus } = useLoadingStore()
