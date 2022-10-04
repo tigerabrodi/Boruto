@@ -1,10 +1,11 @@
 import type { CollectionReference } from 'firebase/firestore'
 
+import { doc, setDoc } from 'firebase/firestore'
 import { serverTimestamp } from 'firebase/firestore'
-import { addDoc } from 'firebase/firestore'
 import { collection, onSnapshot } from 'firebase/firestore'
 import { useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
+import { v4 as uuidv4 } from 'uuid'
 
 import { useAuthContext } from '../../../context/AuthContext'
 import { firebaseDb } from '../../../lib/firebase'
@@ -22,8 +23,8 @@ type UserType = {
 }
 
 export type CommentType = {
+  id: string
   comment: string
-  article: string | undefined
   timestamp: { seconds: number; nanoseconds: number }
   commentUid: string | undefined
 }
@@ -32,6 +33,7 @@ type ContainerProps = {
   articleId: string | undefined
 }
 export function Container({ articleId }: ContainerProps) {
+  const uuid = uuidv4()
   const { setStatus } = useLoadingStore()
   const { user } = useAuthContext()
   const [commentField, setCommentField] = useState('')
@@ -57,15 +59,14 @@ export function Container({ articleId }: ContainerProps) {
   const sendComment = async () => {
     setStatus('loading')
 
-    const commentsCollectionReference = collection(
+    const commentsCollectionReference = doc(
       firebaseDb,
-      `comments `
-    ) as CollectionReference<CommentType>
+      `articles/${articleId}/comments/${uuid} `
+    )
 
     setCommentField('')
-    await addDoc(commentsCollectionReference, {
+    await setDoc(commentsCollectionReference, {
       comment: commentField,
-      article: articleId,
       timestamp: serverTimestamp(),
       commentUid: user?.uid,
     })
