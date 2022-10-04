@@ -15,6 +15,7 @@ import remarkGfm from 'remark-gfm'
 import { firebaseDb } from '../../lib/firebase'
 import './article.css'
 import { Author } from './author/author'
+import { Buttons } from './comments/buttons'
 import { Comments } from './comments/comments'
 import { Container } from './comments/container'
 
@@ -51,7 +52,7 @@ export function Article() {
   return (
     <section className="container">
       {data && (
-        <>
+        <div>
           <div className="card">
             <img src={data.coverUrl} alt="" className="card__cover" />
             <h1 className="card__title">{data.title}</h1>
@@ -92,8 +93,9 @@ export function Article() {
           </div>
           <Container articleId={id} />
           <Comments articleId={id} />
-        </>
+        </div>
       )}
+      <Buttons articleId={id} />
     </section>
   )
 }
