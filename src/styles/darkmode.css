@@ -350,7 +350,8 @@ body.dark .container .container__buttons button:hover {
 
 /* COMMENT CONTAINER */
 
-body.dark .comment-container__wrapper {
+body.dark .comment-container__wrapper,
+body.dark #comment-container .write-comment {
   border: 1px solid var(--border-dark-mode);
   background-color: var(--card-dark-theme);
 }
@@ -359,30 +360,15 @@ body.dark #comment-container .comment-container__wrapper p {
   color: var(--white);
 }
 
-body.dark #comment-container .write-comment {
-  border: 1px solid var(--border-dark-mode);
-  background-color: var(--card-dark-theme);
-}
-
 body.dark #comment-container .write-comment .write-comment__author {
   border-bottom: 1px solid var(--border-dark-mode);
 }
 
-body.dark
-  #comment-container
-  .write-comment
-  .write-comment__author
-  .write-comment__author--wrapper
-  p:first-child {
+body.dark #comment-container .write-comment .write-comment__author span a {
   color: var(--white);
 }
 
-body.dark
-  #comment-container
-  .write-comment
-  .write-comment__author
-  .write-comment__author--wrapper
-  p:last-child {
+body.dark #comment-container .write-comment .write-comment__author span p {
   color: var(--text-dark-theme);
 }
 
@@ -435,4 +421,29 @@ body.dark .user-container .user__article a {
 
 body.dark .user-container .user__article .user__article--author p {
   color: var(--text-dark-theme);
+}
+
+/* COMMENTS */
+
+body.dark .comments .comment {
+  border: 1px solid var(--border-dark-mode);
+  background-color: var(--card-dark-theme);
+}
+
+body.dark .comments .comment .comment__author span p {
+  color: var(--text-dark-theme);
+}
+
+body.dark .comments .comment .comment__author span a {
+  color: var(--white);
+}
+
+body.dark .comments .comment p {
+  color: var(--white);
+}
+
+body.dark #comment-container .comment-container__wrapper,
+body.dark #comment-container .write-comment .comment-container__wrapper {
+  border: 1px solid var(--border-dark-mode);
+  background-color: var(--card-dark-theme);
 }
