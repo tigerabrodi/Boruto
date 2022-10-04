@@ -18,20 +18,17 @@ import { Author } from './author/author'
 import { Container } from './comments/container'
 
 type Params = {
-  articleID: string
+  id: string
 }
 
 export function Article() {
-  const { articleID } = useParams<Params>()
+  const { id } = useParams<Params>()
   const [data, setData] = useState<DocumentData>()
 
   useEffect(() => {
     const getDocument = async () => {
       try {
-        const articlesCollectionReference = doc(
-          firebaseDb,
-          `articles/${articleID}`
-        )
+        const articlesCollectionReference = doc(firebaseDb, `articles/${id}`)
         const docSnap = await getDoc(articlesCollectionReference)
 
         if (docSnap.exists()) {
