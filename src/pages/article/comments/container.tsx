@@ -23,7 +23,7 @@ type UserType = {
 
 export type CommentType = {
   comment: string
-  article: string
+  article: string | undefined
   timestamp: { seconds: number; nanoseconds: number }
   commentUid: string | undefined
 }
