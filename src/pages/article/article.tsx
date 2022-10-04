@@ -15,6 +15,7 @@ import remarkGfm from 'remark-gfm'
 import { firebaseDb } from '../../lib/firebase'
 import './article.css'
 import { Author } from './author/author'
+import { Comments } from './comments/comments'
 import { Container } from './comments/container'
 
 type Params = {
@@ -90,6 +91,7 @@ export function Article() {
             />
           </div>
           <Container articleId={id} />
+          <Comments articleId={id} />
         </>
       )}
     </section>

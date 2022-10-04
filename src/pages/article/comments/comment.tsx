@@ -36,7 +36,7 @@ export function Comment({ comment, commentUid }: CommentType) {
                 <img src={avatarUrl} alt="" />
                 <span>
                   <Link to={`/profile/${profileId}`}>{fullname}</Link>
-                  <p>{bio.substr(0, 60) + '...'}</p>{' '}
+                  <p>{bio.substr(0, 80) + '...'}</p>{' '}
                 </span>
               </div>
             )}

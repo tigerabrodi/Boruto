@@ -5,13 +5,16 @@ import { serverTimestamp } from 'firebase/firestore'
 import { collection, onSnapshot } from 'firebase/firestore'
 import { useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
+import { Link } from 'react-router-dom'
 import { v4 as uuidv4 } from 'uuid'
 
 import { useAuthContext } from '../../../context/AuthContext'
 import { firebaseDb } from '../../../lib/firebase'
+// eslint-disable-next-line import/order
 import { useLoadingStore } from '../../../lib/store'
 
 import './comments.css'
+import CommentsLength from './commentsLength'
 
 type UserType = {
   profileId: string
@@ -77,39 +80,52 @@ export function Container({ articleId }: ContainerProps) {
   return (
     <div id="comment-container">
       {user?.email ? (
-        <div className="write-comment">
-          {profile.map(({ uid, fullname, bio, avatarUrl, profileId }) => {
-            return (
-              <div key={profileId}>
-                {uid === user?.uid && (
-                  <div className="write-comment__author">
-                    <img src={avatarUrl} alt="user avatar" />
-                    <div className="write-comment__author--wrapper">
-                      <p>{fullname}</p> <p>{bio.substr(0, 60) + '...'}</p>
+        <>
+          {' '}
+          <div className="comment-container__wrapper">
+            <CommentsLength articleId={articleId} />
+            <button
+              className="container__button"
+              aria-label="Sign in to write a comment "
+            >
+              Write a comment
+            </button>
+          </div>
+          <div className="write-comment">
+            {profile.map(({ uid, fullname, bio, avatarUrl, profileId }) => {
+              return (
+                <div className="comment__author--wrapper" key={profileId}>
+                  {uid === user?.uid && (
+                    <div className="write-comment__author">
+                      <img src={avatarUrl} alt="" />
+                      <span>
+                        <Link to={`/profile/${profileId}`}>{fullname}</Link>
+                        <p>{bio.substr(0, 80) + '...'}</p>
+                      </span>
                     </div>
-                  </div>
-                )}
-              </div>
-            )
-          })}
+                  )}
+                </div>
+              )
+            })}
 
-          <div className="write-comment__field">
-            <label htmlFor="Write a comment"></label>
-            <textarea
-              name="Write a comment"
-              id="Write a comment"
-              placeholder="Write your comment here..."
-              onChange={(event) => setCommentField(event.target.value)}
-            />
-          </div>
+            <div className="write-comment__field">
+              <label htmlFor="Write a comment"></label>
+              <textarea
+                name="Write a comment"
+                id="Write a comment"
+                placeholder="Write your comment here..."
+                onChange={(event) => setCommentField(event.target.value)}
+              />
+            </div>
 
-          <div className="write-comment__buttons">
-            <button onClick={sendComment}>Post</button>
+            <div className="write-comment__buttons">
+              <button onClick={sendComment}>Post</button>
+            </div>
           </div>
-        </div>
+        </>
       ) : (
         <div className="comment-container__wrapper">
-          <p>Comments(3)</p>
+          <CommentsLength articleId={articleId} />
           <button
             className="container__button"
             aria-label="Sign in to write a comment "
