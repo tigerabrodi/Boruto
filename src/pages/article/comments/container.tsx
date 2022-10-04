@@ -16,7 +16,7 @@ import { firebaseDb } from '../../../lib/firebase'
 import { useLoadingStore } from '../../../lib/store'
 
 import './comments.css'
-import CommentsLength from './commentsLength'
+import CommentsLength from './commentLength'
 
 type UserType = {
   profileId: string
@@ -86,16 +86,6 @@ export function Container({ articleId }: ContainerProps) {
       <div id="comment-container">
         {user?.email ? (
           <>
-            {' '}
-            <div className="comment-container__wrapper">
-              <CommentsLength articleId={articleId} />
-              <button
-                className="container__button"
-                aria-label="Sign in to write a comment "
-              >
-                Write a comment
-              </button>
-            </div>
             <div className="write-comment">
               {profile.map(({ uid, fullname, bio, avatarUrl, profileId }) => {
                 return (
