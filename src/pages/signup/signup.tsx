@@ -123,7 +123,7 @@ export function SignUp() {
 
   return (
     <div className="signup">
-      <form className="form" onSubmit={handleSubmit} noValidate>
+      <form className="form" onSubmit={handleSubmit}>
         <h2 data-cy="sign-up">Sign Up</h2>
         <div className="form__wrapper ">
           <label htmlFor="username">Username</label>
@@ -193,7 +193,7 @@ export function SignUp() {
                 Password must be at least 6 characters.
               </p>
             )}
-            <button onClick={togglePassword}>
+            <button onClick={togglePassword} data-cy="toggle-password-button">
               {passwordShown ? <FaEyeSlash /> : <FaEye />}
             </button>{' '}
           </div>

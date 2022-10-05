@@ -109,7 +109,7 @@ export function CreateProfile() {
       setLoading(false)
       setSelectedFile(null)
       setStatus('success')
-      navigate('/')
+      navigate('//my-profile')
       toast.success('You successfully created your account.')
     }
   }
@@ -210,7 +210,7 @@ export function CreateProfile() {
           />
           {isLocationError && (
             <p className="alert danger" role="alert">
-              please enter your location
+              Please enter your location
             </p>
           )}
         </div>
@@ -227,7 +227,7 @@ export function CreateProfile() {
           />
           {isBioError && (
             <p className="alert danger" role="alert">
-              please enter about yourself
+              Please enter about yourself
             </p>
           )}
         </div>

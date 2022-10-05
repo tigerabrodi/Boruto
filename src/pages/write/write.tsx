@@ -89,18 +89,17 @@ export function Write() {
   }
 
   return (
-    <div className="create-article">
+    <div className="create-article" data-cy="write-container">
       <div className="write">
         <div className="write__header">
           <div className="write__header--container">
-            <div
-              onClick={() => filePickerRef.current.click()}
-              className="write__header--container--wrapper"
-            >
+            <div className="write__header--container--wrapper">
               <button
                 role="file input"
                 className="write__header--button"
                 aria-label="Add a cover to your blog article"
+                onClick={() => filePickerRef.current.click()}
+                data-cy="write-file-input"
               >
                 <IoImageOutline className="icon" /> Add Cover
               </button>
@@ -111,7 +110,6 @@ export function Write() {
                 name="file"
                 ref={filePickerRef}
                 onChange={addImageToPost}
-                hidden
               />
             </div>
 
@@ -119,6 +117,7 @@ export function Write() {
               onClick={() => setSubtitle(true)}
               className="write__header--button"
               aria-label="Add subtitle to your blog article"
+              data-cy="write-subtitle-button"
             >
               <RiText className="icon" /> Add Subtitle
             </button>
@@ -127,10 +126,11 @@ export function Write() {
             <label htmlFor="Read minute">Read minute</label>
             <input
               type="number"
-              name="ReadMIn"
+              name="REad Minute"
               id="Read minute"
               placeholder="0"
               onChange={(event) => setMinuteField(event?.target.value)}
+              data-cy="write-read-min-input"
             />
             <span>min read</span>
           </div>
@@ -144,7 +144,7 @@ export function Write() {
             }}
           >
             <button
-              aria-label="Remove Subtitle"
+              aria-label="Remove cover image"
               onClick={() => setSelectedField(null)}
             >
               <FiX />
@@ -161,6 +161,7 @@ export function Write() {
             id="Article title"
             placeholder="Article title..."
             onChange={(event) => setTitleField(event.target.value)}
+            data-cy="write-title-textarea"
           />
         </div>
         {subtitle === true && (
@@ -174,6 +175,7 @@ export function Write() {
               id="Article subtitle"
               placeholder="Article subtitle..."
               onChange={(event) => setSubtitleField(event.target.value)}
+              data-cy="write-subtitle-textarea"
             />
           </div>
         )}
@@ -187,20 +189,25 @@ export function Write() {
             id="Article text"
             placeholder="Tell your story..."
             onChange={(event) => setTextField(event.target.value)}
+            data-cy="write-text-textarea"
           />
           <div className="line"></div>
           {textField === '' ? (
-            <div className="write__container--empty">
+            <div
+              className="write__container--empty"
+              data-cy="write-empty-preview"
+            >
               Nothing to preview! 🌵
             </div>
           ) : (
-            <Preview textField={textField} />
+            <Preview textField={textField} data-cy="write-preview" />
           )}
         </div>
       </div>
 
       <div className="create-article__buttons">
         <button
+          data-cy="write-publish-button"
           onClick={createBlogArticle}
           disabled={titleField === '' || textField === '' || minuteField === ''}
         >
