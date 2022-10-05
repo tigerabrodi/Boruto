@@ -14,6 +14,7 @@ import {
   firebaseAuth,
   firebaseStorage,
 } from '../../../lib/firebase'
+import { useLoadingStore } from '../../../lib/store'
 
 export function CreateProfile() {
   const filePickerRef = useRef<any>(null)
@@ -26,6 +27,7 @@ export function CreateProfile() {
   const [isBioError, setIsBioError] = useState(false)
 
   const navigate = useNavigate()
+  const { setStatus } = useLoadingStore()
 
   const {
     handleChange,
@@ -77,6 +79,7 @@ export function CreateProfile() {
 
   const handleSubmit = async (event: { preventDefault: () => void }) => {
     event.preventDefault()
+    setStatus('loading')
 
     if (canUserSignUp() === true) {
       if (loading) return setLoading(true)
@@ -105,6 +108,7 @@ export function CreateProfile() {
 
       setLoading(false)
       setSelectedFile(null)
+      setStatus('success')
       navigate('/')
       toast.success('You successfully created your account.')
     }
