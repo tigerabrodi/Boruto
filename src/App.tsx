@@ -28,7 +28,11 @@ export function App() {
             <Header />
           </HeaderMenuContextProvider>
           <LoadingSpinner />
-          <Toaster position="top-center" toastOptions={ToastOptions} />
+          <Toaster
+            position="top-center"
+            toastOptions={ToastOptions}
+            data-cy="toast-message"
+          />
           <InfoModuleContextProvider>
             <Routes>
               <Route path="/" element={<Feed />} />

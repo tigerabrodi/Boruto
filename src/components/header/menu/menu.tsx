@@ -8,20 +8,31 @@ export function Menu() {
 
   return (
     <div className="menu">
-      <div className="menu__wrapper">
+      <div className="menu__wrapper" data-cy="menu">
         <img
           src="https://hashnode.com/_next/image?url=https%3A%2F%2Fcdn.hashnode.com%2Fres%2Fhashnode%2Fimage%2Fupload%2Fv1659089761812%2FfsOct5gl6.png&w=1920&q=75"
           alt="no profile"
+          data-cy="menu-empty-avatar"
         />
-        <h2 className="menu__wrapper--info">
+        <h2 className="menu__wrapper--info" data-cy="menu-text">
           Sign up or log in to your Boruto account.
         </h2>
-        <p className="menu__wrapper--text">Takes less than a few seconds.</p>
+        <p className="menu__wrapper--text" data-cy="menu-small-text">
+          Takes less than a few seconds.
+        </p>
         <div className="menu__wrapper--links">
-          <Link onClick={() => setIsMenuOpen(false)} to="/signup">
+          <Link
+            onClick={() => setIsMenuOpen(false)}
+            to="/signup"
+            data-cy="menu-sign-up"
+          >
             Sign up
           </Link>
-          <Link onClick={() => setIsMenuOpen(false)} to="/signin">
+          <Link
+            onClick={() => setIsMenuOpen(false)}
+            to="/signin"
+            data-cy="menu-sign-in"
+          >
             Log in
           </Link>
         </div>

@@ -50,6 +50,7 @@ export function Avatar() {
                       src={avatarUrl}
                       alt="profile"
                       className="header__aside--avatar"
+                      data-cy="authenticated-avatar"
                     />
                   )}
                 </div>
@@ -62,6 +63,7 @@ export function Avatar() {
             className="header__aside--avatar"
             onClick={() => setIsMenuOpen(true)}
             src={defaultAvatar}
+            data-cy="avatar"
           />
         )}
       </>

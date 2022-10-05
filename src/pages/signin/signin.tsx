@@ -36,7 +36,7 @@ export function SignIn() {
       <form className="form" onSubmit={handleSubmit}>
         <h2>Sign In</h2>
         {isSignInError && (
-          <p className="alert danger center " role="alert">
+          <p data-cy="" className="alert danger center " role="alert">
             Password or email is invalid.
           </p>
         )}
@@ -50,6 +50,7 @@ export function SignIn() {
             onChange={handleChange}
             aria-required="true"
             value={email}
+            data-cy="sign-in-email"
           />
         </div>
 
@@ -63,14 +64,19 @@ export function SignIn() {
               onChange={handleChange}
               aria-required="true"
               value={password}
+              data-cy="sign-in-password"
             />
-            <button onClick={togglePassword}>
+            <button onClick={togglePassword} data-cy="sign-in-toggle-password">
               {passwordShown ? <FaEyeSlash /> : <FaEye />}
             </button>
           </div>
         </div>
 
-        <button type="submit" className="form__button">
+        <button
+          type="submit"
+          className="form__button"
+          data-cy="sign-in-submit-button"
+        >
           Sign in
         </button>
         <p className="form__link">

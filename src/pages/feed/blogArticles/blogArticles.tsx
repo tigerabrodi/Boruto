@@ -45,32 +45,20 @@ export function BlogArticles() {
   }, [firebaseDb])
 
   return (
-    <>
-      {isLoading ? (
-        <>
-          <Skeleton />
-          <Skeleton />
-          <Skeleton />
-        </>
-      ) : (
-        <div className="blog-articles">
-          {articles.map(
-            ({ articleId, uid, text, title, readMin, coverUrl }) => {
-              return (
-                <BlogArticle
-                  key={articleId}
-                  uid={uid}
-                  text={text}
-                  title={title}
-                  articleId={articleId}
-                  readMin={readMin}
-                  coverUrl={coverUrl}
-                />
-              )
-            }
-          )}
-        </div>
-      )}
-    </>
+    <div className="blog-articles">
+      {articles.map(({ articleId, uid, text, title, readMin, coverUrl }) => {
+        return (
+          <BlogArticle
+            key={articleId}
+            uid={uid}
+            text={text}
+            title={title}
+            articleId={articleId}
+            readMin={readMin}
+            coverUrl={coverUrl}
+          />
+        )
+      })}
+    </div>
   )
 }

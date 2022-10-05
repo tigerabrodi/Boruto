@@ -35,6 +35,7 @@ export function Header() {
               to="/create/post"
               className="header__aside--button"
               aria-label="write a blog post"
+              data-cy="write-button"
             >
               <FaPen className="pen" /> Write
             </Link>

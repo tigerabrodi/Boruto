@@ -124,7 +124,7 @@ export function SignUp() {
   return (
     <div className="signup">
       <form className="form" onSubmit={handleSubmit} noValidate>
-        <h2>Sign Up</h2>
+        <h2 data-cy="sign-up">Sign Up</h2>
         <div className="form__wrapper ">
           <label htmlFor="username">Username</label>
           <input
@@ -135,6 +135,7 @@ export function SignUp() {
             aria-invalid={isUsernameError ? 'true' : 'false'}
             onChange={handleChange}
             aria-required="true"
+            data-cy="username-input"
           />
           {isUsernameError && (
             <p className="alert danger" role="alert">
@@ -160,6 +161,7 @@ export function SignUp() {
             }}
             aria-invalid={isEmailError ? 'true' : 'false'}
             aria-required="true"
+            data-cy="email-input"
           />
           {isEmailError && (
             <p className="alert danger" role="alert">
@@ -184,6 +186,7 @@ export function SignUp() {
               onChange={handleChange}
               aria-invalid={isPasswordError ? 'true' : 'false'}
               aria-required="true"
+              data-cy="password-input"
             />
             {isPasswordError && (
               <p className="alert danger" role="alert">
@@ -206,6 +209,7 @@ export function SignUp() {
             onChange={handleChange}
             aria-invalid={isConfirmPasswordError ? 'true' : 'false'}
             aria-required="true"
+            data-cy="confirm-password-input"
           />
           {isConfirmPasswordError && (
             <p className="alert danger" role="alert">
@@ -217,11 +221,15 @@ export function SignUp() {
           className="form__button"
           type="submit"
           disabled={isAnyFieldEmpty || isUsernameError}
+          data-cy="sign-up-button"
         >
           Sign Up
         </button>
         <p className="form__link">
-          Already have an account? <Link to="/signin">Sign in.</Link>{' '}
+          Already have an account?{' '}
+          <Link to="/signin" data-cy="sign-in-link">
+            Sign in.
+          </Link>{' '}
         </p>
       </form>
     </div>
