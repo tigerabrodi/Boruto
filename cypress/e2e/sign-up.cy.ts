@@ -1,17 +1,18 @@
+const DEMO_AVATAR = 'demo-avatar.jpg'
 const newUser = {
-  username: 'elon_musk',
-  email: 'elonmusk@gmail.com',
-  password: 'elonmusk123',
-  fullName: 'Elon Musk',
-  age: '51',
-  location: 'Moon, Space',
-  bio: `I'm a business magnate and investor. I'm also the founder, CEO, and chief engineer of SpaceX; angel investor, CEO, and product architect of Tesla, Inc.; founder of The Boring Company; and co-founder of Neuralink and OpenAI 🌌`,
+  username: 'cat_lover123',
+  email: 'annachan@gmail.com',
+  password: 'demonslayer123',
+  fullName: 'Anna Chan',
+  age: '21',
+  location: 'Tokyo, Japan',
+  bio: `Technical Writer and Full Stack Developer ✨`,
 }
 
-it('Should be able to sign in', () => {
+it('Sign up and create an account', () => {
   cy.visit('/')
 
-  // Sign in page
+  // Redirected to "sign up" page
   cy.get('[data-cy="authenticated-avatar"]').should('not.exist')
   cy.get('[data-cy="avatar"]').should('exist')
   cy.get('[data-cy="avatar"]').click()
@@ -28,5 +29,18 @@ it('Should be able to sign in', () => {
   cy.get('[data-cy="toggle-password-button"]').click()
   cy.get('[data-cy="toggle-password-button"]').click()
 
+  // Redirected to "create account" page
   cy.get('[data-cy="sign-up-button"]').click()
+
+  // User creates account
+  cy.get('[data-cy="create-account-container"]').should('be.visible')
+  cy.get('[data-cy="create-account-title"]').should('be.visible')
+  cy.get('[data-cy="create-account-file-input"]').attachFile(DEMO_AVATAR)
+  cy.get('[data-cy="create-account-name-input"]').type(newUser.fullName)
+  cy.get('[data-cy="create-account-age-input"]').type(newUser.age)
+  cy.get('[data-cy="create-account-location-input"]').type(newUser.location)
+  cy.get('[data-cy="create-account-bio-teaxarea"]').type(newUser.bio)
+
+  // Done button --> gets redirected to users profile
+  cy.get('[data-cy="create-account-button"]').click()
 })
