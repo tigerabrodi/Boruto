@@ -12,7 +12,7 @@ const article = {
   text: `What I find remarkable is that this text has been the industry's standard dummy text ever since some printer in the 1500s took a galley of type and scrambled it to make a type specimen book; it has survived not only four centuries of letter-by-letter resetting but even the leap into electronic typesetting, essentially unchanged except for an occasional 'ing' or 'y' thrown in.`,
 }
 
-it('Should be able to sign in', () => {
+it('Should be able to sign in, create a new blog article', () => {
   cy.visit('/')
 
   // Sign in page
