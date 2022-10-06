@@ -5,10 +5,10 @@ import type { CollectionReference } from 'firebase/firestore'
 import { query, orderBy, onSnapshot, collection } from 'firebase/firestore'
 import { useEffect, useState } from 'react'
 
-import { useSkeletonContext } from '../../../context/SkeletonContext'
+// import { useSkeletonContext } from '../../../context/SkeletonContext'
 import { firebaseDb } from '../../../lib/firebase'
 import { BlogArticle } from './blogArticle'
-import { Skeleton } from './skeleton/skeleton'
+// import { Skeleton } from './skeleton/skeleton'
 
 export type ArticleType = {
   uid: string
@@ -21,7 +21,7 @@ export type ArticleType = {
 
 export function BlogArticles() {
   const [articles, setArticles] = useState<ArticleType[]>([])
-  const { isLoading, setIsLoading } = useSkeletonContext()
+  // const { isLoading, setIsLoading } = useSkeletonContext()
 
   const ArticlesCollectionReference = collection(
     firebaseDb,
@@ -35,7 +35,6 @@ export function BlogArticles() {
         setArticles(
           snapshot.docs.map((doc) => ({ ...doc.data(), articleId: doc.id }))
         )
-        setIsLoading(false)
       }
     )
 
