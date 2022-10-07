@@ -8,12 +8,12 @@ import { useParams } from 'react-router-dom'
 
 import { useAuthContext } from '../../context/AuthContext'
 import { firebaseDb } from '../../lib/firebase'
-import { ProfileArticles } from './profileArticles'
+import { ProfileArticles } from './profileArticles/profileArticles'
 
-import '../user/user.css'
+import '../../styles/user-profile.css'
 
 type Params = {
-  profileID: string
+  profileID: string | undefined
 }
 export function Profile() {
   const { user } = useAuthContext()
@@ -44,7 +44,7 @@ export function Profile() {
   return (
     <>
       {data && (
-        <div className="user-container">
+        <div className="user-profile">
           <div className="user">
             <div className="user__wrapper">
               <div className="user__wrapper--primary">
