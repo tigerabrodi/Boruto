@@ -109,7 +109,7 @@ export function CreateProfile() {
       setLoading(false)
       setSelectedFile(null)
       setStatus('success')
-      navigate('//my-profile')
+      navigate('/my-profile')
       toast.success('You successfully created your account.')
     }
   }
@@ -127,9 +127,9 @@ export function CreateProfile() {
   }
 
   return (
-    <div className="signup">
+    <div className="signup" data-cy="create-account-container">
       <div className="form" onSubmit={handleSubmit}>
-        <h2>Create your account</h2>
+        <h2 data-cy="create-account-title">Create your account</h2>
         {selectedFile ? (
           <div
             className="form__image--profile"
@@ -157,6 +157,7 @@ export function CreateProfile() {
               ref={filePickerRef}
               onChange={addImageToPost}
               hidden
+              data-cy="create-account-file-input"
             />
           </div>
         )}
@@ -171,6 +172,7 @@ export function CreateProfile() {
               onChange={handleChange}
               value={name}
               aria-invalid={isNameError ? 'true' : 'false'}
+              data-cy="create-account-name-input"
             />
             {isNameError && (
               <p className="alert danger" role="alert">
@@ -188,6 +190,7 @@ export function CreateProfile() {
               onChange={handleChange}
               value={age}
               aria-invalid={isAgeError ? 'true' : 'false'}
+              data-cy="create-account-age-input"
             />
             {isAgeError && (
               <p className="alert danger" role="alert">
@@ -207,6 +210,7 @@ export function CreateProfile() {
             onChange={handleChange}
             value={location}
             aria-invalid={isLocationError ? 'true' : 'false'}
+            data-cy="create-account-location-input"
           />
           {isLocationError && (
             <p className="alert danger" role="alert">
@@ -224,6 +228,7 @@ export function CreateProfile() {
             onChange={handleChange}
             value={bio}
             aria-invalid={isBioError ? 'true' : 'false'}
+            data-cy="create-account-bio-teaxarea"
           />
           {isBioError && (
             <p className="alert danger" role="alert">
@@ -236,6 +241,7 @@ export function CreateProfile() {
           className="form__button"
           disabled={isAnyFieldEmpty || selectedFile == null}
           onClick={handleSubmit}
+          data-cy="create-account-button"
         >
           {loading ? 'Done...' : 'Done'}
         </button>

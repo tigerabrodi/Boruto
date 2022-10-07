@@ -93,25 +93,23 @@ export function Write() {
       <div className="write">
         <div className="write__header">
           <div className="write__header--container">
-            <div className="write__header--container--wrapper">
-              <button
-                role="file input"
-                className="write__header--button"
-                aria-label="Add a cover to your blog article"
-                onClick={() => filePickerRef.current.click()}
-                data-cy="write-file-input"
-              >
-                <IoImageOutline className="icon" /> Add Cover
-              </button>
-              <input
-                id="fileInput"
-                className="cover__file--btn"
-                type="file"
-                name="file"
-                ref={filePickerRef}
-                onChange={addImageToPost}
-              />
-            </div>
+            <button
+              role="file input"
+              className="write__header--button"
+              aria-label="Add a cover to your blog article"
+              onClick={() => filePickerRef.current.click()}
+            >
+              <IoImageOutline className="icon" /> Add Cover
+            </button>
+            <input
+              id="fileInput"
+              className="cover__file--btn"
+              type="file"
+              name="file"
+              ref={filePickerRef}
+              onChange={addImageToPost}
+              data-cy="write-file-input"
+            />
 
             <button
               onClick={() => setSubtitle(true)}
