@@ -59,7 +59,7 @@ export function Avatar() {
           </>
         ) : (
           <img
-            alt="no profile"
+            alt="empty avatar"
             className="header__aside--avatar"
             onClick={() => setIsMenuOpen(true)}
             src={defaultAvatar}

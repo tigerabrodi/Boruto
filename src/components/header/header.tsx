@@ -3,30 +3,25 @@ import { Link } from 'react-router-dom'
 
 import './header.css'
 import { useAuthContext } from '../../context/AuthContext'
-import { useInfoModuleContext } from '../../context/InfoModuleContext'
 import { useHeaderMenuContext } from '../../context/MenuContext'
-import { InfoModule } from '../modals/InfoModule'
 import { Avatar } from './avatar/avatar'
 import { AuthMenu } from './menu/authMenu'
 import { Menu } from './menu/menu'
 import { ThemeButton } from './themeButton/themeButton'
 
 export function Header() {
-  const { isOpen, setIsOpen } = useInfoModuleContext()
   const { isMenuOpen, setIsMenuOpen } = useHeaderMenuContext()
   const { user } = useAuthContext()
 
   return (
     <>
-      {isOpen === true && <InfoModule />}
-
       <header className="header">
         <Link
           onClick={() => setIsMenuOpen(false)}
           to="/"
           className="header__logo"
         >
-          <span>Boruto</span>
+          <span aria-label="logo">Boruto</span>
         </Link>
 
         <aside className="header__aside">
@@ -41,7 +36,6 @@ export function Header() {
             </Link>
           ) : (
             <button
-              onClick={() => setIsOpen(true)}
               className="header__aside--button"
               aria-label="To create a blog post, you must sign in"
             >
