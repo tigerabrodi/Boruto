@@ -1,4 +1,4 @@
-import type { CommentType } from '../container'
+import type { CommentType } from '../../container/container'
 import type { CollectionReference } from 'firebase/firestore'
 
 import { collection } from 'firebase/firestore'

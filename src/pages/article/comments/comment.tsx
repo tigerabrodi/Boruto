@@ -1,5 +1,5 @@
 import type { UserType } from '../../../components/header/menu/authMenu'
-import type { CommentType } from './container'
+import type { CommentType } from '../container/container'
 import type { CollectionReference } from 'firebase/firestore'
 
 import { collection, onSnapshot } from 'firebase/firestore'
@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import { firebaseDb } from '../../../lib/firebase'
+import { Ellipsis } from './ellipsis/ellipsis'
 
 export function Comment({ comment, commentUid }: CommentType) {
   const [profile, setProfile] = useState<UserType[]>([])
@@ -45,6 +46,7 @@ export function Comment({ comment, commentUid }: CommentType) {
       })}
 
       <p>{comment}</p>
+      <Ellipsis commentUid={commentUid} />
     </div>
   )
 }

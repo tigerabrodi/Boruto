@@ -9,10 +9,10 @@ import {
   doc,
 } from 'firebase/firestore'
 import { useEffect, useState } from 'react'
-import { FiThumbsUp } from 'react-icons/fi'
+import { MdThumbUp, MdOutlineThumbUp } from 'react-icons/md'
 
-import { useAuthContext } from '../../../../context/AuthContext'
-import { firebaseDb } from '../../../../lib/firebase'
+import { useAuthContext } from '../../../context/AuthContext'
+import { firebaseDb } from '../../../lib/firebase'
 
 type LikeButtonProps = ButtonsProps
 
@@ -64,8 +64,16 @@ export function LikeButton({ articleId }: LikeButtonProps) {
     }
   }
   return (
-    <button onClick={likeArticle}>
-      <FiThumbsUp /> {likes.length > 0 && <span>{likes.length}</span>}
-    </button>
+    <>
+      {hasLiked ? (
+        <button onClick={likeArticle}>
+          <MdThumbUp /> {likes.length > 0 && <span>{likes.length}</span>}
+        </button>
+      ) : (
+        <button onClick={likeArticle}>
+          <MdOutlineThumbUp /> {likes.length > 0 && <span>{likes.length}</span>}
+        </button>
+      )}
+    </>
   )
 }

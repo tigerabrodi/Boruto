@@ -19,7 +19,7 @@ import { useNavigate } from 'react-router-dom'
 import { useAuthContext } from '../../context/AuthContext'
 import { firebaseDb, firebaseStorage } from '../../lib/firebase'
 import { useLoadingStore } from '../../lib/store'
-import { Preview } from './preview'
+import { Preview } from './preview/preview'
 
 export function Write() {
   const [subtitle, setSubtitle] = useState<boolean>(false)

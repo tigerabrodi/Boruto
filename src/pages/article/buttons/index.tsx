@@ -1,5 +1,4 @@
-import { MdOutlineBookmarkAdd } from 'react-icons/md'
-
+import { BookmarkButton } from './bookmarkButton'
 import { CommentButton } from './commentButton'
 import { LikeButton } from './likeButton'
 
@@ -13,9 +12,7 @@ export function Buttons({ articleId }: ButtonsProps) {
       <div className="container__buttons--wrapper">
         <LikeButton articleId={articleId} />
         <CommentButton articleId={articleId} />
-        <button>
-          <MdOutlineBookmarkAdd />
-        </button>
+        <BookmarkButton articleId={articleId} />
       </div>
     </div>
   )

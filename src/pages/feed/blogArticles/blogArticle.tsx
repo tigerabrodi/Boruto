@@ -7,8 +7,8 @@ import { useEffect, useState } from 'react'
 import { FiBookOpen, FiX, FiEdit3 } from 'react-icons/fi'
 import ReactMarkdown from 'react-markdown'
 import { Link } from 'react-router-dom'
-// import SyntaxHighlighter from 'react-syntax-highlighter'
-// import { dracula } from 'react-syntax-highlighter/dist/esm/styles/hljs'
+import SyntaxHighlighter from 'react-syntax-highlighter'
+import { dracula } from 'react-syntax-highlighter/dist/esm/styles/hljs'
 import rehypeRaw from 'rehype-raw'
 import remarkGfm from 'remark-gfm'
 
@@ -81,24 +81,24 @@ export function BlogArticle({
                 children={text && text.substr(0, 185) + '...'}
                 remarkPlugins={[remarkGfm]}
                 rehypePlugins={[rehypeRaw]}
-                // components={{
-                //   code({ node, inline, className, children, ...props }) {
-                //     const match = /language-(\w+)/.exec(className || '')
-                //     return !inline && match ? (
-                //       <SyntaxHighlighter
-                //         style={dracula}
-                //         children={String(children).replace(/\n$/, '')}
-                //         language={match[1]}
-                //         PreTag="div"
-                //         {...props}
-                //       />
-                //     ) : (
-                //       <code className={className} {...props}>
-                //         {children}
-                //       </code>
-                //     )
-                //   },
-                // }}
+                components={{
+                  code({ node, inline, className, children, ...props }) {
+                    const match = /language-(\w+)/.exec(className || '')
+                    return !inline && match ? (
+                      <SyntaxHighlighter
+                        style={dracula}
+                        children={String(children).replace(/\n$/, '')}
+                        language={match[1]}
+                        PreTag="div"
+                        {...props}
+                      />
+                    ) : (
+                      <code className={className} {...props}>
+                        {children}
+                      </code>
+                    )
+                  },
+                }}
               />
             </Link>
           </div>
@@ -144,7 +144,7 @@ export function BlogArticle({
               aria-label="Delete your blog article"
             >
               <FiX />
-            </button>{' '}
+            </button>
           </>
         )}
       </div>

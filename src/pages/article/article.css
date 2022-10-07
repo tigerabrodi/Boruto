@@ -16,10 +16,6 @@
   position: fixed;
 }
 
-.container__buttons .container__buttons--wrapper button:last-child {
-  width: 60px;
-}
-
 .container__buttons .container__buttons--wrapper button {
   border: none;
   margin: 20px 0;
@@ -32,6 +28,14 @@
   display: flex;
 }
 
+.container__buttons .container__buttons--wrapper button .bookmark {
+  font-size: calc(26 / 16 * 1rem);
+}
+
+.container__buttons .container__buttons--wrapper button:last-child {
+  width: 60px;
+}
+
 .container__buttons .container__buttons--wrapper button span {
   margin-top: 3px;
   margin-left: 10px;
@@ -40,10 +44,6 @@
 
 .container__buttons .container__buttons--wrapper button:hover {
   background-color: var(--border-light-mode);
-}
-
-.container__buttons .container__buttons--wrapper button:last-child * {
-  font-size: calc(30 / 16 * 1rem);
 }
 
 .card {

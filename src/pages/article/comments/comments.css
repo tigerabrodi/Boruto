@@ -137,6 +137,20 @@
   background-color: var(--white);
   padding: 20px 30px;
   margin-bottom: 15px;
+  position: relative;
+}
+
+.comments .comment .ellipsis {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  border: none;
+  background: none;
+}
+
+.comments .comment .ellipsis * {
+  color: var(--black);
+  font-size: calc(18 / 16 * 1rem);
 }
 
 .comments .comment .comment__author {

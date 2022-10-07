@@ -1,13 +1,13 @@
-import type { CommentType } from '../container'
+import type { CommentType } from '../container/container'
 import type { ButtonsProps } from './index'
 import type { CollectionReference } from 'firebase/firestore'
 
 import { collection } from 'firebase/firestore'
 import { onSnapshot } from 'firebase/firestore'
 import { useEffect, useState } from 'react'
-import { FiMessageSquare } from 'react-icons/fi'
+import { MdOutlineChatBubbleOutline } from 'react-icons/md'
 
-import { firebaseDb } from '../../../../lib/firebase'
+import { firebaseDb } from '../../../lib/firebase'
 
 type CommentButtonProps = ButtonsProps
 
@@ -33,7 +33,7 @@ export function CommentButton({ articleId }: CommentButtonProps) {
   }, [firebaseDb, articleId])
   return (
     <button>
-      <FiMessageSquare />{' '}
+      <MdOutlineChatBubbleOutline />
       {comments.length > 0 && <span>{comments.length}</span>}
     </button>
   )

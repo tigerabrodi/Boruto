@@ -307,12 +307,6 @@ body.dark .article-wrapper .buttons a:hover {
   background-color: var(--border-dark-mode);
 }
 
-/*BLOG ARTICLE -  SKELETON */
-body.dark .blog-article-skeleton {
-  border: 1px solid var(--border-dark-mode);
-  background-color: var(--card-dark-theme);
-}
-
 /* ARTICLE */
 body.dark .card {
   border: 1px solid var(--border-dark-mode);
@@ -410,20 +404,23 @@ body.dark .user .user__wrapper .user__wrapper--secondary p:last-child {
   color: var(--light-grey-text-dark-mode);
 }
 
-body.dark .user-container .user__article {
+body.dark .user-articles .user__article {
   border: 1px solid var(--border-dark-mode);
   background-color: var(--card-dark-theme);
 }
 
-body.dark .user-container .user__article a {
+body.dark .user-articles .user__article a {
   color: var(--white);
 }
 
-body.dark .user-container .user__article .user__article--author p {
+body.dark .user-articles .user__article .user__article--author p {
   color: var(--text-dark-theme);
 }
 
 /* COMMENTS */
+body.dark .comments .comment .ellipsis * {
+  color: var(--white);
+}
 
 body.dark .comments .comment {
   border: 1px solid var(--border-dark-mode);
