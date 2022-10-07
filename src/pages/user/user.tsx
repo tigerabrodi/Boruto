@@ -5,7 +5,7 @@ import { collection, onSnapshot } from 'firebase/firestore'
 import { useEffect, useState } from 'react'
 import { FiEdit3 } from 'react-icons/fi'
 
-import './user.css'
+import '../../styles/user-profile.css'
 import { useAuthContext } from '../../context/AuthContext'
 import { firebaseDb } from '../../lib/firebase'
 import { UserArticles } from './userArticles/userArticles'
@@ -30,7 +30,7 @@ export function User() {
   }, [])
 
   return (
-    <div className="user-container">
+    <div className="user-profile">
       {userInfo.map(({ fullname, username, avatarUrl, bio, location, uid }) => {
         return (
           <div key={uid}>

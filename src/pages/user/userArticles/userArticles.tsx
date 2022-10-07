@@ -2,18 +2,14 @@ import type { CollectionReference } from 'firebase/firestore'
 
 import { collection, onSnapshot } from 'firebase/firestore'
 import { useEffect, useState } from 'react'
-import { FiEdit3, FiX } from 'react-icons/fi'
-import { Link } from 'react-router-dom'
 
-import { DeleteArticleModal } from '../../../components/modals/DeleteArticleModal'
-import { useAuthContext } from '../../../context/AuthContext'
 // eslint-disable-next-line import/order
 import { firebaseDb } from '../../../lib/firebase'
 
-import '../user.css'
-import { Author } from './author'
+import '../../../styles/article.css'
+import { UserArticle } from './userArticle'
 
-type UserArticles = {
+export type UserArticleType = {
   coverUrl: string
   readMin: number
   subtitle: string
@@ -23,13 +19,11 @@ type UserArticles = {
   articleId: string
 }
 export function UserArticles() {
-  const { user } = useAuthContext()
-  const [openModal, setOpenModal] = useState(false)
-  const [usersArticles, setUsersArticles] = useState<UserArticles[]>([])
+  const [usersArticles, setUsersArticles] = useState<UserArticleType[]>([])
   const userArticlesCollectionReference = collection(
     firebaseDb,
     `articles`
-  ) as CollectionReference<UserArticles>
+  ) as CollectionReference<UserArticleType>
 
   useEffect(() => {
     const getUserArticles = onSnapshot(
@@ -50,46 +44,21 @@ export function UserArticles() {
   }, [firebaseDb])
 
   return (
-    <>
+    <div className="user-articles">
       {usersArticles.map(({ coverUrl, uid, readMin, title, articleId }) => {
         return (
-          <div className="user__articles" key={articleId}>
-            {uid === user?.uid && (
-              <div className="user__article">
-                {openModal === true && (
-                  <DeleteArticleModal
-                    articleId={articleId}
-                    setOpenModal={setOpenModal}
-                  />
-                )}
-                <div
-                  className="user__article--image"
-                  style={{
-                    backgroundImage: `url(${coverUrl})`,
-                  }}
-                />
-                <Link to={`/article/${articleId}`}>{title}</Link>
-                <Author readMin={readMin} id={uid} />
-                <>
-                  <button
-                    className="user__articles--edit"
-                    aria-label="Edit your blog article"
-                  >
-                    <FiEdit3 />
-                  </button>
-                  <button
-                    onClick={() => setOpenModal(true)}
-                    className="user__articles--delete"
-                    aria-label="Delete your blog article"
-                  >
-                    <FiX />
-                  </button>
-                </>
-              </div>
-            )}
-          </div>
+          <UserArticle
+            key={articleId}
+            coverUrl={coverUrl}
+            readMin={readMin}
+            subtitle={''}
+            text={''}
+            title={title}
+            uid={uid}
+            articleId={articleId}
+          />
         )
       })}
-    </>
+    </div>
   )
 }
