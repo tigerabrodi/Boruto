@@ -6,7 +6,6 @@ import { query, orderBy, onSnapshot, collection } from 'firebase/firestore'
 import { useEffect, useState } from 'react'
 
 import { firebaseDb } from '../../../lib/firebase'
-import { useLoadingStore } from '../../../lib/store'
 import { BlogArticle } from './blogArticle'
 
 export type ArticleType = {
@@ -19,8 +18,6 @@ export type ArticleType = {
 }
 
 export function BlogArticles() {
-  const { setStatus } = useLoadingStore()
-
   const [articles, setArticles] = useState<ArticleType[]>([])
 
   const ArticlesCollectionReference = collection(
@@ -29,14 +26,12 @@ export function BlogArticles() {
   ) as CollectionReference<ArticleType>
 
   useEffect(() => {
-    setStatus('loading')
     const unsubscribe = onSnapshot(
       query(ArticlesCollectionReference, orderBy('timestamp', 'desc')),
       (snapshot) => {
         setArticles(
           snapshot.docs.map((doc) => ({ ...doc.data(), articleId: doc.id }))
         )
-        setStatus('success')
       }
     )
 
