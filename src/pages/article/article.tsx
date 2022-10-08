@@ -8,7 +8,7 @@ import { FiBookOpen } from 'react-icons/fi'
 import ReactMarkdown from 'react-markdown'
 import { useParams } from 'react-router-dom'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { dracula } from 'react-syntax-highlighter/dist/cjs/styles/prism'
+import { dracula } from 'react-syntax-highlighter/dist/cjs/prism'
 import rehypeRaw from 'rehype-raw'
 import remarkGfm from 'remark-gfm'
 
@@ -24,7 +24,7 @@ export type ParamsType = {
   id: string | undefined
 }
 
-export function Article() {
+export default function Article() {
   const { id } = useParams<ParamsType>()
   const [data, setData] = useState<DocumentData>()
 

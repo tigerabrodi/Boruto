@@ -21,7 +21,7 @@ import { firebaseDb, firebaseStorage } from '../../lib/firebase'
 import { useLoadingStore } from '../../lib/store'
 import { Preview } from './preview/preview'
 
-export function Write() {
+export default function Write() {
   const [subtitle, setSubtitle] = useState<boolean>(false)
   const [selectedFiled, setSelectedField] = useState<any>(null)
   const [subtitleField, setSubtitleField] = useState('')

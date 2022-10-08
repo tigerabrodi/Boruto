@@ -16,7 +16,7 @@ import {
 } from '../../../lib/firebase'
 import { useLoadingStore } from '../../../lib/store'
 
-export function CreateProfile() {
+export default function CreateProfile() {
   const filePickerRef = useRef<any>(null)
   const [selectedFile, setSelectedFile] = useState<any>(null)
   const [loading, setLoading] = useState(false)

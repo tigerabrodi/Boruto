@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import { useFormState } from '../../hooks/useFormState'
 import { useSignInWithEmailAndPassword } from '../../hooks/useSignInWithEmailAndPassword'
 
-export function SignIn() {
+export default function SignIn() {
   const [passwordShown, setPasswordShown] = useState(false)
 
   const { isSignInError, signInWithEmailAndPassword } =
@@ -36,7 +36,7 @@ export function SignIn() {
       <form className="form" onSubmit={handleSubmit}>
         <h2>Sign In</h2>
         {isSignInError && (
-          <p data-cy="" className="alert danger center " role="alert">
+          <p className="alert danger center" role="alert">
             Password or email is invalid.
           </p>
         )}

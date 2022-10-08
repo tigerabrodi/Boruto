@@ -36,6 +36,7 @@ export function Avatar() {
     }
     getProfile()
   }, [])
+
   return (
     <>
       <>
@@ -45,26 +46,29 @@ export function Avatar() {
               return (
                 <div key={id}>
                   {user?.uid === id && (
-                    <img
-                      onClick={() => setIsMenuOpen(true)}
-                      src={avatarUrl}
-                      alt="profile"
-                      className="header__aside--avatar"
-                      data-cy="authenticated-avatar"
-                    />
+                    <button>
+                      <img
+                        onClick={() => setIsMenuOpen(true)}
+                        src={avatarUrl}
+                        alt="profile"
+                        className="header__aside--avatar"
+                      />
+                    </button>
                   )}
                 </div>
               )
             })}
           </>
         ) : (
-          <img
-            alt="empty avatar"
-            className="header__aside--avatar"
-            onClick={() => setIsMenuOpen(true)}
-            src={defaultAvatar}
-            data-cy="avatar"
-          />
+          <button>
+            <img
+              alt="unauthenticated nav menu"
+              className="header__aside--avatar"
+              onClick={() => setIsMenuOpen(true)}
+              src={defaultAvatar}
+              data-cy="avatar"
+            />
+          </button>
         )}
       </>
     </>

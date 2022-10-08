@@ -10,7 +10,7 @@ import { useFormState } from '../../hooks/useFormState'
 import { firebaseDb } from '../../lib/firebase'
 import { useLoadingStore } from '../../lib/store'
 
-export function SignUp() {
+export default function SignUp() {
   const [isUsernameError, setIsUsernameError] = useState(false)
   const [isUsernameValid, setIsUsernameValid] = useState(false)
   const [isEmailInvalid, setIsEmailInvalid] = useState(false)

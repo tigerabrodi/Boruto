@@ -13,7 +13,7 @@ import { useAuthContext } from '../../context/AuthContext'
 import { firebaseDb } from '../../lib/firebase'
 import { UserArticles } from './userArticles/userArticles'
 
-export function User() {
+export default function User() {
   const [userInfo, setUserInfo] = useState<UserType[]>([])
 
   const { user } = useAuthContext()

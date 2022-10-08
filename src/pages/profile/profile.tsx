@@ -15,7 +15,8 @@ import '../../styles/user-profile.css'
 type Params = {
   profileID: string | undefined
 }
-export function Profile() {
+
+export default function Profile() {
   const { user } = useAuthContext()
   const { profileID } = useParams<Params>()
   const [data, setData] = useState<DocumentData | undefined>(undefined)

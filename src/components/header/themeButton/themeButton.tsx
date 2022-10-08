@@ -1,57 +1,61 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import './themeButton.css'
 import '../../../styles/App.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { BsMoon, BsSun } from 'react-icons/bs'
 
+const body = document.body
+const LIGHT_THEME = 'light'
+const DARK_THEME = 'dark'
+const THEME = 'theme'
+
+type Theme = typeof LIGHT_THEME | typeof DARK_THEME
+
 export const ThemeButton = () => {
-  const [toggle, setToggle] = useState(false)
+  const [isDarkMode, setIsDarkMode] = useState(false)
+  const [theme, setTheme] = useState<Theme>('light')
 
-  const clickedClass = 'clicked'
-  const body = document.body
-  const lightTheme = 'light'
-  const darkTheme = 'dark'
-  let theme: any
+  useEffect(() => {
+    const themeFromLocalstorage = localStorage.getItem(THEME)
 
-  if (localStorage) {
-    theme = localStorage.getItem('theme')
-  }
+    if (themeFromLocalstorage) {
+      setTheme(themeFromLocalstorage as Theme)
 
-  if (theme === lightTheme || theme === darkTheme) {
-    body.classList.add(theme)
-  } else {
-    body.classList.add(lightTheme)
-  }
+      if (theme === LIGHT_THEME || theme === DARK_THEME) {
+        body.classList.add(theme)
+      } else {
+        body.classList.add(LIGHT_THEME)
+      }
+    }
+  }, [])
 
-  const switchTheme = (event: any) => {
-    if (theme === darkTheme) {
-      body.classList.replace(darkTheme, lightTheme)
-      event.target.classList.remove(clickedClass)
-      localStorage.setItem('theme', 'light')
-      theme = lightTheme
-      setToggle(true)
+  const switchTheme = () => {
+    if (theme === DARK_THEME) {
+      body.classList.replace(DARK_THEME, LIGHT_THEME)
+      localStorage.setItem(THEME, LIGHT_THEME)
+      setTheme(LIGHT_THEME)
+      setIsDarkMode(true)
     } else {
-      body.classList.replace(lightTheme, darkTheme)
-      event.target.classList.add(clickedClass)
-      localStorage.setItem('theme', 'dark')
-      theme = darkTheme
-      setToggle(false)
+      body.classList.replace(LIGHT_THEME, DARK_THEME)
+      localStorage.setItem(THEME, DARK_THEME)
+      setTheme(DARK_THEME)
+      setIsDarkMode(false)
     }
   }
 
   return (
     <div className="header__aside--theme">
-      {toggle ? (
+      {isDarkMode ? (
         <button
-          onClick={(event) => switchTheme(event)}
+          onClick={switchTheme}
           aria-label="dark mode"
-          className="theme__button"
+          className="theme__button clicked"
         >
           <BsMoon />
         </button>
       ) : (
         <button
-          onClick={(event) => switchTheme(event)}
+          onClick={switchTheme}
           aria-label="light mode"
           className="theme__button"
         >

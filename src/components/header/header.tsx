@@ -20,8 +20,9 @@ export function Header() {
           onClick={() => setIsMenuOpen(false)}
           to="/"
           className="header__logo"
+          aria-label="home"
         >
-          <span aria-label="logo">Boruto</span>
+          <span>Boruto</span>
         </Link>
 
         <aside className="header__aside">
@@ -42,7 +43,6 @@ export function Header() {
               <FaPen className="pen" /> Write
             </button>
           )}
-
           <ThemeButton />
 
           <Avatar />
