@@ -24,7 +24,9 @@ export function UserArticle({
               backgroundImage: `url(${coverUrl})`,
             }}
           />
-          <Link to={`/article/${articleId}`}>{title}</Link>
+          <Link to={`/article/${articleId}`} data-cy="users-article">
+            {title}
+          </Link>
           <Author readMin={readMin} id={uid} />
         </div>
       )}

@@ -91,13 +91,16 @@ export function Textarea({ articleId }: TextAreaProps) {
         <textarea
           name="Write a comment"
           id="Write a comment"
+          data-cy="comment-teaxtarea"
           placeholder="Write your comment here..."
           onChange={(event) => setCommentField(event.target.value)}
         />
       </div>
 
       <div className="write-comment__buttons">
-        <button onClick={sendComment}>Post</button>
+        <button onClick={sendComment} data-cy="post-comment-button">
+          Post
+        </button>
       </div>
     </div>
   )

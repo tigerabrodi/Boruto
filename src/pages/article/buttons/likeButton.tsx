@@ -66,13 +66,13 @@ export function LikeButton({ articleId }: LikeButtonProps) {
   return (
     <>
       {hasLiked ? (
-        <button onClick={likeArticle}>
+        <button onClick={likeArticle} data-cy="like-button">
           <FiThumbsUp className="like-icon blue-thumb" />{' '}
           {likes.length > 0 && <span>{likes.length}</span>}
         </button>
       ) : (
-        <button onClick={likeArticle}>
-          <FiThumbsUp className="like-icon " />{' '}
+        <button onClick={likeArticle} data-cy="like-button">
+          <FiThumbsUp className="like-icon" />{' '}
           {likes.length > 0 && <span>{likes.length}</span>}
         </button>
       )}

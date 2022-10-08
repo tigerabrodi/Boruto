@@ -29,14 +29,25 @@ export function DeleteArticleModal({
     navigate('/my-profile')
   }
   return (
-    <div className="overlay" onClick={() => setOpenModal(false)}>
-      <div className="modal modal__delete">
-        <h1 className="modal__delete--title">Are you sure?</h1>
-        <p className="modal__delete--text">
+    <div
+      data-cy="overlay"
+      className="overlay"
+      onClick={() => setOpenModal(false)}
+    >
+      <div data-cy="delete-article-modal" className="modal modal__delete">
+        <h1
+          data-cy="delete-article-modal-title"
+          className="modal__delete--title"
+        >
+          Are you sure?
+        </h1>
+        <p data-cy="delete-article-modal-text" className="modal__delete--text">
           Do you really want to delete your article?
         </p>
         <div className="modal__delete--buttons">
-          <button onClick={deleteArticle}>Yes</button>{' '}
+          <button data-cy="delete-article-modal-button" onClick={deleteArticle}>
+            Yes
+          </button>{' '}
           <button onClick={() => setOpenModal(false)}>No</button>
         </div>
       </div>

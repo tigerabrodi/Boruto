@@ -61,7 +61,9 @@ export function BlogArticle({
       </Link>
       <div className="article__container">
         <div className="container__info">
-          <Link to={`/article/${articleId}`}>{title}</Link>
+          <Link to={`/article/${articleId}`} data-cy="article-link">
+            {title}
+          </Link>
 
           <Link to={`/article/${articleId}`}>
             <ReactMarkdown

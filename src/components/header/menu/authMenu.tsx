@@ -74,6 +74,7 @@ export function AuthMenu() {
                   onClick={() => setIsMenuOpen(false)}
                   to="/my-profile"
                   className="auth-menu__profile--button"
+                  data-cy="my-profile-link"
                 >
                   <FiUser className="icon" /> My Profile
                 </Link>
