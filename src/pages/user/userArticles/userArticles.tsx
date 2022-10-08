@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react'
 // eslint-disable-next-line import/order
 import { firebaseDb } from '../../../lib/firebase'
 
-import '../../../styles/article.css'
+import '../../../styles/cardArticle.css'
 import { UserArticle } from './userArticle'
 
 export type UserArticleType = {
