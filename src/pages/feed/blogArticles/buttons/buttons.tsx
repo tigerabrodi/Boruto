@@ -2,8 +2,8 @@ import type { CollectionReference } from 'firebase/firestore'
 
 import { onSnapshot, collection } from 'firebase/firestore'
 import { useEffect, useState } from 'react'
-import { FiThumbsUp, FiMessageSquare } from 'react-icons/fi'
-import { MdOutlineBookmarkAdd } from 'react-icons/md'
+import { FiThumbsUp } from 'react-icons/fi'
+import { IoChatbubblesOutline } from 'react-icons/io5'
 import { Link } from 'react-router-dom'
 
 import { firebaseDb } from '../../../../lib/firebase'
@@ -66,25 +66,18 @@ export function Buttons({ articleId, title }: ButtonsProps) {
     <div className="buttons">
       <Link
         to={`/article/${articleId}`}
-        className="bookmark"
+        className="like-button"
         aria-label={`Go to article "${title}"  `}
-      >
-        <MdOutlineBookmarkAdd />
-      </Link>
-
-      <Link
-        to={`/article/${articleId}`}
-        aria-label={`Go to article "${title}"  `}
-      >
-        <FiMessageSquare />{' '}
-        {comments?.length > 0 && <span>{comments?.length}</span>}
-      </Link>
-      <Link
-        to={`/article/${articleId}`}
-        aria-label={`Go to article "${title}"  `}
-        className="button__like"
       >
         <FiThumbsUp /> {likes?.length > 0 && <span>{likes?.length}</span>}
+      </Link>{' '}
+      <Link
+        to={`/article/${articleId}`}
+        className="chat-button"
+        aria-label={`Go to article "${title}"  `}
+      >
+        <IoChatbubblesOutline />
+        {comments?.length > 0 && <span>{comments?.length}</span>}
       </Link>
     </div>
   )
