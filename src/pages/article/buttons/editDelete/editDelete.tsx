@@ -28,6 +28,7 @@ export function EditDelete({ uid, articleId }: EditDeleteProps) {
           </button>
           <button
             onClick={() => setOpenModal(true)}
+            data-cy="delete-article-button"
             className="article__delete"
             aria-label="Delete your blog article"
           >
