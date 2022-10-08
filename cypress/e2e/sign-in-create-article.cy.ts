@@ -1,8 +1,8 @@
 const DEMO_COVER_IMAGE = '../fixtures/demo-cover-image.png'
 
 const firstUser = {
+  email: 'annachan@gmail.com',
   password: 'demonslayer123',
-  email: 'borutouzumaki@gmail.com',
 }
 
 const article = {
