@@ -95,7 +95,6 @@
   .article-wrapper__div--info--wrap
   a:hover {
   text-decoration: underline;
-  color: var(--blue);
 }
 .article
   .article-wrapper

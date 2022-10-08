@@ -82,6 +82,7 @@
 }
 
 .card .card-wrapper .card-wrapper-button button {
+  color: var(--black);
   padding: 10px 20px;
   font-size: calc(20 / 16 * 1rem);
   border: none;
