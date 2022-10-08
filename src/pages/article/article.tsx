@@ -20,12 +20,12 @@ import { EditDelete } from './buttons/editDelete/editDelete'
 import { Comments } from './comments/comments'
 import { Container } from './container/container'
 
-type Params = {
+export type ParamsType = {
   id: string | undefined
 }
 
 export function Article() {
-  const { id } = useParams<Params>()
+  const { id } = useParams<ParamsType>()
   const [data, setData] = useState<DocumentData>()
 
   useEffect(() => {
