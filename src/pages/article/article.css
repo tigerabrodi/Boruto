@@ -28,7 +28,18 @@
   display: flex;
 }
 
-.container__buttons .container__buttons--wrapper button .bookmark {
+.container__buttons .container__buttons--wrapper button .chat-icon {
+  font-size: calc(30 / 16 * 1rem);
+}
+.container__buttons .container__buttons--wrapper button .like-icon {
+  font-size: calc(26 / 16 * 1rem);
+}
+
+.container__buttons .container__buttons--wrapper button .blue-thumb {
+  color: var(--blue);
+}
+
+.container__buttons .container__buttons--wrapper button .bookmark-icon {
   font-size: calc(26 / 16 * 1rem);
 }
 
@@ -56,7 +67,35 @@
   padding: 30px;
 }
 
-.card__cover {
+.card .card-wrapper {
+  position: relative;
+}
+
+.card .card-wrapper .card-wrapper-button {
+  top: 10px;
+  right: 10px;
+  position: absolute;
+}
+
+.card .card-wrapper .card-wrapper-button button * {
+  display: flex;
+}
+
+.card .card-wrapper .card-wrapper-button button {
+  padding: 10px 20px;
+  font-size: calc(20 / 16 * 1rem);
+  border: none;
+  background: rgba(255, 255, 255, 0.801);
+  border-radius: 3px;
+  transition: all 0.3s ease;
+  margin: 0 5px;
+}
+
+.card .card-wrapper button:hover {
+  background: rgba(255, 255, 255, 0.908);
+}
+
+.card .card-wrapper .card__cover {
   border-radius: 4px;
   width: 100%;
 }

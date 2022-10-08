@@ -12,39 +12,6 @@
   margin-bottom: 20px;
 }
 
-.article .article__delete {
-  border-radius: 4px;
-  display: flex;
-  font-size: calc(22 / 16 * 1rem);
-  padding: 9px 18px;
-  border: none;
-  background-color: rgba(255, 255, 255, 0.738);
-  color: var(--black);
-  position: absolute;
-  top: 40px;
-  right: 40px;
-  transition: all 0.3s ease;
-}
-
-.article .article__edit {
-  border-radius: 4px;
-  display: flex;
-  font-size: calc(22 / 16 * 1rem);
-  padding: 9px 18px;
-  border: none;
-  background-color: rgba(255, 255, 255, 0.738);
-  color: var(--black);
-  position: absolute;
-  top: 40px;
-  right: 110px;
-  transition: all 0.3s ease;
-}
-
-.article .article__delete:hover,
-.article .article__edit:hover {
-  background-color: var(--white);
-}
-
 .article .article__cover {
   width: 100%;
   height: 250px;
@@ -85,7 +52,7 @@
 .article .article-wrapper {
   margin-top: 30px;
   display: flex;
-  align-items: center;
+  align-items: baseline;
 }
 
 .article .article-wrapper .article-wrapper__div .article-wrapper__div--info {
@@ -160,42 +127,39 @@
 
 .buttons {
   display: flex;
-  align-items: center;
   margin-left: auto;
-}
-
-.buttons .button__like {
-  display: flex;
   align-items: center;
-}
-
-.buttons .button__like span {
-  margin-bottom: -3px;
-  margin-left: 5px;
-  font-size: 1rem;
 }
 
 .buttons a {
   border: none;
+  display: flex;
   margin: 0 5px;
   padding: 4px 10px;
   border-radius: 20px;
+  align-items: center;
   transition: all 0.2s ease;
   background-color: transparent;
   color: var(--text-light-theme);
-  font-size: calc(20 / 16 * 1rem);
+  font-size: calc(22 / 16 * 1rem);
 }
-
-.buttons a * {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-}
-
 .buttons a:hover {
   background-color: var(--border-light-mode);
 }
 
-.buttons .bookmark {
+.buttons .bookmark-button {
+  font-size: calc(21 / 16 * 1rem);
+}
+
+.buttons .chat-button {
   font-size: calc(23 / 16 * 1rem);
+}
+
+.buttons .like-button {
+  font-size: calc(20 / 16 * 1rem);
+}
+
+.buttons a span {
+  margin-left: 5px;
+  font-size: calc(15 / 16 * 1rem);
 }

@@ -65,6 +65,7 @@
   border: 1px solid var(--blue);
   background-color: var(--blue);
   transition: all 0.2s ease;
+  position: relative;
 }
 
 .modal .modal__delete--buttons button:hover {
