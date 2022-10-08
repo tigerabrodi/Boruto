@@ -4,7 +4,7 @@ import { FirebaseError } from 'firebase/app'
 import { doc, getDoc } from 'firebase/firestore'
 import { useEffect, useState } from 'react'
 import { FiEdit3 } from 'react-icons/fi'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 import { useAuthContext } from '../../context/AuthContext'
 import { firebaseDb } from '../../lib/firebase'
@@ -59,10 +59,14 @@ export function Profile() {
             </div>
 
             {user?.uid === data.uid && (
-              <button aria-label="Edit your profile">
+              <Link
+                className="edit-button"
+                to={`/edit/${user?.uid}`}
+                aria-label="Edit your profile"
+              >
                 <FiEdit3 className="pen" />
                 Edit
-              </button>
+              </Link>
             )}
           </div>
 

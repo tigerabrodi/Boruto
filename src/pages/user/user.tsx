@@ -1,3 +1,4 @@
+/* eslint-disable import/order */
 import type { UserType } from '../../components/header/menu/authMenu'
 import type { CollectionReference } from 'firebase/firestore'
 
@@ -6,6 +7,8 @@ import { useEffect, useState } from 'react'
 import { FiEdit3 } from 'react-icons/fi'
 
 import '../../styles/user-profile.css'
+import { Link } from 'react-router-dom'
+
 import { useAuthContext } from '../../context/AuthContext'
 import { firebaseDb } from '../../lib/firebase'
 import { UserArticles } from './userArticles/userArticles'
@@ -23,7 +26,9 @@ export function User() {
   useEffect(() => {
     const getUser = () => {
       onSnapshot(userCollectionReference, (snapshot) => {
-        setUserInfo(snapshot.docs.map((doc) => ({ ...doc.data(), id: doc.id })))
+        setUserInfo(
+          snapshot.docs.map((doc) => ({ ...doc.data(), profileId: doc.id }))
+        )
       })
     }
     getUser()
@@ -48,10 +53,14 @@ export function User() {
                   </div>
                 </div>
 
-                <button aria-label="Edit your profile">
+                <Link
+                  className="edit-button"
+                  to="/edit/my-profile"
+                  aria-label="Edit your profile"
+                >
                   <FiEdit3 className="pen" />
                   Edit
-                </button>
+                </Link>
               </div>
             )}
           </div>

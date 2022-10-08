@@ -14,7 +14,7 @@
   border: 1px solid var(--border-light-mode);
 }
 
-.user button {
+.user .edit-button {
   top: 30px;
   right: 60px;
   border: none;
@@ -31,11 +31,11 @@
   background-color: var(--blue);
 }
 
-.user button:hover {
+.user .edit-button:hover {
   background-color: #507cff;
 }
 
-.user button .pen {
+.user .edit-button .pen {
   font-size: 1rem;
   margin: 0 10px 0 0px;
 }
