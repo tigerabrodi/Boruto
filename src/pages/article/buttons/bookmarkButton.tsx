@@ -7,7 +7,7 @@ type BookmarkButtonProps = {
 export function BookmarkButton({ articleId }: BookmarkButtonProps) {
   return (
     <button>
-      <BsBookmark className="bookmark" />
+      <BsBookmark className="bookmark-icon" />
     </button>
   )
 }

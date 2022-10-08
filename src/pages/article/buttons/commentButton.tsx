@@ -5,7 +5,7 @@ import type { CollectionReference } from 'firebase/firestore'
 import { collection } from 'firebase/firestore'
 import { onSnapshot } from 'firebase/firestore'
 import { useEffect, useState } from 'react'
-import { MdOutlineChatBubbleOutline } from 'react-icons/md'
+import { IoChatbubblesOutline } from 'react-icons/io5'
 
 import { firebaseDb } from '../../../lib/firebase'
 
@@ -33,7 +33,7 @@ export function CommentButton({ articleId }: CommentButtonProps) {
   }, [firebaseDb, articleId])
   return (
     <button>
-      <MdOutlineChatBubbleOutline />
+      <IoChatbubblesOutline className="chat-icon" />
       {comments.length > 0 && <span>{comments.length}</span>}
     </button>
   )
