@@ -124,7 +124,7 @@ export function Write() {
             <label htmlFor="Read minute">Read minute</label>
             <input
               type="number"
-              name="REad Minute"
+              name="Read Minute"
               id="Read minute"
               placeholder="0"
               onChange={(event) => setMinuteField(event?.target.value)}
