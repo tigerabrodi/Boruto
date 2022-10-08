@@ -16,11 +16,12 @@ import { firebaseDb } from '../../lib/firebase'
 import './article.css'
 import { Author } from './author/author'
 import { Buttons } from './buttons'
+import { EditDelete } from './buttons/editDelete/editDelete'
 import { Comments } from './comments/comments'
 import { Container } from './container/container'
 
 type Params = {
-  id: string
+  id: string | undefined
 }
 
 export function Article() {
@@ -55,7 +56,10 @@ export function Article() {
         <>
           <div>
             <div className="card">
-              <img src={data.coverUrl} alt="" className="card__cover" />
+              <div className="card-wrapper">
+                <EditDelete uid={data.uid} articleId={id} />
+                <img src={data.coverUrl} alt="" className="card__cover" />
+              </div>
               <h1 className="card__title">{data.title}</h1>
               <h1 className="card__subtitle">{data.subtitle}</h1>
               <div className="card__wrapper">
@@ -65,7 +69,6 @@ export function Article() {
                   {data.readMin} read min
                 </p>
               </div>
-
               <ReactMarkdown
                 children={data.text}
                 className="card__text"
